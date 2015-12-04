@@ -10,20 +10,29 @@
     <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
     <script src="/Users/MattLee1/Desktop/AngularArrows-Angular/bower_components/codemirror/mode/javascript/javascript.js"></script>
     <script type="text/javascript" src="app.js"></script>
-    <script type="text/javascript" src="controller.js"></script>
+    <script type="text/javascript" src="./controllers/htmlController.js"></script>
+    <script type="text/javascript" src="./controllers/partialController.js"></script>
+    <script type="text/javascript" src="./controllers/appController.js"></script>
+    <script type="text/javascript" src="./controllers/controllerController.js"></script>
   </head>
-  <body ng-controller="myTextArea">
-    <div class="textEditor">
-    <ui-codemirror class="textEditor" ui-codemirror-opts="editorOptions"></ui-codemirror>
+  <body>
+    <div ng-controller="htmlController" class="textEditor">
+    <ui-codemirror ui-codemirror-opts="editorOptions"></ui-codemirror>
     </div>
-    <div class="textEditor">
-    <ui-codemirror class="textEditor" ui-codemirror-opts="editorOptions"></ui-codemirror>
+    <div ng-controller="partialController" class="textEditor">
+    <ui-codemirror ui-codemirror-opts="editorOptions"></ui-codemirror>
     </div>
-    <div class="textEditor">
-    <ui-codemirror class="textEditor" ui-codemirror-opts="editorOptions"></ui-codemirror>
+    <div ng-controller="appController" class="textEditor">
+    <ui-codemirror ui-codemirror-opts="editorOptions"></ui-codemirror>
     </div>
-    <div class="textEditor">
-    <ui-codemirror class="textEditor" ui-codemirror-opts="editorOptions"></ui-codemirror>
+    <div ng-controller="controllerController" class="textEditor">
+    <ui-codemirror ui-codemirror-opts="editorOptions"></ui-codemirror>
     </div>
+
+    <!-- For HTML/XML -->
+    <script src="./bower_components/codemirror/mode/xml/xml.js"></script>
+    <!-- For JS -->
+    <script src="./bower_components/codemirror/mode/javascript/javascript.js"></script>
+    
   </body>
 </html>
