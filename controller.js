@@ -4,8 +4,9 @@ angular
 
 function myTextArea($scope) {
   $scope.editorOptions = {
+
       lineWrapping : true,
       lineNumbers: true,
-      mode: 'xml',
+      mode: 'text/javascript',
   };
 }
