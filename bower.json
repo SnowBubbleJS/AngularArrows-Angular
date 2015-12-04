@@ -1,0 +1,24 @@
+{
+  "name": "tutorialpage",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Bryan <bhtruong93@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/bhtruong93/AngularArrows-Angular",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-codemirror": "~0.3.0"
+  }
+}
