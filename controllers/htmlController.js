@@ -1,11 +1,11 @@
 angular
   .module('app')
-  .controller('myTextArea', myTextArea);
+  .controller('htmlController', myTextArea);
 
 function myTextArea($scope) {
   $scope.editorOptions = {
       lineWrapping : true,
       lineNumbers: true,
-      mode: 'xml',
+      mode: 'xml'
   };
 }
