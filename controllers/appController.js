@@ -6,7 +6,7 @@ function myTextArea($scope) {
   $scope.editorOptions = {
       lineWrapping : true,
       lineNumbers: true,
-      mode: 'javascript',
+      mode: 'text/javascript',
   };
   $scope.codemirrorLoaded = function(_editor) {
     _editor.setValue('APP');
