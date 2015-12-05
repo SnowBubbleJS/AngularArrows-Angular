@@ -2,7 +2,7 @@ angular
   .module('app')
   .controller('appController', myTextArea);
 
-function myTextArea($scope) {
+function myTextArea($scope, output) {
   $scope.editorOptions = {
       lineWrapping : true,
       lineNumbers: true,
@@ -10,9 +10,11 @@ function myTextArea($scope) {
   };
   $scope.codemirrorLoaded = function(_editor) {
     _editor.setValue('APP');
+    output.app = _editor.getValue();
+    output.render();
     _editor.on('change', function(inst, changes) {
-      console.log(inst);
-      console.log(_editor.getValue());
+      output.app = _editor.getValue();
+      output.render();
     });
   };
 }
