@@ -9,11 +9,21 @@ function myTextArea($scope, output) {
       mode: 'javascript',
   };
   $scope.codemirrorLoaded = function(_editor) {
-    _editor.setValue('Controller');
+    _editor.setValue(`angular
+    	.module('myApp')
+    	.controller('myController',myController)
+      function myController($scope){
+        $scope.movie = 'Frozen';
+        $scope.getMovie = function(){
+          console.log($scope.movie);
+        }
+      }
+    `);
     output.controller = _editor.getValue();
     output.render();
     _editor.on('change', function(inst, changes) {
       output.controller = _editor.getValue();
+      lineFunction(output);
       output.render();
     });
   };
