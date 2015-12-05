@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -15,5 +16,9 @@
     "url": "https://github.com/bhtruong93/AngularArrows-Angular/issues"
   },
   "homepage": "https://github.com/bhtruong93/AngularArrows-Angular#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.13.3",
+    "nodemon": "^1.8.1"
+  }
 }

@@ -16,19 +16,21 @@
     <script type="text/javascript" src="./controllers/controllerController.js"></script>
   </head>
   <body>
-    <div ng-controller="htmlController" class="textEditor">
+    <div ng-controller="htmlController" id="html" class="textEditor">
     <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
-    <div ng-controller="partialController" class="textEditor">
+    <div ng-controller="partialController" id="partial" class="textEditor">
     <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
-    <div ng-controller="appController" class="textEditor">
+    <div ng-controller="appController" id="app" class="textEditor">
     <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
-    <div ng-controller="controllerController" class="textEditor">
+    <div ng-controller="controllerController" id="controller" class="textEditor">
     <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
-
+    <section id="output">
+  		<iframe></iframe>
+  	</section>
     <!-- For HTML/XML -->
     <script src="./bower_components/codemirror/mode/xml/xml.js"></script>
     <!-- For JS -->
