@@ -8,4 +8,11 @@ function myTextArea($scope) {
       lineNumbers: true,
       mode: 'xml',
   };
+  $scope.codemirrorLoaded = function(_editor) {
+    _editor.setValue('<div>Partial</div>');
+    _editor.on('change', function(inst, changes) {
+      console.log(inst);
+      console.log(_editor.getValue());
+    });
+  };
 }

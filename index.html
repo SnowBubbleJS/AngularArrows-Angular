@@ -9,6 +9,7 @@
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
     <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="factory.js"></script>
     <script type="text/javascript" src="./controllers/htmlController.js"></script>
     <script type="text/javascript" src="./controllers/partialController.js"></script>
     <script type="text/javascript" src="./controllers/appController.js"></script>
@@ -16,22 +17,22 @@
   </head>
   <body>
     <div ng-controller="htmlController" class="textEditor">
-    <ui-codemirror ui-codemirror-opts="editorOptions"></ui-codemirror>
+    <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
     <div ng-controller="partialController" class="textEditor">
-    <ui-codemirror ui-codemirror-opts="editorOptions"></ui-codemirror>
+    <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
     <div ng-controller="appController" class="textEditor">
-    <ui-codemirror ui-codemirror-opts="editorOptions"></ui-codemirror>
+    <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
     <div ng-controller="controllerController" class="textEditor">
-    <ui-codemirror ui-codemirror-opts="editorOptions"></ui-codemirror>
+    <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
 
     <!-- For HTML/XML -->
     <script src="./bower_components/codemirror/mode/xml/xml.js"></script>
     <!-- For JS -->
     <script src="./bower_components/codemirror/mode/javascript/javascript.js"></script>
-    
+
   </body>
 </html>
