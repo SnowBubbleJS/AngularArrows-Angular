@@ -9,7 +9,13 @@ function myTextArea($scope, output) {
       mode: 'xml',
   };
   $scope.codemirrorLoaded = function(_editor) {
-    _editor.setValue('<div>Partial</div>');
+    _editor.setValue(`<input ng-model="title">
+<div>{{title}}</div>
+
+<div ng-controller="myController">
+  {{name}}
+</div>
+`);
     output.partial = _editor.getValue();
     output.render();
     _editor.on('change', function(inst, changes) {

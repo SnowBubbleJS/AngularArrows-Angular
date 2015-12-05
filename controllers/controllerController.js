@@ -14,7 +14,6 @@ function myTextArea($scope, output) {
       .controller('myController', myController);
 
     function myController($scope) {
-      console.log('hereeee');
       $scope.name = "Bryan";
       $scope.movie = "";
       $scope.info = 'hi';
