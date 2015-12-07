@@ -9,12 +9,23 @@ function myTextArea($scope, output) {
       mode: 'xml',
   };
   $scope.codemirrorLoaded = function(_editor) {
-    _editor.setValue('<div>HTML</div>');
+    _editor.setValue(`<!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>Tutorial</title>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js"></script>
+  </head>
+      <body>
+      </body>
+    </html>
+`);
     output.html = _editor.getValue();
     output.render();
     _editor.on('change', function(inst, changes) {
       output.html = _editor.getValue();
-      console.log(output.html);
+      //console.log(output.html);
+      lineFunction(output);
       output.render();
     });
   };

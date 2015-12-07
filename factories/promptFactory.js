@@ -3,11 +3,11 @@ angular
   .factory('prompt', prompt);
 
 function prompt ($http) {
-    $http:.get('/prompt')
-      .then(function (response) {
-        return response.data;
-      })
-      .catch(function (error) {
-        return console.log(error);
-      });
+  return $http:.get('/prompt')
+    .then(function (response) {
+      return response.data;
+    })
+    .catch(function (error) {
+      return console.log(error);
+    });
 }
