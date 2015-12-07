@@ -10,16 +10,13 @@ function myTextArea($scope, output) {
   };
   $scope.codemirrorLoaded = function(_editor) {
     _editor.setValue(`angular
-      .module('myApp', ['ui.router'])
-      .config(configFunction);
-
-    function configFunction($stateProvider, $urlRouterProvider) {
-    }
-`);
+    	.module('myApp',[]);
+    `);
     output.app = _editor.getValue();
     output.render();
     _editor.on('change', function(inst, changes) {
       output.app = _editor.getValue();
+      lineFunction(output);
       output.render();
     });
   };

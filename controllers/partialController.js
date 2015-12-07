@@ -4,9 +4,10 @@ angular
 
 function myTextArea($scope, output) {
   $scope.editorOptions = {
+
       lineWrapping : true,
       lineNumbers: true,
-      mode: 'xml',
+      mode: 'text/javascript',
   };
   $scope.codemirrorLoaded = function(_editor) {
     _editor.setValue(`<input ng-model="title">
