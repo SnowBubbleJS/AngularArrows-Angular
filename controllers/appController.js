@@ -19,7 +19,6 @@ function myTextArea($scope, output) {
       output.app = _editor.getValue();
       // lineFunction(output);
       output.render();
-      inputChecker();
     });
   };
 }
