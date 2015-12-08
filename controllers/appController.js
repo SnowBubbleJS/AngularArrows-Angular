@@ -11,13 +11,12 @@ function myTextArea($scope, output) {
   $scope.codemirrorLoaded = function(_editor) {
     _editor.setValue(`angular
     	.module('myApp',[])
-      .controller('myController', function() {})
     `);
     output.app = _editor.getValue();
     output.render();
     _editor.on('change', function(inst, changes) {
       output.app = _editor.getValue();
-      lineFunction($scope,output,changes);
+      lineFunction('.cm-string:contains(myController)');
       output.render();
     });
   };
