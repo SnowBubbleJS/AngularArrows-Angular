@@ -31,10 +31,13 @@
 
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container-fluid" ng-controller="promptsController">
-        <div class="col-lg-1 col-md-3 col-sm-4">
-          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="getTutorial()">Get Prompts</button>
+        <div class="col-lg-2 col-md-3 col-sm-4">
+          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="getTutorial()">O</button>
+          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="previousPrompt()"><</button>
+          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="nextPrompt()">></button>
+          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="">*</button>
         </div>
-        <div class="col-lg-11 col-md-9 col-sm-8">
+        <div class="col-lg-10 col-md-9 col-sm-8">
           {{tutorial}}
         </div>
       </div>
