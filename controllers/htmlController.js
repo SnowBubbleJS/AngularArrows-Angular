@@ -17,6 +17,7 @@ function myTextArea($scope, output) {
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js"></script>
   </head>
       <body>
+        <div ng-controller="myController"></div>
       </body>
     </html>
 `);
@@ -25,7 +26,7 @@ function myTextArea($scope, output) {
     _editor.on('change', function(inst, changes) {
       output.html = _editor.getValue();
       //console.log(output.html);
-      lineFunction(output);
+      lineFunction('.cm-string:contains(myController)');
       output.render();
     });
   };
