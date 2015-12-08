@@ -21,4 +21,4 @@ app.get("/prompts", Prompt.findPrompts);
 app.use(express.static(__dirname));
 
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
