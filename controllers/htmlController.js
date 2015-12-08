@@ -7,7 +7,6 @@ function myTextArea($scope, output) {
       lineWrapping : true,
       lineNumbers: true,
       mode: 'xml',
-
   };
   $scope.codemirrorLoaded = function(_editor) {
     _editor.setValue(`<!DOCTYPE html>
