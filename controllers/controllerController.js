@@ -13,7 +13,7 @@ function myTextArea($scope, output) {
     output.render();
     _editor.on('change', function(inst, changes) {
       output.controller = _editor.getValue();
-      lineFunction(output);
+      // lineFunction(output);
       output.render();
     });
   };

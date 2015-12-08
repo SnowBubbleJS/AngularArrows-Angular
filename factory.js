@@ -8,6 +8,7 @@ function output() {
     partial: '',
     app: '',
     controller: '',
+    source: {},
     url: "http://www.localhost:3000/",
     prepareSource: function(partial) {
       var src = '';
@@ -17,7 +18,6 @@ function output() {
       if(!!partial) {
         src = src.replace(/<body([\s\S]*)\/body>/, '<body ui-view>' + this.partial + '<body>' );
         // src = src.replace('</body>', this.partial + '</body>');
-        console.log(src);
       }
 
 
@@ -31,30 +31,34 @@ function output() {
       return src;
     },
     render: function() {
+      // console.log($('#iframeOutput').contents().find('div'));
       // console.log('rendering', this.url);
-      var source,
-          iframe = document.querySelector('#output iframe');
+      iframe = document.querySelector('#output iframe');
       if(this.url === 'http://www.localhost:3000/' || this.url === 'http://www.localhost:3000') {
-        source = this.prepareSource();
+        this.source = {0: this.prepareSource()};
         iframe_doc = iframe.contentDocument;
         iframe_doc.open();
-        iframe_doc.write(source);
+        iframe_doc.write(this.source[0]);
         iframe_doc.close();
+        // lineFunction();
       }
       else if (this.url === 'http://www.localhost:3000/partial') {
         console.log('RENDER PARTIAL');
-          source = this.prepareSource(true);
+          this.source = this.prepareSource(true);
           // console.log(source);
+
           iframe_doc = iframe.contentDocument;
           iframe_doc.open();
-          iframe_doc.write(source);
+          iframe_doc.write(this.source);
           iframe_doc.close();
+          // console.log(this.source);
       }
       else {
         iframe_doc = iframe.contentDocument;
         iframe_doc.open();
         iframe_doc.write(404);
         iframe_doc.close();
+
       }
     }
   };
