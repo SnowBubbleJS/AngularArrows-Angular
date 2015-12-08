@@ -1,12 +1,33 @@
-.textEditor {
+
+#html {
   height: 400px;
+  width: 500px;
+  display: inline-block;
+}
+#partial{
+  height: 400px;
+  width: 300px;
+  display: inline-block;
+}
+#app{
+  height: 400px;
+  width: 350px;
+  display: inline-block;
+}
+#controller{
+  height:400px;
   width: 400px;
   display: inline-block;
-  /*opacity: 0.1;*/
+}
+.CodeMirror {
+  /* Set height, width, borders, and global font properties here */
+  font-family: monospace;
+  height: 370px;
+  color: black;
 }
 
 iframe {
-  height: 500px;
+  height: 350px;
   width: 500px;
 }
 
