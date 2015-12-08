@@ -4,7 +4,7 @@ angular
 
 function myTextArea($scope, output) {
   $scope.editorOptions = {
-
+      readOnly: 'nocursor',
       lineWrapping : true,
       lineNumbers: true,
       mode: 'text/javascript',
