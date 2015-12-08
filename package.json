@@ -1,9 +1,15 @@
 {
   "name": "tutorialpage",
   "version": "1.0.0",
+  "engines": {
+    "node": "5.1.1",
+    "npm": "3.3.12"
+  },
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
   },
   "author": "",
   "license": "ISC",
@@ -15,5 +21,14 @@
     "url": "https://github.com/bhtruong93/AngularArrows-Angular/issues"
   },
   "homepage": "https://github.com/bhtruong93/AngularArrows-Angular#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "express": "^4.13.3",
+    "mongo": "^0.1.0",
+    "mongodb": "^2.1.0",
+    "mongoose": "^4.2.10",
+    "nodemon": "^1.8.1",
+    "path": "^0.12.7"
+  }
 }
