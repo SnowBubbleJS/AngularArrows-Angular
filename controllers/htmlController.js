@@ -7,7 +7,6 @@ function myTextArea($scope, output) {
       lineWrapping : true,
       lineNumbers: true,
       mode: 'xml',
-
   };
   $scope.codemirrorLoaded = function(_editor) {
     _editor.setValue(`<div ng-app = 'myApp'>
@@ -25,7 +24,7 @@ function myTextArea($scope, output) {
     output.render();
     _editor.on('change', function(inst, changes) {
       output.html = _editor.getValue();
-      
+
       lineFunction('.cm-string:contains(myController)');
       output.render();
     });

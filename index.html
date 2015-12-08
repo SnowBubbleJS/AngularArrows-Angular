@@ -3,50 +3,76 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css">
     <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/line-chart/1.1.4/line-chart.min.js"></script>
-
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/codemirror/lib/codemirror.js"></script>
-        <script src="./bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-            <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script src="./bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="factory.js"></script>
-    <script type="text/javascript" src="./controllers/htmlController.js"></script>
+    <script type="text/javascript" src="./controllers/inputChecker.js"></script>
     <script type="text/javascript" src="./controllers/partialController.js"></script>
     <script type="text/javascript" src="./controllers/appController.js"></script>
     <script type="text/javascript" src="./controllers/controllerController.js"></script>
+    <script type="text/javascript" src="./controllers/htmlController.js"></script>
+    <script type="text/javascript" src="./controllers/embeddedPageController.js"></script>
+    <script type="text/javascript" src="./controllers/promptsController.js"></script>
+    <link rel="shortcut icon" href="/img/favicon.ico" />
     <script type="text/javascript" src="./controllers/d3Lines.js"></script>
-
-
-
+    <link rel="shortcut icon" href="/img/favicon.ico" />
   </head>
-  <body id="container">
+  <body>
 
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid" ng-controller="promptsController">
+        <div class="col-lg-2 col-md-3 col-sm-4">
+          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="getTutorial()">O</button>
+          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="previousPrompt()"><</button>
+          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="nextPrompt()">></button>
+          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="">*</button>
+        </div>
+        <div class="col-lg-10 col-md-9 col-sm-8">
+          {{tutorial}}
+        </div>
+      </div>
+    </nav>
+    <canvas id="canvas" width="1000" height="1000"></canvas>
     <div ng-controller="htmlController" id="html" class="textEditor">
-    <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
+      <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
     <div ng-controller="partialController" id="partial" class="textEditor">
-    <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
+      <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
     <div ng-controller="appController" id="app" class="textEditor">
-    <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
+      <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
     <div ng-controller="controllerController" id="controller" class="textEditor">
-    <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
+      <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
+  <div class="embeddedPage">
+    <form id="embeddedPage" ng-submit="changeLink()" ng-controller="embeddedPage">
+      <input type="text" style="width: 100%"name="link" ng-model="userInput">
+      <input type="submit" name="button" value="Enter">
+    </form>
 
+    <section id="output">
+  		<iframe id="iframeOutput"></iframe>
+  	</section>
+  </div>
+  <div ng-controller="inputChecker">
+    <input ng-model="copyString">
+  </div>
+    <script type="text/javascript" src="javascript.js"></script>
     <!-- For HTML/XML -->
     <script src="./bower_components/codemirror/mode/xml/xml.js"></script>
     <!-- For JS -->
     <script src="./bower_components/codemirror/mode/javascript/javascript.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-    <section  id="output">
-      <iframe></iframe>
-    </section>
   </body>
 
 

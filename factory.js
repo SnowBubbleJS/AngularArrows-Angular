@@ -8,24 +8,26 @@ function output() {
     partial: '',
     app: '',
     controller: '',
-    prepareSource: function() {
-      var base_tpl =
-        "<!doctype html>\n" +
-        "<html>\n\t" +
-        "<head>\n\t\t" +
-        "<meta charset=\"utf-8\">\n\t\t" +
-        "<title>Test</title>\n\n\t\t\n\t" +
-        "</head>\n\t" +
-        "<body>\n\t\n\t" +
-        "</body>\n" +
-        "</html>";
-      var src = '';
-      // HTML
-      src = base_tpl.replace('</body>', this.html + '</body>');
+    source: '',
+    url: "http://www.localhost:3000/",
+    prepareSource: function(partial) {
+      var src = "<!DOCTYPE html>\n" +
+			"<html>\n\t" +
+      "<head>\n\t\t" +
+      "<meta charset=\"utf-8\">\n\t\t" +
+      "<title>Test</title>\n\n\t\t\n\t" +
+      "<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>" +
+      "</head>\n\t" +
+      "<body>\n\t\n\t" +
+      "</body>\n" +
+      "</html>";
 
+      // HTML
+      src = src.replace('</body>',this.html + '</body>');
       // Partial
-      // css = '<html>' + this.partial + '</html>';
-      // src = src.replace('</div>', this.partial + '</div>');
+      if(!!partial) {
+        src = src.replace(/<body([\s\S]*)\/body>/, '<body ui-view>' + this.partial + '<body>' );
+      }
 
       // App
       appScript = '<script>' + this.app + '<\/script>';
@@ -37,15 +39,30 @@ function output() {
       return src;
     },
     render: function() {
+      iframe = document.querySelector('#output iframe');
+      if(this.url === 'http://www.localhost:3000/' || this.url === 'http://www.localhost:3000') {
+        this.source = this.prepareSource();
+        iframe_doc = iframe.contentDocument;
+        iframe_doc.open();
+        iframe_doc.write(this.source);
+        iframe_doc.close();
+      }
+      else if (this.url === 'http://www.localhost:3000/partial') {
+        console.log('RENDER PARTIAL');
+          this.source = this.prepareSource(true);
 
-      var source = this.prepareSource();
-      var iframe = document.querySelector('#output iframe');
-      iframe_doc = iframe.contentDocument;
-      iframe_doc.open();
-      iframe_doc.write(source);
-      iframe_doc.close();
+          iframe_doc = iframe.contentDocument;
+          iframe_doc.open();
+          iframe_doc.write(this.source);
+          iframe_doc.close();
+      }
+      else {
+        iframe_doc = iframe.contentDocument;
+        iframe_doc.open();
+        iframe_doc.write(404);
+        iframe_doc.close();
 
-
+      }
     }
   };
   return out;
