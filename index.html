@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css">
     <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/codemirror/lib/codemirror.js"></script>
     <script src="./bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
@@ -18,11 +19,12 @@
     <script type="text/javascript" src="./controllers/appController.js"></script>
     <script type="text/javascript" src="./controllers/controllerController.js"></script>
     <script type="text/javascript" src="./controllers/embeddedPageController.js"></script>
-    <link rel="shortcut icon" href="/img/favicon.ico" />
     <script type="text/javascript" src="./controllers/d3Lines.js"></script>
+    <script type="text/javascript" src="./controllers/inputChecker.js"></script>
+    <link rel="shortcut icon" href="/img/favicon.ico" />
   </head>
   <body>
-
+    <canvas id="canvas" width="1000" height="1000"></canvas>
     <div ng-controller="htmlController" id="html" class="textEditor">
       <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
@@ -35,7 +37,6 @@
     <div ng-controller="controllerController" id="controller" class="textEditor">
       <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
-
   <div class="embeddedPage">
     <form id="embeddedPage" ng-submit="changeLink()" ng-controller="embeddedPage">
       <input type="text" style="width: 100%"name="link" ng-model="userInput">
@@ -43,8 +44,11 @@
     </form>
 
     <section id="output">
-  		<iframe ></iframe>
+  		<iframe id="iframeOutput"></iframe>
   	</section>
+  </div>
+  <div ng-controller="inputChecker">
+    {{testString}}
   </div>
 
     <!-- For HTML/XML -->

@@ -2,9 +2,16 @@
   height: 400px;
   width: 400px;
   display: inline-block;
+  opacity: 0.1;
 }
 
 iframe {
   height: 500px;
   width: 500px;
+}
+
+#canvas {
+  z-index: 99;
+  position: absolute;
+
 }
