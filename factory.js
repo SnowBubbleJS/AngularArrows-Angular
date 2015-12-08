@@ -40,7 +40,7 @@ function output() {
         iframe_doc.open();
         iframe_doc.write(this.source[0]);
         iframe_doc.close();
-        lineFunction();
+        // lineFunction();
       }
       else if (this.url === 'http://www.localhost:3000/partial') {
         console.log('RENDER PARTIAL');
