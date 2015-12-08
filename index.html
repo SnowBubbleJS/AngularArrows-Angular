@@ -22,6 +22,7 @@
     <script type="text/javascript" src="./controllers/appController.js"></script>
     <script type="text/javascript" src="./controllers/controllerController.js"></script>
     <script type="text/javascript" src="./controllers/htmlController.js"></script>
+    <script type="text/javascript" src="./controllers/factoryController.js"></script>
     <script type="text/javascript" src="./controllers/embeddedPageController.js"></script>
     <script type="text/javascript" src="./promptFactory.js"></script>
     <script type="text/javascript" src="./controllers/promptsController.js"></script>
@@ -66,8 +67,8 @@
   		<iframe id="iframeOutput"></iframe>
   	</section>
   </div>
-  <div ng-controller="inputChecker">
-    <input ng-model="copyString">
+  <div ng-controller="factoryController" id="factory" class="textEditor">
+    <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
   </div>
     <script type="text/javascript" src="javascript.js"></script>
     <!-- For HTML/XML -->

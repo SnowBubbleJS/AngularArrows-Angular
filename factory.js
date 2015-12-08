@@ -8,6 +8,7 @@ function output() {
     partial: '',
     app: '',
     controller: '',
+    factory: '',
     source: '',
     url: "http://www.localhost:3000/",
     prepareSource: function(partial) {
@@ -30,12 +31,18 @@ function output() {
       }
 
       // App
-      appScript = '<script>' + this.app + '<\/script>';
+      var appScript = '<script>' + this.app + '<\/script>';
       src = src.replace('</body>', appScript + '</body>');
 
+
       // Controller
-      controllerScript = '<script>' + this.controller + '<\/script>';
+      var controllerScript = '<script>' + this.controller + '<\/script>';
       src = src.replace('</body>', controllerScript + '</body>');
+
+      // Factory
+      var factoryScript = '<script>' + this.factory + '<\/script>';
+      src = src.replace('</body>', factoryScript + '</body>');
+
       return src;
     },
     render: function() {
