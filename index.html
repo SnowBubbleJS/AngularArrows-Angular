@@ -14,6 +14,7 @@
     <script src="./bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+    <script type="text/javascript" src="./node_modules/angular-ui-bootstrap/ui-bootstrap.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="factory.js"></script>
     <script type="text/javascript" src="./controllers/partialController.js"></script>
@@ -35,11 +36,14 @@
           <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="getTutorial()">O</button>
           <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="previousPrompt()"><</button>
           <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="nextPrompt()">></button>
-          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="">*</button>
         </div>
-        <div class="col-lg-10 col-md-9 col-sm-8">
+        <div class="col-lg-9 col-md-9 col-sm-8">
           {{tutorial}}
         </div>
+        <!-- <div class="col-lg-1">
+          <script type="text/ng-template" id="tutorial.html" src="tutorial.html"></script>
+          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="open()">*</button>
+        </div> -->
       </div>
     </nav>
     <canvas id="canvas" width="1000" height="1000"></canvas>

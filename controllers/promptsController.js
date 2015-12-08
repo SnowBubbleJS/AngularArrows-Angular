@@ -4,7 +4,7 @@ angular
 
 // promptsController.$inject = ['promptsFactory'];
 
-function promptsController($scope) {
+function promptsController ($scope) {
   $scope.tutorial = "Tutorial prompts will be going here";
   $scope.counter = 0;
   $scope.currentPrompt = 0;
