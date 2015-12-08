@@ -2,7 +2,7 @@ angular
   .module('app')
   .controller('inputChecker', inputCheckerF);
 
-function inputCheckerF($scope, output) {
+function inputCheckerF($scope, output, inputFactory) {
 // console.log(output);
   // $scope.copyString = output;
   // console.log('hi');
@@ -20,5 +20,5 @@ function inputCheckerF($scope, output) {
 }
 
 function checkStatus(userString) {
-  
+
 }
