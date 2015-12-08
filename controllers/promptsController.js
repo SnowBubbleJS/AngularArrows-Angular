@@ -5,16 +5,30 @@ angular
 // promptsController.$inject = ['promptsFactory'];
 
 function promptsController($scope) {
-  var tutorialPrompts = promptsFactory;
   $scope.tutorial = "Tutorial prompts will be going here";
   $scope.counter = 0;
-
+  $scope.currentPrompt = 0;
   // increments counter to move tutorial series forward
   $scope.getTutorial = function() {
     if ($scope.counter < 18) {
       $scope.tutorial = $scope.prompts[$scope.counter];
       $scope.counter++;
+      $scope.currentPrompt = $scope.counter;
       console.log($scope.counter);
+    }
+  };
+  $scope.previousPrompt = function () {
+    if ($scope.currentPrompt > 0) {
+      $scope.tutorial = $scope.prompts[$scope.currentPrompt-1];
+      $scope.currentPrompt--;
+      console.log($scope.currentPrompt);
+    }
+  };
+  $scope.nextPrompt = function () {
+    if ($scope.currentPrompt < $scope.counter) {
+      $scope.tutorial = $scope.prompts[$scope.currentPrompt+1];
+      $scope.currentPrompt++;
+      console.log($scope.currentPrompt);
     }
   };
   $scope.prompts =
