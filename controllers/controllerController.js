@@ -23,7 +23,8 @@ function myTextArea($scope, output) {
     output.render();
     _editor.on('change', function(inst, changes) {
       output.controller = _editor.getValue();
-      lineFunction(output);
+      console.log('here');
+      lineFunction('.cm-string:contains(myController)');
       output.render();
     });
   };

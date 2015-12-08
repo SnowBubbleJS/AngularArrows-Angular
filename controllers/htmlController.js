@@ -12,10 +12,10 @@ function myTextArea($scope, output) {
   $scope.codemirrorLoaded = function(_editor) {
     _editor.setValue(`<div ng-app = 'myApp'>
     	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
-    	<div ng-controller='myController'>
+  <div ng-controller='myController'>
       <form ng-submit="getMovie()">
-          		<input type='text' ng-model='movie' size="30" />
-              <input class="btn-primary" type="submit" value="add" />
+        <input type='text' ng-model='movie' size="30" />
+          <input class="btn-primary" type="submit" value="add" />
       </form>
         	{{name}}
     	</div>
@@ -25,8 +25,8 @@ function myTextArea($scope, output) {
     output.render();
     _editor.on('change', function(inst, changes) {
       output.html = _editor.getValue();
-      //console.log(output.html);
-      lineFunction(output);
+      
+      lineFunction('.cm-string:contains(myController)');
       output.render();
     });
   };

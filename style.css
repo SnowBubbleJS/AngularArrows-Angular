@@ -2,4 +2,8 @@
   height: 400px;
   width: 400px;
   display: inline-block;
+  opacity: 0.7;
+}
+#canvas {
+  z-index: -1;
 }

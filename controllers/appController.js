@@ -16,7 +16,7 @@ function myTextArea($scope, output) {
     output.render();
     _editor.on('change', function(inst, changes) {
       output.app = _editor.getValue();
-      lineFunction(output);
+      lineFunction($scope,output,changes);
       output.render();
     });
   };

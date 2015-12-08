@@ -5,6 +5,8 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css">
     <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/line-chart/1.1.4/line-chart.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="bower_components/codemirror/lib/codemirror.js"></script>
         <script src="./bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
@@ -18,8 +20,11 @@
     <script type="text/javascript" src="./controllers/controllerController.js"></script>
     <script type="text/javascript" src="./controllers/d3Lines.js"></script>
 
+
+
   </head>
-  <body>
+  <body id="container">
+
     <div ng-controller="htmlController" id="html" class="textEditor">
     <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
@@ -32,13 +37,17 @@
     <div ng-controller="controllerController" id="controller" class="textEditor">
     <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
-    <section id="output">
-  		<iframe ></iframe>
-  	</section>
+
     <!-- For HTML/XML -->
     <script src="./bower_components/codemirror/mode/xml/xml.js"></script>
     <!-- For JS -->
     <script src="./bower_components/codemirror/mode/javascript/javascript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
+    <section  id="output">
+      <iframe></iframe>
+    </section>
   </body>
+
+
 </html>

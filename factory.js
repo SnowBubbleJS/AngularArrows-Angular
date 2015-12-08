@@ -37,12 +37,15 @@ function output() {
       return src;
     },
     render: function() {
+
       var source = this.prepareSource();
       var iframe = document.querySelector('#output iframe');
       iframe_doc = iframe.contentDocument;
       iframe_doc.open();
       iframe_doc.write(source);
       iframe_doc.close();
+
+
     }
   };
   return out;
