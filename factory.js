@@ -8,18 +8,26 @@ function output() {
     partial: '',
     app: '',
     controller: '',
-    source: {},
+    source: '',
     url: "http://www.localhost:3000/",
     prepareSource: function(partial) {
-      var src = '';
+      var src = "<!DOCTYPE html>\n" +
+			"<html>\n\t" +
+      "<head>\n\t\t" +
+      "<meta charset=\"utf-8\">\n\t\t" +
+      "<title>Test</title>\n\n\t\t\n\t" +
+      "<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>" +
+      "</head>\n\t" +
+      "<body>\n\t\n\t" +
+      "</body>\n" +
+      "</html>";
+
       // HTML
-      src = this.html;
+      src = src.replace('</body>',this.html + '</body>');
       // Partial
       if(!!partial) {
         src = src.replace(/<body([\s\S]*)\/body>/, '<body ui-view>' + this.partial + '<body>' );
-        // src = src.replace('</body>', this.partial + '</body>');
       }
-
 
       // App
       appScript = '<script>' + this.app + '<\/script>';
@@ -31,27 +39,22 @@ function output() {
       return src;
     },
     render: function() {
-      // console.log($('#iframeOutput').contents().find('div'));
-      // console.log('rendering', this.url);
       iframe = document.querySelector('#output iframe');
       if(this.url === 'http://www.localhost:3000/' || this.url === 'http://www.localhost:3000') {
-        this.source = {0: this.prepareSource()};
+        this.source = this.prepareSource();
         iframe_doc = iframe.contentDocument;
         iframe_doc.open();
-        iframe_doc.write(this.source[0]);
+        iframe_doc.write(this.source);
         iframe_doc.close();
-        // lineFunction();
       }
       else if (this.url === 'http://www.localhost:3000/partial') {
         console.log('RENDER PARTIAL');
           this.source = this.prepareSource(true);
-          // console.log(source);
 
           iframe_doc = iframe.contentDocument;
           iframe_doc.open();
           iframe_doc.write(this.source);
           iframe_doc.close();
-          // console.log(this.source);
       }
       else {
         iframe_doc = iframe.contentDocument;

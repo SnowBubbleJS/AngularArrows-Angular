@@ -16,6 +16,7 @@
     <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="factory.js"></script>
+    <script type="text/javascript" src="./controllers/inputChecker.js"></script>
     <script type="text/javascript" src="./controllers/partialController.js"></script>
     <script type="text/javascript" src="./controllers/appController.js"></script>
     <script type="text/javascript" src="./controllers/controllerController.js"></script>
@@ -24,7 +25,6 @@
     <script type="text/javascript" src="./controllers/promptsController.js"></script>
     <link rel="shortcut icon" href="/img/favicon.ico" />
     <script type="text/javascript" src="./controllers/d3Lines.js"></script>
-    <script type="text/javascript" src="./controllers/inputChecker.js"></script>
     <link rel="shortcut icon" href="/img/favicon.ico" />
   </head>
   <body>
@@ -66,7 +66,7 @@
   	</section>
   </div>
   <div ng-controller="inputChecker">
-    {{testString}}
+    <input ng-model="copyString">
   </div>
     <script type="text/javascript" src="javascript.js"></script>
     <!-- For HTML/XML -->
