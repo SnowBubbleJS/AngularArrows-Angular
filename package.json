@@ -20,6 +20,9 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "express": "^4.13.3",
+    "mongo": "^0.1.0",
+    "mongodb": "^2.1.0",
+    "mongoose": "^4.2.10",
     "nodemon": "^1.8.1",
     "path": "^0.12.7"
   }
