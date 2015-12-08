@@ -2,7 +2,7 @@
   height: 400px;
   width: 400px;
   display: inline-block;
-  opacity: 0.1;
+  /*opacity: 0.1;*/
 }
 
 iframe {
@@ -11,7 +11,8 @@ iframe {
 }
 
 #canvas {
-  z-index: 99;
+  z-index: -1;
   position: absolute;
-
+  top: 0;
+  left: 0;
 }

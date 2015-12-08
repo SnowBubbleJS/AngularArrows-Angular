@@ -10,7 +10,8 @@ function myTextArea($scope, output) {
   };
   $scope.codemirrorLoaded = function(_editor) {
     _editor.setValue(`angular
-    	.module('myApp',[]);
+    	.module('myApp',[])
+      .controller('myController', function() {})
     `);
     output.app = _editor.getValue();
     output.render();
