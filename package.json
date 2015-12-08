@@ -2,8 +2,8 @@
   "name": "tutorialpage",
   "version": "1.0.0",
   "engines": {
-    "node": "5.1.1",
-    "npm": "3.3.12"
+    "node": "5.0.0",
+    "npm": "3.3.6"
   },
   "main": "server.js",
   "scripts": {
@@ -24,6 +24,7 @@
   "description": "",
   "dependencies": {
     "bootstrap": "^3.3.6",
+    "bower": "^1.7.0",
     "express": "^4.13.3",
     "mongo": "^0.1.0",
     "mongodb": "^2.1.0",
