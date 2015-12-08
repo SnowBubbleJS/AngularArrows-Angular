@@ -8,7 +8,7 @@ function lineFunction(query){
   var y1 = $(temp[0]).offset().top +10;
   var x2 = $(temp[1]).offset().left+5;
   var y2 = $(temp[1]).offset().top +10;
-  console.log('should load');
+
 
   var c=document.getElementById("canvas");
   var ctx=c.getContext("2d");
@@ -16,7 +16,6 @@ function lineFunction(query){
   ctx.beginPath();
   ctx.lineWidth = 0.2;
   ctx.moveTo(x1, y1);
-  // ctx.lineTo(x2, y2);
   ctx.quadraticCurveTo(400,400,x2,y2);
   ctx.stroke();
 
