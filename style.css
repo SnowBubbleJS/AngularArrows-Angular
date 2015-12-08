@@ -16,3 +16,11 @@ iframe {
   top: 0;
   left: 0;
 }
+
+.cm-s-default {
+	background: none;
+}
+
+.CodeMirror-gutters {
+	background: none;
+}
