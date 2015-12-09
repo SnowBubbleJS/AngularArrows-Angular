@@ -2,7 +2,7 @@ angular
   .module('app')
   .controller('controllerController', myTextArea);
 
-function myTextArea($scope, output) {
+function myTextArea($scope, output,$timeout) {
   $scope.editorOptions = {
       lineWrapping : true,
       lineNumbers: true,
@@ -23,9 +23,13 @@ function myTextArea($scope, output) {
     output.render();
     _editor.on('change', function(inst, changes) {
       output.controller = _editor.getValue();
-      console.log('here');
+      
       lineFunction('.cm-string:contains(myController)');
       output.render();
+      setTimeout(function(){
+        lineFunction('.cm-string:contains(myController)');
+      },0);
+
     });
   };
 }
