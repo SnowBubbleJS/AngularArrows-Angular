@@ -23,13 +23,12 @@ function myTextArea($scope, output,$timeout) {
     output.render();
     _editor.on('change', function(inst, changes) {
       output.controller = _editor.getValue();
-      
+
       lineFunction('.cm-string:contains(myController)');
       output.render();
-      setTimeout(function(){
-        lineFunction('.cm-string:contains(myController)');
+      setTimeout(function() {
+        linefunction('.cm-string:contains(myController)');
       },0);
-
     });
   };
 }
