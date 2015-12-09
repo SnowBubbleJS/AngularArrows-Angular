@@ -26,6 +26,9 @@ function myTextArea($scope, output) {
       console.log('here');
       lineFunction('.cm-string:contains(myController)');
       output.render();
+      setTimeout(function() {
+        linefunction('.cm-string:contains(myController)');
+      },0);
     });
   };
 }
