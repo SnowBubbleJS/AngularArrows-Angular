@@ -1,10 +1,15 @@
 {
   "name": "tutorialpage",
   "version": "1.0.0",
+  "engines": {
+    "node": "5.0.0",
+    "npm": "3.3.6"
+  },
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
   },
   "author": "",
   "license": "ISC",
@@ -20,7 +25,11 @@
   "dependencies": {
     "angular-ui-bootstrap": "^0.14.3",
     "bootstrap": "^3.3.6",
+    "bower": "^1.7.0",
     "express": "^4.13.3",
+    "mongo": "^0.1.0",
+    "mongodb": "^2.1.0",
+    "mongoose": "^4.2.10",
     "nodemon": "^1.8.1",
     "path": "^0.12.7"
   }

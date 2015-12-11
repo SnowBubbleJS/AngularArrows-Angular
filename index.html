@@ -17,19 +17,21 @@
     <script type="text/javascript" src="./node_modules/angular-ui-bootstrap/ui-bootstrap.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="factory.js"></script>
+    <script type="text/javascript" src="./inputFactory.js"></script>
+    <script type="text/javascript" src="./controllers/inputChecker.js"></script>
     <script type="text/javascript" src="./controllers/partialController.js"></script>
     <script type="text/javascript" src="./controllers/appController.js"></script>
     <script type="text/javascript" src="./controllers/controllerController.js"></script>
     <script type="text/javascript" src="./controllers/htmlController.js"></script>
+    <script type="text/javascript" src="./controllers/factoryController.js"></script>
     <script type="text/javascript" src="./controllers/embeddedPageController.js"></script>
+    <script type="text/javascript" src="./promptFactory.js"></script>
     <script type="text/javascript" src="./controllers/promptsController.js"></script>
     <link rel="shortcut icon" href="/img/favicon.ico" />
     <script type="text/javascript" src="./controllers/d3Lines.js"></script>
-    <script type="text/javascript" src="./controllers/inputChecker.js"></script>
     <link rel="shortcut icon" href="/img/favicon.ico" />
   </head>
   <body>
-
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container-fluid" ng-controller="promptsController">
         <div class="col-lg-2 col-md-3 col-sm-4">
@@ -46,7 +48,7 @@
         </div> -->
       </div>
     </nav>
-    <canvas id="canvas" width="1000" height="1000"></canvas>
+    <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
     <div ng-controller="htmlController" id="html" class="textEditor">
       <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
     </div>
@@ -61,7 +63,7 @@
     </div>
   <div class="embeddedPage">
     <form id="embeddedPage" ng-submit="changeLink()" ng-controller="embeddedPage">
-      <input type="text" style="width: 100%"name="link" ng-model="userInput">
+      <input id="URL" type="text" style="width:400px" name="link" ng-model="userInput" >
       <input type="submit" name="button" value="Enter">
     </form>
 
@@ -69,8 +71,8 @@
   		<iframe id="iframeOutput"></iframe>
   	</section>
   </div>
-  <div ng-controller="inputChecker">
-    {{testString}}
+  <div ng-controller="factoryController" id="factory" class="textEditor">
+    <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
   </div>
     <script type="text/javascript" src="javascript.js"></script>
     <!-- For HTML/XML -->
@@ -78,4 +80,6 @@
     <!-- For JS -->
     <script src="./bower_components/codemirror/mode/javascript/javascript.js"></script>
   </body>
+
+
 </html>

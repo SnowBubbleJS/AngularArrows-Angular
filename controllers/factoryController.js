@@ -1,22 +1,20 @@
 angular
   .module('app')
-  .controller('appController', myTextArea);
+  .controller('factoryController', factoryController);
 
-function myTextArea($scope, output) {
+function factoryController($scope, output) {
+
   $scope.editorOptions = {
       lineWrapping : true,
       lineNumbers: true,
       mode: 'text/javascript',
   };
   $scope.codemirrorLoaded = function(_editor) {
-    _editor.setValue(`angular
-    	.module('myApp',[])
-    `);
-    output.app = _editor.getValue();
+    _editor.setValue();
+    output.factory = _editor.getValue();
     output.render();
     _editor.on('change', function(inst, changes) {
-      output.app = _editor.getValue();
-      lineFunction('.cm-string:contains(myController)');
+      output.factory = _editor.getValue();
       output.render();
     });
   };
