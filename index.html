@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
     <script type="text/javascript" src="bower_components/codemirror/lib/codemirror.js"></script>
-    <script src="./bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script type="text/javascript" src="./bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+    <script type="text/javascript" src="ui-bootstrap-tpls-0.12.0.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="factory.js"></script>
     <script type="text/javascript" src="./inputFactory.js"></script>
@@ -26,21 +28,24 @@
     <script type="text/javascript" src="./controllers/embeddedPageController.js"></script>
     <script type="text/javascript" src="./promptFactory.js"></script>
     <script type="text/javascript" src="./controllers/promptsController.js"></script>
-    <link rel="shortcut icon" href="/img/favicon.ico" />
     <script type="text/javascript" src="./controllers/d3Lines.js"></script>
+    <script type="text/javascript" src="./modalCtrl.js"></script>
     <link rel="shortcut icon" href="/img/favicon.ico" />
   </head>
   <body>
     <nav class="navbar navbar-default navbar-static-top">
-      <div class="container-fluid" ng-controller="promptsController">
-        <div class="col-lg-2 col-md-3 col-sm-4">
-          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="getTutorial()">O</button>
-          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="previousPrompt()"><</button>
-          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="nextPrompt()">></button>
-          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="">*</button>
+      <div class="container-fluid">
+        <div class="col-lg-11 col-md-11 col-sm-11" ng-controller="promptsController">
+          <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-primary btn-sm navbar-btn" ng-click="previousPrompt()"><</button>
+            <button type="button" class="btn btn-primary btn-sm navbar-btn" ng-click="getTutorial()">O</button>
+            <button type="button" class="btn btn-primary btn-sm navbar-btn" ng-click="nextPrompt()">></button>
+          </div>
+          <span style="display:inline-lists">{{tutorial}}</span>
         </div>
-        <div class="col-lg-10 col-md-9 col-sm-8">
-          {{tutorial}}
+        <div class="col-lg-1 col-md-1 col-sm-1" ng-controller="modalCtrl">
+          <script type="text/ng-template" src="tutorialContent.html"></script>
+          <button type="button" class="btn btn-danger btn-sm navbar-btn" ng-click="open('lg')">History</button>
         </div>
       </div>
     </nav>
