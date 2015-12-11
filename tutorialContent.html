@@ -1,0 +1,111 @@
+<div class="modal-header">
+  <h3 class="modal-title">Angular Tutorial History</h3>
+</div>
+<div class="modal-body">
+  <h4>Initialize Angular</h4>
+
+  <ul>
+    <li>
+      <p>In order for your Angular application to work, we will have to initialize the application in our HTML file and to do so we attach a specific attribute to a DOM element where we want our Angular application to appear. <code>ng-app</code> is commonly
+        given as an attribute to either <code>&lt;html&gt;</code> or <code>&lt;body&gt;</code> element, but for the purposes of our tutorial we will attach it to the <code>&lt;html&gt;</code> element. Please give <code>ng-app</code> the value of <code>myApp</code>.</p>
+    </li>
+    <li>
+      <p>The application is a JavaScript file so in our <strong>app.js</strong> editor we provided you will with starter code so we can understand Angular's two-way data binding and as an example we will explore Angular <code>models</code>. In the <code>&lt;body&gt;</code>,
+        create an attribute of <code>ng-model</code> with a value of <code>movie</code> at the first <code>&lt;input&gt;</code> of the <code>&lt;form&gt;</code> in the <code>&lt;body&gt;</code> of the document.</p>
+    </li>
+  </ul>
+
+  <h4>Referencing Angular Data</h4>
+
+  <ul>
+    <li>Angular references data with a particular syntax, <code>{{DATA_REFERENCE}}</code> (double curly braces). This displays the content declared within Angular attribute also known as <strong>directives</strong>. <strong>Directives</strong> are identified
+      in the HTML document with the <code>ng-</code>. Beneath the <code>&lt;input&gt;</code> create a data reference to the value of the <code>ng-model</code>. Test drive the output in the view and type a few characters in the input field and see what
+      shows up. Characters should be reflecting what you type and this is one of the most simplest models for exhibiting Angular two-way binding.</li>
+  </ul>
+
+  <h4>Creating Controllers</h4>
+
+  <ul>
+    <li>Following the <a href="https://github.com/johnpapa/angular-styleguide">coding style</a> when creating a <code>module</code> in the <strong>app.js</strong>, we will be making another example of two-way data binding by the use of a different <strong>directive</strong>      called <code>ng-controller</code> instead of using <code>ng-model</code>. In your <strong>controller</strong> called <strong>myController</strong> in the <strong>controller.js</strong> file, the <code>myController</code> function will be declared
+      with <code>$scope</code> as a parameter. Have your function reference <code>$scope</code> and set a property of it called <code>name</code> equal to your name. <strong>Controllers</strong> are meant to be small and lightweight to manage and manipulate
+      transient data.</li>
+  </ul>
+
+  <h4>Working with Services</h4>
+
+  <ul>
+    <li>
+      <p>Angular <strong>services</strong> are generally identified as variables with dollar signs before them, i.e. <code>$scope</code> or <code>$http</code>. <strong>Services</strong> are objects with a collection of methods that Angular provides for functionality.
+        For Angular, <code>$scope</code> is an object that refers to the application model that enables data coming from a <code>controller</code> to act in a similar fashion to <code>ng-model</code>.</p>
+    </li>
+    <li>
+      <p>A method of <code>$scope</code> will be added to the <strong>controller</strong> called <code>getMovie</code> where you will assign the value of <code>$scope.name</code> to <code>$scope.movie</code> and afterwards re-assigning <code>$scope.movie</code>        to an empty string. Having done so, attach a <code>ng-submit</code> to the <code>&lt;form&gt;</code> for the <code>getMovie()</code> method from <code>myController</code>. Attempt to place your favorite movie name into the input field and submit
+        your selection with the button. Notice how the data has changed again to update your <code>$scope.name</code> value with the value taken from <code>$scope.movie</code>.</p>
+    </li>
+  </ul>
+
+  <h4>Persistent Data Utilizing Factories</h4>
+
+  <ul>
+    <li>
+      <p>The same way we created a <strong>controller</strong>, we will be creating a <strong>factory</strong> in <strong>factory.js</strong>. <strong>Factories</strong> are similar to controllers, but are used for persistent data that can be used to pass
+        down to other controllers to manipulate.</p>
+    </li>
+    <li>
+      <p>Create a <strong>factory</strong> called <code>myFactory</code> to Angular and create its function the <code>$http</code> <strong>service</strong> as a parameter. In order to make use of this <strong>service</strong> we have to make it available
+        to the <strong>factory</strong> by using method on the factory called <code>.$inject</code>. We will then assign <code>myFactory.$inject</code> equivalent to a single element array with a string value of <code>$http</code>.</p>
+    </li>
+  </ul>
+
+  <h4>More work with Services, AJAX, JavaScript Promises</h4>
+
+  <ul>
+    <li>
+      <p>This is a common practice in Angular to provide functionality amongst its toolkit. It is better known as dependency injection. The injection of <code>$http</code> allows for Angular to perform AJAX actions with data so the <code>myFactory</code>        function will declare a function within it named <code>getMovieInfo</code> that returns the <code>$http.get()</code> to <a href="http://www.omdbapi.com/?t=frozen&amp;y=&amp;plot=short&amp;r=json">http://www.omdbapi.com/?t=frozen&amp;y=&amp;plot=short&amp;r=json</a>        and returns a Promise with <code>.then()</code> for success chained with <code>.catch()</code> to manage failures in data retrieval.</p>
+    </li>
+    <li>
+      <p>The Promise requires callback functions. Create two functions within <code>getMovieInfo</code>, one function called <code>getMovieComplete</code> that takes in a <code>response</code> parameter and returns <code>response.data</code>. The other function
+        is called <code>getMovieFailed</code> that will take in an <code>error</code> parameter and will <code>console.log(error)</code>. The <code>.then()</code> will be given <code>getMovieComplete</code> as a callback and <code>.catch()</code> will
+        take <code>getMovieFailed</code>.</p>
+    </li>
+    <li>
+      <p>Having retrieved the persistent data that we are requesting for the <strong>factory</strong> we must output this data from it for other Angular bits to use by returning an object with a key:value pair <code>getMovieInfo: getMovieInfo</code> - the
+        property is referencing the function with the same name that is retrieving the data.</p>
+    </li>
+    <li>
+      <p>Now with the creation of the <strong>factory</strong> we will be modifying <code>myController</code> to update your name with some movie data instead. In order to use the <code>myFactory</code> in the <code>myController</code> we have to insert
+        it as an additional parameter for its function. We are going to retrieve year of our movie query so to display it create a variable, <code>movieData</code>, that is equal to the factory method we made, <code>getMovieInfo</code>.</p>
+    </li>
+    <li>
+      <p>Afterward in the <code>$scope.getMovie</code> function, we are going to re-assign <code>$scope.name</code> to our freshly created variable. Here we've done a little bit of digging into the JSON data object that is returning for you so set <code>$scope.name</code>        equal to <code>movieData.$$state.value.Year</code>.</p>
+    </li>
+    <li>
+      <p>Notice that the functionality of our application has changed. Instead our form submission with our user input used to bind our selection, but it will now do an AJAX request to retrieve persistent data from our <strong>factory</strong> to retrieve
+        the release year of the Disney movie, "Frozen".</p>
+    </li>
+  </ul>
+
+  <h4>HTML Partials of a Whole Web Application</h4>
+
+  <ul>
+    <li>
+      <p>You may have discovered a big ugly box that doesn't work on our application page. Well, we're going to fill that up with a partial HTML. Angular makes great use of partial HTML in its single-page application environment so in the <strong>partial.html</strong>        we'll make another data reference to <code>name</code> from out controller. However, the partial still doesn't work because we are going to require a routing tool to deliver this page. We'll be using <strong>ui-router</strong> to do so and in
+        the same way we will inject this as a dependency to the application itself.</p>
+    </li>
+    <li>
+      <p>Where <code>myApp</code> was originally defined in <strong>app.js</strong> lies an empty array as a parameter and here is where we will be injecting <code>'ui-router'</code>, an open source extension for improving Angular's single-page web application
+        functionality for HTML partials. Following the module function, a <code>.config()</code> function is chained to reference a function called <code>configFunction</code> that we will be creating in the same file.</p>
+    </li>
+    <li>
+      <p><code>configFunction</code> will make use of <code>ui-router</code> to display our partial HTML. Declare the function passing it two parameters <code>$stateProvider, $urlRouteProvider</code>. Inside the function use the <code>$stateProvider.state()</code>        method, it acts similarly to HTTP request using two parameters to configure it - the first that gives it a name and the second an object that determines the configuration of the route. Assign the first parameter as a string <code>name</code> and
+        within the object parameter: <code>url: "/test", templateUrl: "./partial.html", controller: "myController"</code>.</p>
+    </li>
+    <li>
+      <p>Check out your partial HTML in the output! You're on your way to becoming a sharp Angular master.</p>
+    </li>
+  </ul>
+
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" type="button" ng-click="ok()">X</button>
+</div>
