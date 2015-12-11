@@ -16,8 +16,6 @@
     <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="factory.js"></script>
-    <script type="text/javascript" src="./inputFactory.js"></script>
-    <script type="text/javascript" src="./controllers/inputChecker.js"></script>
     <script type="text/javascript" src="./controllers/partialController.js"></script>
     <script type="text/javascript" src="./controllers/appController.js"></script>
     <script type="text/javascript" src="./controllers/controllerController.js"></script>
@@ -26,11 +24,13 @@
     <script type="text/javascript" src="./controllers/embeddedPageController.js"></script>
     <script type="text/javascript" src="./promptFactory.js"></script>
     <script type="text/javascript" src="./controllers/promptsController.js"></script>
+    <script type="text/javascript" src="./inputFactory.js"></script>
+    <script type="text/javascript" src="./controllers/inputChecker.js"></script>
     <link rel="shortcut icon" href="/img/favicon.ico" />
     <script type="text/javascript" src="./controllers/d3Lines.js"></script>
     <link rel="shortcut icon" href="/img/favicon.ico" />
   </head>
-  <body>
+  <body ng-controller="inputChecker">
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container-fluid" ng-controller="promptsController">
         <div class="col-lg-2 col-md-3 col-sm-4">

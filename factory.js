@@ -9,7 +9,7 @@ function output() {
     app: '',
     controller: '',
     factory: '',
-    source: '',
+    source: 'asdf',
     url: "http://www.localhost:3000/",
     prepareSource: function(partial) {
       var src = "<!DOCTYPE html>\n" +
