@@ -3,19 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css">
-    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap-theme.css"/>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js"></script>
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.css">
+
+    <!-- Application Dependencies -->
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
     <script type="text/javascript" src="bower_components/codemirror/lib/codemirror.js"></script>
-    <script type="text/javascript" src="./bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script type="text/javascript" src="bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
     <script type="text/javascript" src="ui-bootstrap-tpls-0.12.0.js"></script>
+    <script type="text/javascript" src="node_modules/angular-material/angular-material.js"></script>
+
+    <!-- Developer Scripts -->
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="factory.js"></script>
     <script type="text/javascript" src="./inputFactory.js"></script>
@@ -30,9 +38,98 @@
     <script type="text/javascript" src="./controllers/promptsController.js"></script>
     <script type="text/javascript" src="./controllers/d3Lines.js"></script>
     <script type="text/javascript" src="./modalCtrl.js"></script>
-    <link rel="shortcut icon" href="/img/favicon.ico" />
   </head>
   <body>
+
+    <div ng-controller="DemoCtrl" layout="column" ng-cloak="" class="md-inline-form inputdemoBasicUsage">
+
+  <md-content md-theme="docs-dark" layout-padding="" layout-gt-sm="row">
+    <md-input-container>
+      <label>Title</label>
+      <input ng-model="user.title">
+    </md-input-container>
+
+    <md-input-container>
+      <label>Email</label>
+      <input ng-model="user.email" type="email">
+    </md-input-container>
+  </md-content>
+
+  <md-content layout-padding="">
+    <form name="userForm">
+
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm="">
+          <label>Company (Disabled)</label>
+          <input ng-model="user.company" disabled="">
+        </md-input-container>
+
+        <md-datepicker ng-model="user.submissionDate" md-placeholder="Enter date"></md-datepicker>
+      </div>
+
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm="">
+          <label>First name</label>
+          <input ng-model="user.firstName">
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm="">
+          <label>Last Name</label>
+          <input ng-model="theMax">
+        </md-input-container>
+      </div>
+
+      <md-input-container class="md-block">
+        <label>Address</label>
+        <input ng-model="user.address">
+      </md-input-container>
+
+      <md-input-container md-no-float="" class="md-block">
+        <input ng-model="user.address2" placeholder="Address 2">
+      </md-input-container>
+
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm="">
+          <label>City</label>
+          <input ng-model="user.city">
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm="">
+          <label>State</label>
+          <md-select ng-model="user.state">
+            <md-option ng-repeat="state in states" value="{{state.abbrev}}">
+              {{state.abbrev}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm="">
+          <label>Postal Code</label>
+          <input name="postalCode" ng-model="user.postalCode" placeholder="12345" required="" ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+
+          <div ng-messages="userForm.postalCode.$error" role="alert" multiple="">
+            <div ng-message="required" class="my-message">You must supply a postal code.</div>
+            <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+              code.
+            </div>
+            <div ng-message="md-maxlength" class="my-message">
+              Don't use the long version silly...we don't need to be that specific...
+            </div>
+          </div>
+        </md-input-container>
+      </div>
+
+      <md-input-container class="md-block">
+        <label>Biography</label>
+        <textarea ng-model="user.biography" columns="1" md-maxlength="150" rows="5"></textarea>
+      </md-input-container>
+
+
+    </form>
+  </md-content>
+
+</div>
+
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container-fluid">
         <div class="col-lg-11 col-md-11 col-sm-11" ng-controller="promptsController">
@@ -80,6 +177,53 @@
     <script src="./bower_components/codemirror/mode/xml/xml.js"></script>
     <!-- For JS -->
     <script src="./bower_components/codemirror/mode/javascript/javascript.js"></script>
+
+    <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc7/angular-material.min.js"></script>
+
+  <!-- Your application bootstrap  -->
+  <script type="text/javascript">
+
+  angular
+    .module('app')
+    .controller('DemoCtrl', function($scope) {
+      $scope.user = {
+        title: 'Developer',
+        email: 'ipsum@lorem.com',
+        firstName: '',
+        lastName: '',
+        company: 'Google',
+        address: '1600 Amphitheatre Pkwy',
+        city: 'Mountain View',
+        state: 'CA',
+        biography: 'Loves kittens, snowboarding, and can type at 130 WPM.\n\nAnd rumor has it she bouldered up Castle Craig!',
+        postalCode: '94043'
+      };
+
+      $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
+      'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +
+      'WY').split(' ').map(function(state) {
+          return {abbrev: state};
+        })
+    })
+    .config(function($mdThemingProvider) {
+
+      // Configure a dark theme with primary foreground yellow
+
+      $mdThemingProvider.theme('docs-dark', 'default')
+        .primaryPalette('yellow')
+        .dark();
+
+    });
+
+
+  </script>
   </body>
 
 
