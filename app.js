@@ -1,2 +1,2 @@
 angular
-  .module('app', ['ui.codemirror']);
+  .module('app', ['ui.codemirror', 'ui.bootstrap', 'ngMaterial']);

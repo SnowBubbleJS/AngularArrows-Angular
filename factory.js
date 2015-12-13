@@ -8,46 +8,59 @@ function output() {
     partial: '',
     app: '',
     controller: '',
+    factory: '',
+    source: '',
     url: "http://www.localhost:3000/",
     prepareSource: function(partial) {
-      var src = '';
+      var src = "<!DOCTYPE html>\n" +
+			"<html>\n\t" +
+      "<head>\n\t\t" +
+      "<meta charset=\"utf-8\">\n\t\t" +
+      "<title>Test</title>\n\n\t\t\n\t" +
+      "<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>" +
+      "</head>\n\t" +
+      "<body>\n\t\n\t" +
+      "</body>\n" +
+      "</html>";
+
       // HTML
-      src = this.html;
+      src = src.replace('</body>',this.html + '</body>');
       // Partial
       if(!!partial) {
         src = src.replace(/<body([\s\S]*)\/body>/, '<body ui-view>' + this.partial + '<body>' );
-        // src = src.replace('</body>', this.partial + '</body>');
-        console.log(src);
       }
 
-
       // App
-      appScript = '<script>' + this.app + '<\/script>';
+      var appScript = '<script>' + this.app + '<\/script>';
       src = src.replace('</body>', appScript + '</body>');
 
+
       // Controller
-      controllerScript = '<script>' + this.controller + '<\/script>';
+      var controllerScript = '<script>' + this.controller + '<\/script>';
       src = src.replace('</body>', controllerScript + '</body>');
+
+      // Factory
+      var factoryScript = '<script>' + this.factory + '<\/script>';
+      src = src.replace('</body>', factoryScript + '</body>');
+
       return src;
     },
     render: function() {
-      // console.log('rendering', this.url);
-      var source,
-          iframe = document.querySelector('#output iframe');
+      iframe = document.querySelector('#output iframe');
       if(this.url === 'http://www.localhost:3000/' || this.url === 'http://www.localhost:3000') {
-        source = this.prepareSource();
+        this.source = this.prepareSource();
         iframe_doc = iframe.contentDocument;
         iframe_doc.open();
-        iframe_doc.write(source);
+        iframe_doc.write(this.source);
         iframe_doc.close();
       }
       else if (this.url === 'http://www.localhost:3000/partial') {
         console.log('RENDER PARTIAL');
-          source = this.prepareSource(true);
-          // console.log(source);
+          this.source = this.prepareSource(true);
+
           iframe_doc = iframe.contentDocument;
           iframe_doc.open();
-          iframe_doc.write(source);
+          iframe_doc.write(this.source);
           iframe_doc.close();
       }
       else {
@@ -55,6 +68,7 @@ function output() {
         iframe_doc.open();
         iframe_doc.write(404);
         iframe_doc.close();
+
       }
     }
   };

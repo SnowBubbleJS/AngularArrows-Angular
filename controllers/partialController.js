@@ -4,18 +4,13 @@ angular
 
 function myTextArea($scope, output) {
   $scope.editorOptions = {
-
+      readOnly: 'nocursor',
       lineWrapping : true,
       lineNumbers: true,
       mode: 'text/javascript',
   };
   $scope.codemirrorLoaded = function(_editor) {
-    _editor.setValue(`<input ng-model="title">
-<div>{{title}}</div>
-
-<div ng-controller="myController">
-  {{name}}
-</div>
+    _editor.setValue(`
 `);
     output.partial = _editor.getValue();
     output.render();
