@@ -3,7 +3,8 @@
     .module('app')
     .controller('controllerController', myTextArea);
 
-  function myTextArea(output) {
+  function myTextArea(output, d3Lines) {
+    var vm = this;
     vm.editorOptions = {
         lineWrapping : true,
         lineNumbers: true,
@@ -24,10 +25,10 @@
       output.render();
       _editor.on('change', function(inst, changes) {
         output.controller = _editor.getValue();
-        lineFunction('.cm-string:contains(myController)');
+        d3Lines.lineFunction('.cm-string:contains(myController)');
         output.render();
         setTimeout(function() {
-          lineFunction('.cm-string:contains(myController)');
+          d3Lines.lineFunction('.cm-string:contains(myController)');
         },0);
       });
     };

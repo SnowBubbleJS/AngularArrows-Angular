@@ -30,36 +30,36 @@
     <script type="text/javascript" src="./controllers/d3Lines.js"></script>
     <link rel="shortcut icon" href="/img/favicon.ico" />
   </head>
-  <body ng-controller="inputChecker">
+  <body ng-controller="inputChecker as inputVM">
     <nav class="navbar navbar-default navbar-static-top">
-      <div class="container-fluid" ng-controller="promptsController">
+      <div class="container-fluid" ng-controller="promptsController as promptsVM">
         <div class="col-lg-2 col-md-3 col-sm-4">
-          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="getTutorial()">O</button>
-          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="previousPrompt()"><</button>
-          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="nextPrompt()">></button>
+          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="promptsVM.getTutorial()">O</button>
+          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="promptsVM.previousPrompt()"><</button>
+          <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="promptsVM.nextPrompt()">></button>
           <button type="button" class="btn btn-default btn-xs navbar-btn" ng-click="">*</button>
         </div>
         <div class="col-lg-10 col-md-9 col-sm-8">
-          {{tutorial}}
+          {{promptsVM.tutorial}}
         </div>
       </div>
     </nav>
     <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
-    <div ng-controller="htmlController" id="html" class="textEditor">
-      <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
+    <div ng-controller="htmlController as htmlVM" id="html" class="textEditor">
+      <textarea ui-codemirror="{ onLoad : htmlVM.codemirrorLoaded }" ui-codemirror-opts="htmlVM.editorOptions"></textarea>
     </div>
-    <div ng-controller="partialController" id="partial" class="textEditor">
-      <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
+    <div ng-controller="partialController as partialVM" id="partial" class="textEditor">
+      <textarea ui-codemirror="{ onLoad : partialVM.codemirrorLoaded }" ui-codemirror-opts="partialVM.editorOptions"></textarea>
     </div>
-    <div ng-controller="appController" id="app" class="textEditor">
-      <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
+    <div ng-controller="appController as appVM" id="app" class="textEditor">
+      <textarea ui-codemirror="{ onLoad : appVM.codemirrorLoaded }" ui-codemirror-opts="appVM.editorOptions"></textarea>
     </div>
-    <div ng-controller="controllerController" id="controller" class="textEditor">
-      <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
+    <div ng-controller="controllerController as controllerVM" id="controller" class="textEditor">
+      <textarea ui-codemirror="{ onLoad : controllerVM.codemirrorLoaded }" ui-codemirror-opts="controllerVM.editorOptions"></textarea>
     </div>
   <div class="embeddedPage">
-    <form id="embeddedPage" ng-submit="changeLink()" ng-controller="embeddedPage">
-      <input id="URL" type="text" style="width:400px" name="link" ng-model="userInput" >
+    <form id="embeddedPage" ng-submit="embeddedVM.changeLink()" ng-controller="embeddedPage as embeddedVM">
+      <input id="URL" type="text" style="width:400px" name="link" ng-model="embeddedVM.userInput" >
       <input type="submit" name="button" value="Enter">
     </form>
 
@@ -67,8 +67,8 @@
   		<iframe id="iframeOutput"></iframe>
   	</section>
   </div>
-  <div ng-controller="factoryController" id="factory" class="textEditor">
-    <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
+  <div ng-controller="factoryController as factoryVM" id="factory" class="textEditor">
+    <textarea ui-codemirror="{ onLoad : factoryVM.codemirrorLoaded }" ui-codemirror-opts="factoryVM.editorOptions"></textarea>
   </div>
     <script type="text/javascript" src="javascript.js"></script>
     <!-- For HTML/XML -->
@@ -76,6 +76,5 @@
     <!-- For JS -->
     <script src="./bower_components/codemirror/mode/javascript/javascript.js"></script>
   </body>
-
 
 </html>
