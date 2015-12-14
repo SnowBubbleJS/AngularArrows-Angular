@@ -49,6 +49,7 @@ function output() {
       iframe = document.querySelector('#output iframe');
       if(this.url === 'http://www.localhost:3000/' || this.url === 'http://www.localhost:3000') {
         this.source = this.prepareSource();
+        console.log(this.source);
         iframe_doc = iframe.contentDocument;
         iframe_doc.open();
         iframe_doc.write(this.source);

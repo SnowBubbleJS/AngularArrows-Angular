@@ -6,6 +6,7 @@ function lineFunction(query){
   var temp = $(query);
   var c=document.getElementById("canvas");
   var ctx=c.getContext("2d");
+  ctx.globalCompositeOperation ='destination-over';
   if(temp.length > 1) {
     var x1 = $(temp[0]).offset().left+5;
     var y1 = $(temp[0]).offset().top +10;
