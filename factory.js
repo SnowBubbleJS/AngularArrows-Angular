@@ -46,7 +46,6 @@ function output() {
       return src;
     },
     render: function() {
-      console.log(this.url);
       iframe = document.querySelector('#output iframe');
       if(this.url === 'http://www.localhost:3000/' || this.url === 'http://www.localhost:3000') {
         this.source = this.prepareSource();
@@ -59,7 +58,7 @@ function output() {
       else if (this.url === 'http://www.localhost:3000/partial') {
         console.log('RENDER PARTIAL');
           this.source = this.prepareSource(true);
-
+          console.log(this.source);
           iframe_doc = iframe.contentDocument;
           iframe_doc.open();
           iframe_doc.write(this.source);

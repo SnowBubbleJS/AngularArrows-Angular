@@ -1,4 +1,4 @@
-
+/*
 #html {
   height: 400px;
   width: 500px;
@@ -18,25 +18,17 @@
   height:400px;
   width: 400px;
   display: inline-block;
-}
-#canvas {
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+}*/
 
-
-
-.embeddedPage {
+/*.embeddedPage {
   display: inline-block;
-}
+}*/
 
-#factory {
+/*#factory {
   height:400px;
   width: 400px;
   display: inline-block;
-}
+}*/
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
   font-family: monospace;
