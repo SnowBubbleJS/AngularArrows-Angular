@@ -9,7 +9,7 @@ function output() {
     app: '',
     controller: '',
     factory: '',
-    source: '',
+    source: 'asdf',
     url: "http://www.localhost:3000/",
     prepareSource: function(partial) {
       var src = "<!DOCTYPE html>\n" +
@@ -49,6 +49,7 @@ function output() {
       iframe = document.querySelector('#output iframe');
       if(this.url === 'http://www.localhost:3000/' || this.url === 'http://www.localhost:3000') {
         this.source = this.prepareSource();
+        console.log(this.source);
         iframe_doc = iframe.contentDocument;
         iframe_doc.open();
         iframe_doc.write(this.source);
@@ -57,7 +58,7 @@ function output() {
       else if (this.url === 'http://www.localhost:3000/partial') {
         console.log('RENDER PARTIAL');
           this.source = this.prepareSource(true);
-
+          console.log(this.source);
           iframe_doc = iframe.contentDocument;
           iframe_doc.open();
           iframe_doc.write(this.source);
