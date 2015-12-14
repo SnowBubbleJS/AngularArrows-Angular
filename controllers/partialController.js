@@ -1,17 +1,22 @@
 (function(){
   angular
     .module('app')
-    .controller('partialController', myTextArea);
+    .controller('PartialController', myTextArea);
 
   function myTextArea(output) {
     var vm = this;
+
+    vm.codemirrorLoaded = codemirrorLoaded;
     vm.editorOptions = {
         readOnly: 'nocursor',
         lineWrapping : true,
         lineNumbers: true,
         mode: 'text/javascript',
     };
-    vm.codemirrorLoaded = function(_editor) {
+
+    ////////////
+
+    function codemirrorLoaded(_editor) {
       _editor.setValue(`
   `);
       output.partial = _editor.getValue();
@@ -20,6 +25,6 @@
         output.partial = _editor.getValue();
         output.render();
       });
-    };
+    }
   }
 }());

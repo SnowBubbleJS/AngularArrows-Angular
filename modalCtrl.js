@@ -1,13 +1,13 @@
 (function(){
   angular
   .module('app')
-  .controller('modalCtrl', function ($modal, $log) {
+  .controller('ModalCtrl', function ($modal, $log) {
     var vm = this;
     vm.items = ['item1', 'item2', 'item3'];
     vm.open = function (size) {
       var modalInstance = $modal.open({
         templateUrl: 'tutorialContent.html',
-        controller: 'modalInstanceCtrl',
+        controller: 'ModalInstanceCtrl',
         size: size,
         resolve: {
           items: function () {
@@ -28,7 +28,7 @@
 
 angular
   .module('app')
-    .controller('modalInstanceCtrl', function ($modalInstance, items) {
+    .controller('ModalInstanceCtrl', function ($modalInstance, items) {
     var vm = this;
     vm.items = items;
     vm.selected = {

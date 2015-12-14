@@ -1,16 +1,21 @@
 (function(){
   angular
     .module('app')
-    .controller('htmlController', myTextArea);
+    .controller('HtmlController', myTextArea);
 
   function myTextArea(output, $http, d3Lines) {
     var vm = this;
+
+    vm.codemirrorLoaded = codemirrorLoaded;
     vm.editorOptions = {
-        lineWrapping : true,
-        lineNumbers: true,
-        mode: 'xml',
+      lineWrapping : true,
+      lineNumbers: true,
+      mode: 'xml',
     };
-    vm.codemirrorLoaded = function(_editor) {
+
+    ////////////
+
+    function codemirrorLoaded(_editor) {
       _editor.setValue(`<div ng-app = 'myApp'>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
     <div ng-controller='myController'>

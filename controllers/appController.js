@@ -1,16 +1,21 @@
 (function(){
   angular
     .module('app')
-    .controller('appController', myTextArea);
+    .controller('AppController', myTextArea);
 
   function myTextArea(output, d3Lines) {
     var vm = this;
+
+    vm.codemirrorLoaded = codemirrorLoaded;
     vm.editorOptions = {
         lineWrapping : true,
         lineNumbers: true,
         mode: 'text/javascript',
     };
-    vm.codemirrorLoaded = function(_editor) {
+
+    ////////////
+
+    function codemirrorLoaded(_editor) {
       _editor.setValue(`angular
       	.module('myApp',[])
       `);
@@ -21,7 +26,6 @@
         d3Lines.lineFunction('.cm-string:contains(myController)');
         output.render();
       });
-    };
+    }
   }
-
 }());

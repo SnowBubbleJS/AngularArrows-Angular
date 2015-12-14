@@ -1,15 +1,20 @@
 (function(){angular
   .module('app')
-  .controller('factoryController', factoryController);
+  .controller('FactoryController', factoryController);
 
   function factoryController(output) {
     var vm = this;
+
+    vm.codemirrorLoaded = codemirrorLoaded;
     vm.editorOptions = {
-        lineWrapping : true,
-        lineNumbers: true,
-        mode: 'text/javascript',
+      lineWrapping : true,
+      lineNumbers: true,
+      mode: 'text/javascript',
     };
-    vm.codemirrorLoaded = function(_editor) {
+
+    ////////////
+
+    function codemirrorLoaded(_editor) {
       _editor.setValue();
       output.factory = _editor.getValue();
       output.render();
@@ -17,6 +22,6 @@
         output.factory = _editor.getValue();
         output.render();
       });
-    };
+    }
   }
 }());

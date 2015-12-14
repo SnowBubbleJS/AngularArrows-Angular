@@ -39,10 +39,10 @@
     <script type="text/javascript" src="./modalCtrl.js"></script>
     <link rel="shortcut icon" href="/img/favicon.ico" />
   </head>
-  <body ng-controller="inputChecker as inputVM">
+  <body ng-controller="InputChecker as inputVM">
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container-fluid">
-        <div class="col-lg-11 col-md-11 col-sm-11" ng-controller="promptsController as promptsVM">
+        <div class="col-lg-11 col-md-11 col-sm-11" ng-controller="PromptsController as promptsVM">
           <div class="btn-group" role="group" aria-label="...">
             <button type="button" class="btn btn-primary btn-sm navbar-btn" ng-click="promptsVM.previousPrompt()"><</button>
             <button type="button" class="btn btn-primary btn-sm navbar-btn" ng-click="promptsVM.getTutorial()">O</button>
@@ -50,27 +50,27 @@
           </div>
           <span style="display:inline-lists">{{promptsVM.tutorial}}</span>
         </div>
-        <div class="col-lg-1 col-md-1 col-sm-1" ng-controller="modalCtrl as modalVM">
+        <div class="col-lg-1 col-md-1 col-sm-1" ng-controller="ModalCtrl as modalVM">
           <script type="text/ng-template" src="tutorialContent.html"></script>
           <button type="button" class="btn btn-danger btn-sm navbar-btn" ng-click="modalVM.open('lg')">History</button>
         </div>
       </div>
     </nav>
     <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
-    <div ng-controller="htmlController as htmlVM" id="html" class="textEditor">
+    <div ng-controller="HtmlController as htmlVM" id="html" class="textEditor">
       <textarea ui-codemirror="{ onLoad : htmlVM.codemirrorLoaded }" ui-codemirror-opts="htmlVM.editorOptions"></textarea>
     </div>
-    <div ng-controller="partialController as partialVM" id="partial" class="textEditor">
+    <div ng-controller="PartialController as partialVM" id="partial" class="textEditor">
       <textarea ui-codemirror="{ onLoad : partialVM.codemirrorLoaded }" ui-codemirror-opts="partialVM.editorOptions"></textarea>
     </div>
-    <div ng-controller="appController as appVM" id="app" class="textEditor">
+    <div ng-controller="AppController as appVM" id="app" class="textEditor">
       <textarea ui-codemirror="{ onLoad : appVM.codemirrorLoaded }" ui-codemirror-opts="appVM.editorOptions"></textarea>
     </div>
-    <div ng-controller="controllerController as controllerVM" id="controller" class="textEditor">
+    <div ng-controller="ControllerController as controllerVM" id="controller" class="textEditor">
       <textarea ui-codemirror="{ onLoad : controllerVM.codemirrorLoaded }" ui-codemirror-opts="controllerVM.editorOptions"></textarea>
     </div>
   <div class="embeddedPage">
-    <form id="embeddedPage" ng-submit="embeddedVM.changeLink()" ng-controller="embeddedPage as embeddedVM">
+    <form id="embeddedPage" ng-submit="embeddedVM.changeLink()" ng-controller="EmbeddedPage as embeddedVM">
       <input id="URL" type="text" style="width:400px" name="link" ng-model="embeddedVM.userInput" >
       <input type="submit" name="button" value="Enter">
     </form>
@@ -79,7 +79,7 @@
   		<iframe id="iframeOutput"></iframe>
   	</section>
   </div>
-  <div ng-controller="factoryController as factoryVM" id="factory" class="textEditor">
+  <div ng-controller="FactoryController as factoryVM" id="factory" class="textEditor">
     <textarea ui-codemirror="{ onLoad : factoryVM.codemirrorLoaded }" ui-codemirror-opts="factoryVM.editorOptions"></textarea>
   </div>
     <script type="text/javascript" src="javascript.js"></script>

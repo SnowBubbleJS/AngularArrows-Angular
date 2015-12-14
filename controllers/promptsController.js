@@ -1,42 +1,44 @@
 (function(){
   angular
     .module('app')
-    .controller('promptsController', promptsController);
+    .controller('PromptsController', promptsController);
 
   // promptsController.$inject = ['promptsFactory'];
 
   function promptsController(promptFactory, $http) {
     var vm = this;
-    vm.tutorial = "Tutorial prompts will be going here";
-    var allPrompts;
-    $http.get('/prompts').then(function(res, b) {
-      console.log('successs!!!');
-      allPrompts = JSON.parse(res.data[0]);
-      console.log(allPrompts);
-    });
 
-    // increments counter to move tutorial series forward
-    vm.getTutorial = function() {
+    vm.tutorial = "Tutorial prompts will go here";
+    vm.getTutorial = getTutorial;
+    vm.previousPrompt = previousPrompt;
+    vm.nextPrompt = nextPrompt;
+
+    ////////////
+
+    function getTutorial() {
       if (promptFactory.counter < 18) {
-        vm.tutorial = allPrompts[promptFactory.counter];
-        promptFactory.counter++;
-        promptFactory.currentPrompt = promptFactory.counter;
-        console.log(promptFactory.counter);
+        if(promptFactory.counter === -5) {
+            vm.tutorial = promptFactory.allPrompts.$$state.value[0];
+            promptFactory.counter = 0;
+        }
+        else {
+          promptFactory.counter++;
+          vm.tutorial = promptFactory.allPrompts.$$state.value[promptFactory.counter];
+          promptFactory.currentPrompt = promptFactory.counter;
+        }
       }
-    };
-    vm.previousPrompt = function () {
+    }
+    function previousPrompt() {
       if (promptFactory.currentPrompt > 0) {
         promptFactory.currentPrompt--;
-        vm.tutorial = allPrompts[promptFactory.currentPrompt-1];
-        console.log(promptFactory.currentPrompt);
+        vm.tutorial = promptFactory.allPrompts.$$state.value[promptFactory.currentPrompt];
       }
-    };
-    vm.nextPrompt = function () {
+    }
+    function nextPrompt() {
       if (promptFactory.currentPrompt < promptFactory.counter) {
-        vm.tutorial = allPrompts[promptFactory.currentPrompt+1];
         promptFactory.currentPrompt++;
-        console.log(promptFactory.currentPrompt);
+        vm.tutorial = promptFactory.allPrompts.$$state.value[promptFactory.currentPrompt];
       }
-    };
+    }
   }
 }());

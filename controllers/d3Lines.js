@@ -4,7 +4,11 @@
     .factory('d3Lines',d3Lines);
 
   function d3Lines() {
-    return {lineFunction: function(query){
+    return {lineFunction: lineFunction};
+
+    ////////////
+
+    function lineFunction(query){
         var temp = $(query);
         var c = document.getElementById("canvas");
         var ctx = c.getContext("2d");
@@ -23,6 +27,6 @@
         if(temp.length < 2) {
             ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
         }
-      }};
+      }
   }
 }());
