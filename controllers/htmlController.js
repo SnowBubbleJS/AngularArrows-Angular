@@ -21,7 +21,9 @@
   <head>
     <meta charset="utf-8">
   </head>
-  <body>
+  <body ng-app="myApp">
+  <div ng-controller="myController">
+  </div>
 
   </body>
 </html>
