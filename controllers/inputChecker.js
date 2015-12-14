@@ -12,12 +12,14 @@ function inputCheckerF($scope, output, inputFactory) {
   //   console.log(arguments);
   //   console.log('watching....');
   // }, true);
-  
+
   // setInterval(function() {
   //   $scope.testString = output.source.replace(/(\r\n|\n|\r|\s)/g, '').replace(/(')/g, '"');
+  //   console.log(output);
   //   console.log($scope.testString);
-  //   checkStatus($scope.testString);
+  //   //checkStatus($scope.testString);
   // },1000);
+
 }
 
 function checkStatus(userString) {

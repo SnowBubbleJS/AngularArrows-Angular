@@ -11,7 +11,6 @@ function myTextArea($scope, output, $http) {
   };
   $scope.codemirrorLoaded = function(_editor) {
     _editor.setValue(`<div ng-app = 'myApp'>
-    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
   <div ng-controller='myController'>
       <form ng-submit="getMovie()">
         <input type='text' ng-model='movie' size="30" />
@@ -28,7 +27,7 @@ function myTextArea($scope, output, $http) {
       lineFunction('.cm-string:contains(myController)');
       output.render();
       setTimeout(function() {
-        linefunction('.cm-string:contains(myController)');
+        lineFunction('.cm-string:contains(myController)');
       },0);
     });
   };
