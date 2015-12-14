@@ -1,20 +1,22 @@
-angular
+(function(){
+  angular
   .module('app')
-  .controller('modalCtrl', function ($scope, $modal, $log) {
-    $scope.items = ['item1', 'item2', 'item3'];
-    $scope.open = function (size) {
+  .controller('ModalCtrl', function ($modal, $log) {
+    var vm = this;
+    vm.items = ['item1', 'item2', 'item3'];
+    vm.open = function (size) {
       var modalInstance = $modal.open({
         templateUrl: 'tutorialContent.html',
-        controller: 'modalInstanceCtrl',
+        controller: 'ModalInstanceCtrl',
         size: size,
         resolve: {
           items: function () {
-            return $scope.items;
+            return vm.items;
           }
         }
       });
       modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
+        vm.selected = selectedItem;
       }, function () {
         $log.info('Modal dismissed at: ' + new Date());
       });
@@ -26,15 +28,17 @@ angular
 
 angular
   .module('app')
-    .controller('modalInstanceCtrl', function ($scope, $modalInstance, items) {
-    $scope.items = items;
-    $scope.selected = {
-      item: $scope.items[0]
+    .controller('ModalInstanceCtrl', function ($modalInstance, items) {
+    var vm = this;
+    vm.items = items;
+    vm.selected = {
+      item: vm.items[0]
     };
-    $scope.ok = function () {
-      $modalInstance.close($scope.selected.item);
+    vm.ok = function () {
+      $modalInstance.close(vm.selected.item);
     };
-    $scope.cancel = function () {
+    vm.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
   });
+}());
