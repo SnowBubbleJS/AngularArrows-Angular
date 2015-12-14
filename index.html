@@ -26,8 +26,6 @@
     <!-- Developer Scripts -->
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="factory.js"></script>
-    <script type="text/javascript" src="./inputFactory.js"></script>
-    <script type="text/javascript" src="./controllers/inputChecker.js"></script>
     <script type="text/javascript" src="./controllers/partialController.js"></script>
     <script type="text/javascript" src="./controllers/appController.js"></script>
     <script type="text/javascript" src="./controllers/controllerController.js"></script>
@@ -36,6 +34,9 @@
     <script type="text/javascript" src="./controllers/embeddedPageController.js"></script>
     <script type="text/javascript" src="./promptFactory.js"></script>
     <script type="text/javascript" src="./controllers/promptsController.js"></script>
+    <script type="text/javascript" src="./inputFactory.js"></script>
+    <script type="text/javascript" src="./controllers/inputChecker.js"></script>
+    <link rel="shortcut icon" href="/img/favicon.ico" />
     <script type="text/javascript" src="./controllers/d3Lines.js"></script>
     <script type="text/javascript" src="./modalCtrl.js"></script>
   </head>
@@ -43,52 +44,52 @@
     <!-- material-design -->
     <md-toolbar class="md-primary">
       <div class="container-fluid">
-        <div class="col-lg-11 col-md-11 col-sm-11" ng-controller="promptsController">
+        <div class="col-lg-11 col-md-11 col-sm-11" ng-controller="PromptsController as promptsVM">
           <div class="btn-group" role="group" aria-label="...">
-            <md-button type="button" class="md-raised" ng-click="previousPrompt()"><</md-button>
-            <md-button type="button" class="md-fab md-mini" ng-click="getTutorial()">O</md-button>
-            <md-button type="button" class="md-raised" ng-click="nextPrompt()">></md-button>
+            <md-button type="button" class="md-raised" ng-click="promptsVM.previousPrompt()"><</md-button>
+            <md-button type="button" class="md-fab md-mini" ng-click="promptsVM.getTutorial()">O</md-button>
+            <md-button type="button" class="md-raised" ng-click="promptsVM.nextPrompt()">></md-button>
           </div>
-          <span style="display:inline-lists"><p class="md-body-2">{{tutorial}}<p/></span>
+          <span style="display:inline-lists"><p class="md-body-2">{{promptsVM.tutorial}}<p/></span>
         </div>
-        <div class="col-lg-1 col-md-1 col-sm-1" ng-controller="modalCtrl">
+        <div class="col-lg-1 col-md-1 col-sm-1" ng-controller="ModalCtrl as modalVM">
           <script type="text/ng-template" src="tutorialContent.html"></script>
-          <md-button type="button" class="md-warn md-raised" ng-click="open()">History</md-button>
+          <md-button type="button" class="md-warn md-raised" ng-click="modalVM.open()">History</md-button>
         </div>
       </div>
     </md-toolbar>
     <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
     <!-- more material design -->
-    <md-card ng-controller="htmlController" id="html" class="textEditor md-whiteframe-1dp">
+    <md-card ng-controller="HtmlController as htmlVM" id="html" class="textEditor md-whiteframe-1dp">
       <md-toolbar class="md-primary">
         <h1 class="md-flex md-title">HTML</h6>
       </md-toolbar>
-      <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
+      <textarea ui-codemirror="{ onLoad : htmlVM.codemirrorLoaded }" ui-codemirror-opts="htmlVM.editorOptions"></textarea>
     </md-card>
-    <md-card ng-controller="partialController" id="partial" class="textEditor md-whiteframe-1dp">
+    <md-card ng-controller="PartialController as partialVM" id="partial" class="textEditor md-whiteframe-1dp">
       <md-toolbar class="md-primary">
         <h1 class="md-flex md-title">Partial</h6>
       </md-toolbar>
-      <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
+      <textarea ui-codemirror="{ onLoad : partialVM.codemirrorLoaded }" ui-codemirror-opts="partialVM.editorOptions"></textarea>
     </md-card>
-    <md-card ng-controller="appController" id="app" class="textEditor md-whiteframe-1dp">
+    <md-card ng-controller="AppController as appVM" id="app" class="textEditor md-whiteframe-1dp">
       <md-toolbar class="md-primary">
         <h1 class="md-flex md-title">App</h6>
       </md-toolbar>
-      <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
+      <textarea ui-codemirror="{ onLoad : appVM.codemirrorLoaded }" ui-codemirror-opts="appVM.editorOptions"></textarea>
     </md-card>
-    <md-card ng-controller="controllerController" id="controller" class="textEditor md-whiteframe-1dp">
+    <md-card ng-controller="ControllerController as controllerVM" id="controller" class="textEditor md-whiteframe-1dp">
       <md-toolbar class="md-primary">
         <h1 class="md-flex md-title">Controller</h6>
       </md-toolbar>
-      <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
+      <textarea ui-codemirror="{ onLoad : controllerVM.codemirrorLoaded }" ui-codemirror-opts="controllerVM.editorOptions"></textarea>
     </md-card>
   <md-card class="embeddedPage md-whiteframe-1dp">
     <md-toolbar class="md-primary">
       <h1 class="md-flex md-title">Output</h6>
     </md-toolbar>
-    <form id="embeddedPage" ng-submit="changeLink()" ng-controller="embeddedPage">
-      <input id="URL" type="text" style="width:400px" name="link" ng-model="userInput" >
+    <form id="embeddedPage" ng-submit="embeddedVM.changeLink()" ng-controller="EmbeddedPage as embeddedVM">
+      <input id="URL" type="text" style="width:400px" name="link" ng-model="embeddedVM.userInput" >
       <input type="submit" name="button" value="Enter">
     </form>
 
@@ -96,11 +97,11 @@
   		<iframe id="iframeOutput"></iframe>
   	</section>
   </md-card>
-  <md-card ng-controller="factoryController" id="factory" class="textEditor md-whiteframe-1dp">
+  <md-card ng-controller="FactoryController as factoryVM" id="factory" class="textEditor md-whiteframe-1dp">
     <md-toolbar class="md-primary">
       <h1 class="md-flex md-title">Factory</h6>
     </md-toolbar>
-    <textarea ui-codemirror="{ onLoad : codemirrorLoaded }" ui-codemirror-opts="editorOptions"></textarea>
+    <textarea ui-codemirror="{ onLoad : factoryVM.codemirrorLoaded }" ui-codemirror-opts="factoryVM.editorOptions"></textarea>
   </md-card>
     <script type="text/javascript" src="javascript.js"></script>
     <!-- For HTML/XML -->

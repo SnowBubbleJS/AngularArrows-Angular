@@ -1,21 +1,27 @@
-angular
+(function(){angular
   .module('app')
-  .controller('factoryController', factoryController);
+  .controller('FactoryController', factoryController);
 
-function factoryController($scope, output) {
+  function factoryController(output) {
+    var vm = this;
 
-  $scope.editorOptions = {
+    vm.codemirrorLoaded = codemirrorLoaded;
+    vm.editorOptions = {
       lineWrapping : true,
       lineNumbers: true,
       mode: 'text/javascript',
-  };
-  $scope.codemirrorLoaded = function(_editor) {
-    _editor.setValue();
-    output.factory = _editor.getValue();
-    output.render();
-    _editor.on('change', function(inst, changes) {
+    };
+
+    ////////////
+
+    function codemirrorLoaded(_editor) {
+      _editor.setValue();
       output.factory = _editor.getValue();
       output.render();
-    });
-  };
-}
+      _editor.on('change', function(inst, changes) {
+        output.factory = _editor.getValue();
+        output.render();
+      });
+    }
+  }
+}());
