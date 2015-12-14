@@ -1,39 +1,44 @@
-angular
-  .module('app')
-  .controller('promptsController', promptsController);
+(function(){
+  angular
+    .module('app')
+    .controller('PromptsController', promptsController);
 
-// promptsController.$inject = ['promptsFactory'];
+  // promptsController.$inject = ['promptsFactory'];
 
-function promptsController($scope, promptFactory, $http) {
-  $scope.tutorial = "Tutorial prompts will be going here";
-  var allPrompts;
-  $http.get('/prompts').then(function(res, b) {
-    console.log('successs!!!');
-    allPrompts = JSON.parse(res.data[0]);
-    console.log(allPrompts);
-  });
+  function promptsController(promptFactory, $http) {
+    var vm = this;
 
-  // increments counter to move tutorial series forward
-  $scope.getTutorial = function() {
-    if (promptFactory.counter < 18) {
-      $scope.tutorial = allPrompts[promptFactory.counter];
-      promptFactory.counter++;
-      promptFactory.currentPrompt = promptFactory.counter;
-      console.log(promptFactory.counter);
+    vm.tutorial = "Tutorial prompts will go here";
+    vm.getTutorial = getTutorial;
+    vm.previousPrompt = previousPrompt;
+    vm.nextPrompt = nextPrompt;
+
+    ////////////
+
+    function getTutorial() {
+      if (promptFactory.counter < 18) {
+        if(promptFactory.counter === -5) {
+            vm.tutorial = promptFactory.allPrompts.$$state.value[0];
+            promptFactory.counter = 0;
+        }
+        else {
+          promptFactory.counter++;
+          vm.tutorial = promptFactory.allPrompts.$$state.value[promptFactory.counter];
+          promptFactory.currentPrompt = promptFactory.counter;
+        }
+      }
     }
-  };
-  $scope.previousPrompt = function () {
-    if (promptFactory.currentPrompt > 0) {
-      promptFactory.currentPrompt--;
-      $scope.tutorial = allPrompts[promptFactory.currentPrompt-1];
-      console.log(promptFactory.currentPrompt);
+    function previousPrompt() {
+      if (promptFactory.currentPrompt > 0) {
+        promptFactory.currentPrompt--;
+        vm.tutorial = promptFactory.allPrompts.$$state.value[promptFactory.currentPrompt];
+      }
     }
-  };
-  $scope.nextPrompt = function () {
-    if (promptFactory.currentPrompt < promptFactory.counter) {
-      $scope.tutorial = allPrompts[promptFactory.currentPrompt+1];
-      promptFactory.currentPrompt++;
-      console.log(promptFactory.currentPrompt);
+    function nextPrompt() {
+      if (promptFactory.currentPrompt < promptFactory.counter) {
+        promptFactory.currentPrompt++;
+        vm.tutorial = promptFactory.allPrompts.$$state.value[promptFactory.currentPrompt];
+      }
     }
-  };
-}
+  }
+}());

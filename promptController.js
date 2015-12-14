@@ -42,7 +42,6 @@ var promptModel = {
   ],
   findPrompts: function(req, res) {
     Prompt.findOne({}, function(error, prompts) {
-      console.log(prompts);
       res.send(prompts);
     });
   },

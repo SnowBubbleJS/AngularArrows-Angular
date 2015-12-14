@@ -46,6 +46,7 @@ function output() {
       return src;
     },
     render: function() {
+      console.log(this.url);
       iframe = document.querySelector('#output iframe');
       if(this.url === 'http://www.localhost:3000/' || this.url === 'http://www.localhost:3000') {
         this.source = this.prepareSource();
