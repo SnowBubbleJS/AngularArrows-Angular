@@ -7,7 +7,7 @@
 html, body {
   height: 100%;
   color: rgba(0, 0, 0, 0.87);
-  background: white;
+  background: none
   position: relative; }
 
 body {
@@ -38,6 +38,7 @@ input[type="reset"], input[type="submit"], html input[type="button"], button {
     cursor: default; }
 
 textarea {
+  background: none;
   vertical-align: top;
   overflow: auto; }
 
@@ -5744,6 +5745,7 @@ md-bottom-sheet {
     border: 1px solid #fff; } }
 
 md-card {
+  background: none;
   box-sizing: border-box;
   display: -webkit-flex;
   display: -ms-flexbox;

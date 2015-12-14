@@ -40,7 +40,7 @@
     <script type="text/javascript" src="./modalCtrl.js"></script>
   </head>
   <body>
-    <div layout="column">
+    <div layout="column" style="background: transparent">
     <!-- material-design -->
     <md-toolbar class="md-primary" flex>
       <div layout="row" ng-controller="PromptsController as promptsVM">
@@ -103,7 +103,7 @@
       		<iframe id="iframeOutput"></iframe>
       	</section>
       </md-card>
-      <md-card flex="50 ng-controller="FactoryController as factoryVM" id="factory" class="textEditor md-whiteframe-1dp">
+      <md-card flex="50" ng-controller="FactoryController as factoryVM" id="factory" class="textEditor md-whiteframe-1dp">
         <md-toolbar class="md-primary">
           <h1 class="md-flex md-title">Factory</h6>
         </md-toolbar>

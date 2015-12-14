@@ -1,9 +1,21 @@
-/*
-#html {
-  height: 400px;
-  width: 500px;
-  display: inline-block;
+#canvas {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+ left: 0;
 }
+
+.cm-s-default {
+	background: none;
+}
+
+.CodeMirror-gutters {
+	background: none;
+}
+
+
+/*
+
 #partial{
   height: 400px;
   width: 300px;
@@ -43,13 +55,7 @@ iframe {
 
 
 
-.cm-s-default {
-	background: none;
-}
 
-.CodeMirror-gutters {
-	background: none;
-}
 .menuBardemoBasicUsage .page-container {
   background-color: #f1f1f1;
   padding: 32px;
