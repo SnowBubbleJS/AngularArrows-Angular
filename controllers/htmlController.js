@@ -16,16 +16,15 @@
     ////////////
 
     function codemirrorLoaded(_editor) {
-      _editor.setValue(`<div ng-app = 'myApp'>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
-    <div ng-controller='myController'>
-        <form ng-submit="getMovie()">
-          <input type='text' ng-model='movie' size="30" />
-            <input class="btn-primary" type="submit" value="add" />
-        </form>
-            {{name}}
-        </div>
-      </div>
+      _editor.setValue(`<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+  </body>
+</html>
       `);
       output.html = _editor.getValue();
       output.render();
