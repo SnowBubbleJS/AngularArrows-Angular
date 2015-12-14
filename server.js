@@ -22,3 +22,6 @@ app.use(express.static(__dirname));
 
 
 app.listen(process.env.PORT || 3000);
+
+// @ds027835.mongolab.com:27835/prompts
+// mongodb://<dbuser>:<dbpassword>@ds029615.mongolab.com:29615/promptsv2
