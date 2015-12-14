@@ -4,6 +4,8 @@ var mongoose = require('mongoose');
 var Prompt = require('./promptController.js');
 var app = express();
 var mongoURI = 'mongodb://' + process.env.ID + ':' + process.env.PASS + '@ds027835.mongolab.com:27835/prompts';
+// var mongoURI = 'mongodb://angular' + ':arrows' + '@ds027835.mongolab.com:27835/prompts';
+console.log(mongoURI);
 mongoose.connect(mongoURI);
 mongoose.connection.once('open', function() {
 	console.log('Connected with MongoDB ORM - mongodb-orm');
@@ -21,4 +23,7 @@ app.get("/prompts", Prompt.findPrompts);
 app.use(express.static(__dirname));
 
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 5000);
+
+// @ds027835.mongolab.com:27835/prompts
+// mongodb://<dbuser>:<dbpassword>@ds029615.mongolab.com:29615/promptsv2

@@ -5,7 +5,8 @@
       var vm = this;
 
       vm.userInput = 'http://www.localhost:3000/';
-      vm.changeLink = changeLink();
+      vm.changeLink = changeLink;
+      
       ////////////
 
       function changeLink() {
