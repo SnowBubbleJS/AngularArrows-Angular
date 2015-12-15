@@ -16,17 +16,11 @@
     ////////////
 
     function codemirrorLoaded(_editor) {
-      _editor.setValue(`<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-  </head>
-  <body ng-app="myApp">
-  <div ng-controller="myController">
-  </div>
-
-  </body>
-</html>
+      _editor.setValue(`<div ng-app='myApp' ng-controller='myController' >
+   {{name}}
+   {{age}}
+   {{occupation}}
+   </div>
       `);
       output.html = _editor.getValue();
       output.render();

@@ -40,7 +40,7 @@
     <script type="text/javascript" src="./modalCtrl.js"></script>
   </head>
   <body>
-    <div layout="column" style="background: transparent">
+    <div layout="column">
     <!-- material-design -->
     <md-toolbar class="md-primary" flex>
       <div layout="row" ng-controller="PromptsController as promptsVM">
@@ -64,26 +64,26 @@
     <!-- more material design -->
     <div layout="row" flex="50">
       <md-card flex="30" ng-controller="HtmlController as htmlVM" id="html" class="textEditor md-whiteframe-1dp">
-        <md-toolbar class="md-primary">
-          <h1 class="md-flex md-title">HTML</h6>
+        <md-toolbar class="md-primary" layout-align="center center">
+          <h1 class="md-flex md-title" >HTML</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : htmlVM.codemirrorLoaded }" ui-codemirror-opts="htmlVM.editorOptions"></textarea>
       </md-card>
-      <md-card flex="10" ng-controller="PartialController as partialVM" id="partial" class="textEditor md-whiteframe-1dp">
-        <md-toolbar class="md-primary">
-          <h1 class="md-flex md-title">Partial</h6>
+      <md-card flex="15" ng-controller="PartialController as partialVM" id="partial" class="textEditor md-whiteframe-1dp">
+        <md-toolbar class="md-primary" layout-align="center center">
+          <h1 class="md-flex md-title" >Partial</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : partialVM.codemirrorLoaded }" ui-codemirror-opts="partialVM.editorOptions"></textarea>
       </md-card>
-      <md-card flex="30" ng-controller="AppController as appVM" id="app" class="textEditor md-whiteframe-1dp">
-        <md-toolbar class="md-primary">
-          <h1 class="md-flex md-title">App</h6>
+      <md-card flex="20" ng-controller="AppController as appVM" id="app" class="textEditor md-whiteframe-1dp">
+        <md-toolbar class="md-primary" layout-align="center center">
+          <h1 class="md-flex md-title">App</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : appVM.codemirrorLoaded }" ui-codemirror-opts="appVM.editorOptions"></textarea>
       </md-card>
       <md-card flex="30" ng-controller="ControllerController as controllerVM" id="controller" class="textEditor md-whiteframe-1dp">
-        <md-toolbar class="md-primary">
-          <h1 class="md-flex md-title">Controller</h6>
+        <md-toolbar class="md-primary" layout-align="center center">
+          <h1 class="md-flex md-title">Controller</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : controllerVM.codemirrorLoaded }" ui-codemirror-opts="controllerVM.editorOptions"></textarea>
       </md-card>
@@ -91,21 +91,20 @@
 
     <div layout="row" flex="50">
       <md-card class="embeddedPage md-whiteframe-1dp" flex="50">
-        <md-toolbar class="md-primary">
-          <h1 class="md-flex md-title">Output</h6>
+        <md-toolbar class="md-primary" layout-align="center center">
+          <h1 class="md-flex md-title">Output</h1>
         </md-toolbar>
         <form id="embeddedPage" ng-submit="embeddedVM.changeLink()" ng-controller="EmbeddedPage as embeddedVM">
           <input id="URL" type="text" style="width:400px" name="link" ng-model="embeddedVM.userInput" >
           <input type="submit" name="button" value="Enter">
         </form>
-
         <section id="output">
       		<iframe id="iframeOutput"></iframe>
       	</section>
       </md-card>
       <md-card flex="50" ng-controller="FactoryController as factoryVM" id="factory" class="textEditor md-whiteframe-1dp">
-        <md-toolbar class="md-primary">
-          <h1 class="md-flex md-title">Factory</h6>
+        <md-toolbar class="md-primary" layout-align="center center">
+          <h1 class="md-flex md-title">Factory</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : factoryVM.codemirrorLoaded }" ui-codemirror-opts="factoryVM.editorOptions"></textarea>
       </md-card>

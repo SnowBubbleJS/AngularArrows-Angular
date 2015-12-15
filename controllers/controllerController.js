@@ -17,14 +17,13 @@
 
     function codemirrorLoaded(_editor) {
       _editor.setValue(`angular
-      	.module('myApp')
-      	.controller('myController',myController)
-        function myController(vm){
-          vm.movie = 'Frozen';
-          vm.getMovie = function(){
-            console.log(vm.movie);
-          }
-        }
+    .module('myApp')
+    .controller('myController', myController);
+
+function myController($scope) {
+ $scope.name = 'Bob';
+ $scope.age = 30;
+ $scope.occupation = 'hacker';
       `);
       output.controller = _editor.getValue();
       output.render();
