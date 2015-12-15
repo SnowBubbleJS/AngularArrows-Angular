@@ -15,13 +15,13 @@ mongoose.connection.once('open', function() {
 //   res.sendFile(path.join(__dirname, '/prompts.json'));
 // });
 
-// app.get("/prompts", Prompt.findPrompts);
+app.get("/prompts", Prompt.findPrompts);
 // app.post("/prompts", Prompt.postPrompts);
 
 app.use(express.static(__dirname));
 
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 5000);
 
 // @ds027835.mongolab.com:27835/prompts
 // mongodb://<dbuser>:<dbpassword>@ds029615.mongolab.com:29615/promptsv2
