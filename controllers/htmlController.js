@@ -3,6 +3,8 @@
     .module('app')
     .controller('HtmlController', myTextArea);
 
+  myTextArea.$inject = ["output", "$http","d3Lines"];
+
   function myTextArea(output, $http, d3Lines) {
     var vm = this;
 
@@ -16,11 +18,15 @@
     ////////////
 
     function codemirrorLoaded(_editor) {
-      _editor.setValue(`<div ng-app='myApp' ng-controller='myController' >
-   {{name}}
-   {{age}}
-   {{occupation}}
-   </div>
+      _editor.setValue(`<html>
+  <head>
+    <meta charset="utf-8">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
+  </head>
+  <body>
+
+  </body>
+</html>
       `);
       output.html = _editor.getValue();
       output.render();
@@ -30,7 +36,7 @@
         output.render();
 
         // $http({
-        //   method: 'GET',
+        //   method: 'POST',
         //   url: '/prompts'
         // }).then(function successCallback(response) {
         //     console.log(response);
