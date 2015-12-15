@@ -21,7 +21,9 @@
   <head>
     <meta charset="utf-8">
   </head>
-  <body>
+  <body ng-app="myApp">
+  <div ng-controller="myController">
+  </div>
 
   </body>
 </html>
@@ -32,6 +34,16 @@
         output.html = _editor.getValue();
         d3Lines.lineFunction('.cm-string:contains(myController)');
         output.render();
+
+        // $http({
+        //   method: 'GET',
+        //   url: '/prompts'
+        // }).then(function successCallback(response) {
+        //     console.log(response);
+        //   }, function errorCallback(response) {
+        //     console.log('failure....');
+        //   });
+
         setTimeout(function() {
           d3Lines.lineFunction('.cm-string:contains(myController)');
         },0);

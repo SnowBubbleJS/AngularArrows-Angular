@@ -17,6 +17,7 @@
           var y1 = $(temp[0]).offset().top +10;
           var x2 = $(temp[1]).offset().left+5;
           var y2 = $(temp[1]).offset().top +10;
+          console.log(x1,x2,y1,y2);
           ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
           ctx.beginPath();
           ctx.lineWidth = 0.2;
