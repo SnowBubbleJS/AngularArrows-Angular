@@ -3,7 +3,7 @@
     .module('app')
     .controller('PromptsController', promptsController);
 
-  // promptsController.$inject = ['promptsFactory'];
+  promptsController.$inject = ["promptFactory", "$http"];
 
   function promptsController(promptFactory, $http) {
     var vm = this;
@@ -16,7 +16,7 @@
     ////////////
 
     function getTutorial() {
-      if (promptFactory.counter < 18) {
+      if (promptFactory.counter < inputFactory.prompts.length) {
         if(promptFactory.counter === -5) {
             vm.tutorial = promptFactory.allPrompts.$$state.value[0];
             promptFactory.counter = 0;

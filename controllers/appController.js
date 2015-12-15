@@ -3,6 +3,8 @@
     .module('app')
     .controller('AppController', myTextArea);
 
+    myTextArea.$inject = ["output", "d3Lines"];
+
   function myTextArea(output, d3Lines) {
     var vm = this;
 
@@ -16,9 +18,6 @@
     ////////////
 
     function codemirrorLoaded(_editor) {
-      _editor.setValue(`angular
-      	.module('myApp',[])
-      `);
       output.app = _editor.getValue();
       output.render();
       _editor.on('change', function(inst, changes) {
