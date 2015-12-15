@@ -3,6 +3,8 @@
     .module('app')
     .controller('PartialController', myTextArea);
 
+  myTextArea.$inject = ["output"];
+
   function myTextArea(output) {
     var vm = this;
 

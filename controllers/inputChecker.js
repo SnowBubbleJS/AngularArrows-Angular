@@ -3,6 +3,8 @@
     .module('app')
     .controller('InputChecker', inputCheckerF);
 
+  inputCheckerF.$inject = ["$scope", "output"];
+
   function inputCheckerF($scope, output) {
     var vm = this;
 

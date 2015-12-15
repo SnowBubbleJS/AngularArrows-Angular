@@ -2,6 +2,8 @@
   .module('app')
   .controller('FactoryController', factoryController);
 
+  factoryController.$inject = ["output"];
+
   function factoryController(output) {
     var vm = this;
 
