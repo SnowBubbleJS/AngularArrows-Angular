@@ -1,10 +1,10 @@
 (function(){angular
   .module('app')
-  .controller('FactoryController', factoryController);
+  .controller('FactoryController', FactoryController);
 
-  factoryController.$inject = ["output"];
+  FactoryController.$inject = ["output"];
 
-  function factoryController(output) {
+  function FactoryController(output) {
     var vm = this;
 
     vm.codemirrorLoaded = codemirrorLoaded;

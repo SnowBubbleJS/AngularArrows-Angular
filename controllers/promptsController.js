@@ -1,43 +1,56 @@
 (function(){
   angular
     .module('app')
-    .controller('PromptsController', promptsController);
+    .controller('PromptsController', PromptsController);
 
-  promptsController.$inject = ["promptFactory", "$http"];
+  PromptsController.$inject = ["$http", "$scope", "inputFactory", "promptFactory"];
 
-  function promptsController(promptFactory, $http) {
+  function PromptsController($http, $scope, inputFactory, promptFactory) {
     var vm = this;
 
-    vm.tutorial = "Tutorial prompts will go here";
     vm.getTutorial = getTutorial;
-    vm.previousPrompt = previousPrompt;
     vm.nextPrompt = nextPrompt;
+    vm.noAnswerPrompts = [0,1,2,3,7,8,12,13,14,18];
+    vm.previousPrompt = previousPrompt;
+    vm.tutorial = "Tutorial prompts will go here";
+
+    setInterval(function(){
+      console.log(promptFactory.shouldUpdate);
+      if(promptFactory.shouldUpdate === 1) {
+        vm.getTutorial();
+        $scope.$apply();
+        console.log("omhhi");
+      }
+    },1000);
 
     ////////////
 
     function getTutorial() {
-      if (promptFactory.counter < inputFactory.prompts.length) {
+      if (promptFactory.counter < promptFactory.allPrompts.length) {
         if(promptFactory.counter === -5) {
-            vm.tutorial = promptFactory.allPrompts.$$state.value[0];
+            vm.tutorial = promptFactory.allPrompts[0];
             promptFactory.counter = 0;
         }
-        else {
-          promptFactory.counter++;
-          vm.tutorial = promptFactory.allPrompts.$$state.value[promptFactory.counter];
-          promptFactory.currentPrompt = promptFactory.counter;
-        }
-      }
-    }
-    function previousPrompt() {
-      if (promptFactory.currentPrompt > 0) {
-        promptFactory.currentPrompt--;
-        vm.tutorial = promptFactory.allPrompts.$$state.value[promptFactory.currentPrompt];
+        else if(inputFactory.answers[promptFactory.counter] === 0 || promptFactory.shouldUpdate === 1) {
+            promptFactory.counter++;
+            promptFactory.shouldUpdate = 0;
+            vm.tutorial = promptFactory.allPrompts[promptFactory.counter];
+            console.log('should show', vm.tutorial);
+            promptFactory.currentPrompt = promptFactory.counter;
+          }
+
       }
     }
     function nextPrompt() {
       if (promptFactory.currentPrompt < promptFactory.counter) {
         promptFactory.currentPrompt++;
-        vm.tutorial = promptFactory.allPrompts.$$state.value[promptFactory.currentPrompt];
+        vm.tutorial = promptFactory.allPrompts[promptFactory.currentPrompt];
+      }
+    }
+    function previousPrompt() {
+      if (promptFactory.currentPrompt > 0) {
+        promptFactory.currentPrompt--;
+        vm.tutorial = promptFactory.allPrompts[promptFactory.currentPrompt];
       }
     }
   }
