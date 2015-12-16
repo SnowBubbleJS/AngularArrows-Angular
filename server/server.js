@@ -9,16 +9,10 @@ mongoose.connection.once('open', function() {
 	console.log('Connected with MongoLab');
 });
 
-//  Created for possible back-end storage of tutorial prompts data
-// app.post('/prompts', function(req, res) {
-//   console.log(path.join(__dirname, '/prompts.json'));
-//   res.sendFile(path.join(__dirname, '/prompts.json'));
-// });
-
 app.get("/prompts", Prompt.findPrompts);
 // app.post("/prompts", Prompt.postPrompts);
-
-app.use(express.static(__dirname));
+console.log(path.join(__dirname, "../"));
+app.use(express.static(path.join(__dirname, "../")));
 
 
 app.listen(process.env.PORT || 5000);
