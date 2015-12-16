@@ -25,16 +25,19 @@
 
     <!-- Developer Scripts -->
     <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="./promptFactory.js"></script>
+    <script type="text/javascript" src="./inputFactory.js"></script>
     <script type="text/javascript" src="factory.js"></script>
+    <script type="text/javascript" src="./controllers/promptsController.js"></script>
     <script type="text/javascript" src="./controllers/partialController.js"></script>
     <script type="text/javascript" src="./controllers/appController.js"></script>
     <script type="text/javascript" src="./controllers/controllerController.js"></script>
     <script type="text/javascript" src="./controllers/htmlController.js"></script>
     <script type="text/javascript" src="./controllers/factoryController.js"></script>
     <script type="text/javascript" src="./controllers/embeddedPageController.js"></script>
-    <script type="text/javascript" src="./promptFactory.js"></script>
-    <script type="text/javascript" src="./controllers/promptsController.js"></script>
-    <script type="text/javascript" src="./inputFactory.js"></script>
+
+
+
     <script type="text/javascript" src="./controllers/inputChecker.js"></script>
     <link rel="shortcut icon" href="/img/favicon.ico" />
     <script type="text/javascript" src="./controllers/d3Lines.js"></script>
@@ -47,7 +50,7 @@
       <div layout="row" ng-controller="PromptsController as promptsVM">
         <div flex="30">
           <div style="display: inline" ng-controller="ModalCtrl as modalVM">
-            <script type="text/ng-template" src="tutorialContent.html"></script>
+            <!-- <script type="text/ng-template" src="./tutorialContent.html"></script> -->
             <md-button type="button" class="md-warn md-raised" ng-click="modalVM.open()">History</md-button>
           </div>
           <md-button type="button" class="md-raised" ng-click="promptsVM.previousPrompt()"><</md-button>

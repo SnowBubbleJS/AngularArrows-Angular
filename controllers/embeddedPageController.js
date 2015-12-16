@@ -1,12 +1,16 @@
 (function(){
   angular
     .module('app')
-    .controller('EmbeddedPage', function(output) {
+    .controller('EmbeddedPage', EmbeddedPage);
+
+  EmbeddedPage.$inject = ["output"];
+
+  function EmbeddedPage(output) {
       var vm = this;
 
-      vm.userInput = 'http://www.localhost:3000/';
       vm.changeLink = changeLink;
-      
+      vm.userInput = 'http://www.localhost:3000/';
+
       ////////////
 
       function changeLink() {
@@ -14,5 +18,5 @@
         console.log('im here', output);
         output.render();
       }
-    });
+  }
 }());
