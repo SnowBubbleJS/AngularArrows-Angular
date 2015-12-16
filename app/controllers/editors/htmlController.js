@@ -3,9 +3,9 @@
     .module('app')
     .controller('HtmlController', HtmlController);
 
-  HtmlController.$inject = ["$http", "$scope", "d3Lines", "output"];
+  HtmlController.$inject = ["$http", "$scope", "lineFactory", "output"];
 
-  function HtmlController($http, $scope, d3Lines, output) {
+  function HtmlController($http, $scope, lineFactory, output) {
     var vm = this;
 
     vm.codemirrorLoaded = codemirrorLoaded;
@@ -34,7 +34,7 @@
       output.render();
       _editor.on('change', function(inst, changes) {
         output.html = _editor.getValue();
-        d3Lines.lineFunction('.cm-string:contains(myController)');
+        lineFactory.lineFunction('.cm-string:contains(myController)');
         output.render();
 
         // $http({
@@ -47,7 +47,7 @@
         //   });
 
         setTimeout(function() {
-          d3Lines.lineFunction('.cm-string:contains(myController)');
+          lineFactory.lineFunction('.cm-string:contains(myController)');
         },0);
       });
     };
