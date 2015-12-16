@@ -101,7 +101,7 @@ function inputFactory(promptFactory) {
           </head>
           <body>
         <div ng-controller='myController' > </div>
-          <script>angular.module('myApp', [ ])</script><script>angular.module('app').controller('myController', myController); function myController(){}</script><script></script></body>
+          <script>angular.module('myApp', [ ])</script><script>angular.module('myApp').controller('myController', myController); function myController(){}</script><script></script></body>
       </html>`,
       `<html ng-app='myApp'>
           <head>
