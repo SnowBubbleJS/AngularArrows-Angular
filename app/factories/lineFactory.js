@@ -1,9 +1,9 @@
 (function(){
   angular
     .module('app')
-    .factory('d3Lines',d3Lines);
+    .factory('lineFactory',lineFactory);
 
-  function d3Lines() {
+  function lineFactory() {
     return {lineFunction: lineFunction};
 
     ////////////
