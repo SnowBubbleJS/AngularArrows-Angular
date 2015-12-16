@@ -11,8 +11,8 @@ mongoose.connection.once('open', function() {
 
 app.get("/prompts", Prompt.findPrompts);
 // app.post("/prompts", Prompt.postPrompts);
-
-app.use(express.static(__dirname));
+console.log(path.join(__dirname, "../"));
+app.use(express.static(path.join(__dirname, "../")));
 
 
 app.listen(process.env.PORT || 5000);

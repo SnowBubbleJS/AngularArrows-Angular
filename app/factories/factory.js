@@ -2,17 +2,16 @@ angular
   .module('app')
   .factory('output', output);
 
-output.$inject = ["promptFactory", "inputFactory"];
+output.$inject = ["promptFactory","inputFactory"];
 
 function output(promptFactory, inputFactory) {
-  console.log('this is output...', promptFactory);
   var out = {
     html: '',
     partial: '',
     app: '',
     controller: '',
     factory: '',
-    source: 'asdf',
+    source: '',
     url: "http://www.localhost:3000/",
     prepareSource: function(partial) {
       // var src = "<!DOCTYPE html>\n" +
@@ -53,7 +52,11 @@ function output(promptFactory, inputFactory) {
       iframe = document.querySelector('#output iframe');
       if(this.url === 'http://www.localhost:3000/' || this.url === 'http://www.localhost:3000') {
         this.source = this.prepareSource();
-        // console.log(this.source);
+        if(!!inputFactory.checkInput(this.source)) {
+          promptFactory.shouldUpdate = 1;
+          console.log('goodjob..should update');
+        }
+
         iframe_doc = iframe.contentDocument;
         iframe_doc.open();
         iframe_doc.write(this.source);

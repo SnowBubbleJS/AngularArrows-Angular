@@ -1,11 +1,11 @@
 (function(){
   angular
     .module('app')
-    .controller('HtmlController', myTextArea);
+    .controller('HtmlController', HtmlController);
 
-  myTextArea.$inject = ["output", "$http","d3Lines"];
+  HtmlController.$inject = ["$http", "$scope", "lineFactory", "output"];
 
-  function myTextArea(output, $http, d3Lines) {
+  function HtmlController($http, $scope, lineFactory, output) {
     var vm = this;
 
     vm.codemirrorLoaded = codemirrorLoaded;
@@ -14,6 +14,8 @@
       lineNumbers: true,
       mode: 'xml',
     };
+    // $scope.$emit('recheck', function())
+
 
     ////////////
 
@@ -32,7 +34,7 @@
       output.render();
       _editor.on('change', function(inst, changes) {
         output.html = _editor.getValue();
-        d3Lines.lineFunction('.cm-string:contains(myController)');
+        lineFactory.lineFunction('.cm-string:contains(myController)');
         output.render();
 
         // $http({
@@ -45,7 +47,7 @@
         //   });
 
         setTimeout(function() {
-          d3Lines.lineFunction('.cm-string:contains(myController)');
+          lineFactory.lineFunction('.cm-string:contains(myController)');
         },0);
       });
     };

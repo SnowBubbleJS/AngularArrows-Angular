@@ -1,10 +1,10 @@
 (function(){angular
   .module('app')
-  .controller('FactoryController', factoryController);
+  .controller('FactoryController', FactoryController);
 
-  factoryController.$inject = ["output"];
+  FactoryController.$inject = ["output"];
 
-  function factoryController(output) {
+  function FactoryController(output) {
     var vm = this;
 
     vm.codemirrorLoaded = codemirrorLoaded;
@@ -17,10 +17,10 @@
     ////////////
 
     function codemirrorLoaded(_editor) {
-      _editor.setValue();
       output.factory = _editor.getValue();
       output.render();
       _editor.on('change', function(inst, changes) {
+        console.log('im here');
         output.factory = _editor.getValue();
         output.render();
       });

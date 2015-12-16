@@ -1,11 +1,11 @@
 (function(){
   angular
     .module('app')
-    .controller('ControllerController', myTextArea);
+    .controller('ControllerController', ControllerController);
 
-  myTextArea.$inject = ["output", "d3Lines"];
+  ControllerController.$inject = ["lineFactory", "output"];
 
-  function myTextArea(output, d3Lines) {
+  function ControllerController(lineFactory, output) {
     var vm = this;
 
     vm.codemirrorLoaded = codemirrorLoaded;
@@ -22,10 +22,10 @@
       output.render();
       _editor.on('change', function(inst, changes) {
         output.controller = _editor.getValue();
-        d3Lines.lineFunction('.cm-string:contains(myController)');
+        lineFactory.lineFunction('.cm-string:contains(myController)');
         output.render();
         setTimeout(function() {
-          d3Lines.lineFunction('.cm-string:contains(myController)');
+          lineFactory.lineFunction('.cm-string:contains(myController)');
         },0);
       });
     }
