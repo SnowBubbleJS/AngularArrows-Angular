@@ -2,9 +2,32 @@ angular
   .module('app')
   .factory('inputFactory', inputFactory);
 
-function inputFactory() {
-  var words = {answers: answers()};
+inputFactory.$inject = ["promptFactory"];
+
+function inputFactory(promptFactory) {
+  var words = {};
+  words.checkInput = checkInput;
+  words.answers = answers();
   return words;
+
+  ////////////
+
+  function checkInput(source) {
+    var userInput, correctAnswer, current = promptFactory.counter;
+    if(current === -5) {
+      return;
+    }
+    userInput = source.replace(/(\r\n|\n|\r|\s)/g, '').replace(/(')/g, '"');
+    correctAnswer = words.answers[current].replace(/(\r\n|\n|\r|\s)/g, '').replace(/(')/g, '"');
+    if (correctAnswer === userInput) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+
 
   function answers() {
     return [

@@ -1,11 +1,11 @@
 (function(){
   angular
     .module('app')
-    .controller('ControllerController', myTextArea);
+    .controller('ControllerController', ControllerController);
 
-  myTextArea.$inject = ["output", "d3Lines"];
+  ControllerController.$inject = ["d3Lines", "output"];
 
-  function myTextArea(output, d3Lines) {
+  function ControllerController(d3Lines, output) {
     var vm = this;
 
     vm.codemirrorLoaded = codemirrorLoaded;

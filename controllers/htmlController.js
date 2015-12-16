@@ -1,11 +1,11 @@
 (function(){
   angular
     .module('app')
-    .controller('HtmlController', myTextArea);
+    .controller('HtmlController', HtmlController);
 
-  myTextArea.$inject = ["output", "$http","d3Lines"];
+  HtmlController.$inject = ["$http", "$scope", "d3Lines", "output"];
 
-  function myTextArea(output, $http, d3Lines) {
+  function HtmlController($http, $scope, d3Lines, output) {
     var vm = this;
 
     vm.codemirrorLoaded = codemirrorLoaded;
@@ -14,6 +14,8 @@
       lineNumbers: true,
       mode: 'xml',
     };
+    // $scope.$emit('recheck', function())
+
 
     ////////////
 

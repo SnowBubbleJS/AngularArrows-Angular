@@ -1,11 +1,11 @@
 (function(){
   angular
     .module('app')
-    .controller('PartialController', myTextArea);
+    .controller('PartialController', PartialController);
 
-  myTextArea.$inject = ["output"];
+  PartialController.$inject = ["output"];
 
-  function myTextArea(output) {
+  function PartialController(output) {
     var vm = this;
 
     vm.codemirrorLoaded = codemirrorLoaded;
