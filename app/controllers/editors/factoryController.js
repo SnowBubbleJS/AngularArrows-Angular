@@ -18,7 +18,10 @@
     ////////////
 
     function codemirrorLoaded(_editor) {
-      _editor.setValue(`function myFactory(){
+      _editor.setValue(`
+
+
+  function myFactory(){
 
   var FriendsList = [
     {'name':'Bryan',
