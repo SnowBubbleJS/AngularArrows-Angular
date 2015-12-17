@@ -9,7 +9,10 @@
     <div class="md-dialog-content">
       <!-- <h1>Sweet Header</h1> -->
       <p>
-        You’re doing great! Now that we understand controllers a little more, let’s move onto the <b>factory</b>.  A <b>factory</b> is a <b>service</b> in AngularJS that’s used to allow one or multiple <b>controllers</b> to access to a data set.  These <b>controllers</b> can then read or modify the data in the <b>factory</b>.  The concept to create a <b>factory</b> is straightforward: create an object, add properties to object, then return the object.  After passing the <b>factory</b> to the <b>controller</b>, it will then have access to the object returned from the <b>factory</b>. For the purposes of this tutorial, in the <b>factory.js</b>, we have a function that returns an object with data that we want to use in our app.  However, this data might also be used in another <b>controller</b>.  In order to keep the data in one spot and will also allow both <b>controllers</b> to  read/manipulate the data, we’ll create a <b>factory</b> that returns this data set.
+        Now that we have our <b>factory.js</b> set up, we need to pass (or inject) the data from our <b>factory</b> to our <b>controller</b>.  Then from the controller, we can pass the data along to our HTML file.
+      </p>
+      <p>
+        In the <b>controller.js</b>, we need to inject our <b>factory</b> so that our <b>controller</b> has access to the factory’s data.  Right above where you declared your <i>MyController</i> function, write the following code <code>MyController.$inject = [‘myFactory’]</code>.  Because the MyController function is going to be dependent on the data from factory.js, we call it <i>dependency injection</i>. Note we’re injecting the names of the function and not the function itself.
       </p>
     </div>
   </md-dialog-content>

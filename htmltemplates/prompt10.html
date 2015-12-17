@@ -1,16 +1,29 @@
-<md-dialog aria-label="Angular JS"  ng-cloak>
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <h1>Angular JS</h1>
-    </div>
-  </md-toolbar>
-
-  <md-dialog-content>
-    <div class="md-dialog-content">
-      <!-- <h1>Sweet Header</h1> -->
-      <p>
-        In the HTML file, within the <code>&lt;div&gt;</code> you created for the ng-controller, write the following Angular Expressions: <code><span>{{</span>name}}</code> <code><span>{{</span>age}}</code> <code><span>{{</span>occupation}}</code>.
-      </p>
-    </div>
-  </md-dialog-content>
+<md-dialog aria-label="Angular JS">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Angular JS</h2>
+      </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:800px;max-height:810px; ">
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="one">
+          <md-content class="md-padding">
+            <h1 class="md-display">Tab One</h1>
+            <p>
+              Great job! But, doesn't it seem like <code><span>{{</span>name}}</code>, <code><span>{{</span>age}}</code>, <code><span>{{</span>occupation}}</code> seem too broad? What if we were creating an application that used those properties a lot? Well we can fix that using John Papa's style guide using 'controllerAs' syntax.
+            </p>
+          </md-content>
+        </md-tab>
+        <md-tab label="two">
+          <md-content class="md-padding">
+            <h1 class="md-display">Tab Two</h1>
+            <p>
+              In the html instead of <code>&lt;body ng-controller='MyController'&gt;</code>, we will be using <code>&lt;body ng-controller='MyController as myCtrl'&gt;</code>, make this adjustment into your index.html. Using this syntax in the view, angular will force you to use 'dotted' objects in the view, which will prevent reference issues e.g using <code><span>{{</span>(Name of Controller).(some property)}}</code> makes it a lot more understandable/readable than <code><span>{{</span>name}}</code>, you might be using name in a lot more places, but it'll be difficult to catch at first. For more information about this method, please visit <a href="https://github.com/johnpapa/angular-styleguide#controllers">https://github.com/johnpapa/angular-styleguide#controllers</a>.
+            </p>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-dialog-content>
+  </form>
 </md-dialog>

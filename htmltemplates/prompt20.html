@@ -1,36 +1,16 @@
-<md-dialog aria-label="Angular JS">
-  <form>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h2>Angular JS</h2>
-      </div>
-    </md-toolbar>
-    <md-dialog-content style="max-width:800px;max-height:810px; ">
-      <md-tabs md-dynamic-height md-border-bottom>
-        <md-tab label="one">
-          <md-content class="md-padding">
-            <h1 class="md-display">Tab One</h1>
-            <p>
-              Wait a minute, we only wanted the names, how come our whole array is showing up?  We know that the list is an array and in the array are three objects.  Knowing that data how can we display all three names using expressions? If you get stuck, check out the next slide.
-            </p>
-          </md-content>
-        </md-tab>
-        <md-tab label="two">
-          <md-content class="md-padding">
-            <h1 class="md-display">Tab Two</h1>
-            <p>
-              So we need three Angular expressions to display all the names {{myCtrl.list[0].name}}, {{myCtrl.list[1].name}} and {{myCtrl.list[2].name}}. Wow that’s a lot of coding just to display the names, no?  Well, Angular is here to make things easier.
-            </p>
-          </md-content>
-        </md-tab>
-        <md-tab label="three">
-          <md-content class="md-padding">
-            <h1 class="md-display">Tab Three</h1>
-            <p>
-              In the HTML doc, create a new <code>&lt;div&gt;&lt;/div&gt;</code> right under your <code>&lt;body&gt;</code> tag.  In this <code>div</code>, we’re going to use an Angular <b>directive</b> called <code>ng-repeat</code>.  Let’s try it out first and we can explain what it really does
-          </md-content>
-        </md-tab>
-      </md-tabs>
-    </md-dialog-content>
-  </form>
+<md-dialog aria-label="Angular JS"  ng-cloak>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h1>Angular JS</h1>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content>
+    <div class="md-dialog-content">
+      <!-- <h1>Sweet Header</h1> -->
+      <p>
+        Inside the div you just created, write <code>ng-repeat = ‘list in myCtrl.list’</code>. Your div should look like <code>&lt;div ng-repeat=’list in myCtrl.list’&gt;&lt;/div&gt;</code>.
+      </p>
+    </div>
+  </md-dialog-content>
 </md-dialog>

@@ -9,7 +9,7 @@
     <div class="md-dialog-content">
       <!-- <h1>Sweet Header</h1> -->
       <p>
-        In order to bind the view to our controller, we will use $scope. $scope is the glue between the Controller and the View that helps with all of our data binding needs. First we need to tell Angular that we want to use $scope. In order to do this, we need to put it as the first parameter in our myController function like so <code>function myController($scope){}</code>, now that we glued the controller to the view, let's make the controller do things. Inside the controller write <code>$scope.name = 'Bob';</code> <code>$scope.age = 30;</code> <code>$scope.occupation = 'hacker';</code>. Now that we're done with that, let's display this information so you can see it.
+        In the HTML file, within the <code>&lt;div&gt;</code> you created for the ng-controller, write the following Angular Expressions: <code><span>{{</span>name}}</code> <code><span>{{</span>age}}</code> <code><span>{{</span>occupation}}</code>.
       </p>
     </div>
   </md-dialog-content>

@@ -1,29 +1,16 @@
-<md-dialog aria-label="Angular JS">
-  <form>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h2>Angular JS</h2>
-      </div>
-    </md-toolbar>
-    <md-dialog-content style="max-width:800px;max-height:810px; ">
-      <md-tabs md-dynamic-height md-border-bottom>
-        <md-tab label="one">
-          <md-content class="md-padding">
-            <h1 class="md-display">Tab One</h1>
-            <p>
-              Great job! But, doesn't it seem like <code><span>{{</span>name}}</code>, <code><span>{{</span>age}}</code>, <code><span>{{</span>occupation}}</code> seem too broad? What if we were creating an application that used those properties a lot? Well we can fix that using John Papa's style guide using 'controllerAs' syntax.,
-            </p>
-          </md-content>
-        </md-tab>
-        <md-tab label="two">
-          <md-content class="md-padding">
-            <h1 class="md-display">Tab Two</h1>
-            <p>
-              In the html instead of <code>&lt;body ng-controller='myController'&gt;</code>, we will be using <code>&lt;body ng-controller='myController as myCtrl'&gt;</code>, make this adjustment into your index.html. Using this syntax in the view, angular will force you to use 'dotted' objects in the view, which will prevent reference issues e.g using <code><span>{{</span>myCtrl.name}}</code> makes it a lot more understandable/readable than <code><span>{{</span>name}}</code>, you might be using name in a lot more places, but it'll be difficult to catch at first. For more information about this method, please visit <a href="https://github.com/johnpapa/angular-styleguide#controllers">https://github.com/johnpapa/angular-styleguide#controllers</a>.
-            </p>
-          </md-content>
-        </md-tab>
-      </md-tabs>
-    </md-dialog-content>
-  </form>
+<md-dialog aria-label="Angular JS"  ng-cloak>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h1>Angular JS</h1>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content>
+    <div class="md-dialog-content">
+      <!-- <h1>Sweet Header</h1> -->
+      <p>
+        In your <b>controller.js</b> let's not use <code>$scope</code> to bind our data, but <code>this</code>. Using <code>this</code>, will help avoid defining methods into your controller (they should go into factories, which will be discussed later). For now, take out the <code>$scope</code> as the first parameter in your <code>MyController</code> function. Instead write <code>var vm = this;</code> as the first line in your function. Because our controller is binded through <code>this</code>, which we set as <code>vm</code>, let's change all of our code to <code>vm.name = 'Bob'</code>, <code>vm.age = 30</code>, and <code> vm.occupation = 'hacker'</code>.
+      </p>
+    </div>
+  </md-dialog-content>
 </md-dialog>

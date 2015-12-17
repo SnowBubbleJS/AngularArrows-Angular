@@ -9,10 +9,7 @@
     <div class="md-dialog-content">
       <!-- <h1>Sweet Header</h1> -->
       <p>
-        Now that we have our <b>factory.js</b> set up, we need our <b>controller</b> needs to receive the data from our <b>factory</b> so we can pass it along to our HTML file.
-      </p>
-      <p>
-        In the <b>controller.js</b>, we need to inject our <b>factory</b> so that our <b>controller</b> has access to the <b>factories</b> data.  Right above where you declared your <i>myController</i> function, write the following code <code>myController.$inject = [‘myFactory’]</code> because the function we’re going to write is going to be dependent of the data from <b>factory.js</b>, we call it <i>dependency injection</i>.
+        In the <code>MyController</code> function, similarly to how we used <code>var vm = this;</code> before, let’s keep vm in our function, but get rid of <code>vm.name = 'Bob';</code>, <code>vm.age = 30;</code>, and <code>vm.occupation = 'hacker';</code>.  In our <code>MyController</code> function, let’s bring the data from <code>myFactory</code>. Add <code>vm.list = myFactory</code> after you define <code>vm</code>.  Now we can use list in the view to see the data from our <b>factory</b>.
       </p>
     </div>
   </md-dialog-content>
