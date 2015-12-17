@@ -35,8 +35,8 @@
       output.render();
       _editor.on('change', function(inst, changes) {
         output.html = _editor.getValue();
-        // lineFactory.lineFunction('.cm-string:contains(myController)');
-        lineFactory.lineFunction('.cm-attribute:contains(ng-app)', '.cm-property:contains("module")');
+        // lineFactory.lineHolder('.cm-string:contains(myController)');
+        lineFactory.lineHolder();
         output.render();
 
         // $http({
@@ -49,8 +49,8 @@
         //   });
 
         setTimeout(function() {
-          // lineFactory.lineFunction('.cm-string:contains(myController)');
-          lineFactory.lineFunction('.cm-attribute:contains(ng-app)', '.cm-property:contains(module)');
+          // lineFactory.lineHolder('.cm-string:contains(myController)');
+          lineFactory.lineHolder();
         },0);
       });
     };

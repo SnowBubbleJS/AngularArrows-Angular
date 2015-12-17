@@ -4,44 +4,47 @@
     .factory('lineFactory',lineFactory);
 
   function lineFactory() {
-    return {lineFunction: lineFunction};
+    return {lineHolder: lineHolder,
+            makeLines: makeLines
+           };
 
     ////////////
 
-    function lineFunction(query1, query2){
-        var temp1 = $(query1),
-            word1 = temp1[0].nextElementSibling,
-            text1 = word1.innerHTML,
-            temp2 = $(query2),
-            word2 = temp2[0].nextElementSibling,
-            text2 = word2.innerHTML;
-          
-        var c = document.getElementById("canvas");
-        c.width = window.innerWidth;
-        c.height = window.innerHeight;
-        var ctx = c.getContext("2d");
-        c.width = window.innerWidth;
-        c.height = window.innerHeight;
+    function lineHolder(){
+      var c = document.getElementById("canvas");
+      var ctx = c.getContext("2d");
+      c.width = window.innerWidth;
+      c.height = window.innerHeight;
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      makeLines('.cm-attribute:contains(ng-controller)', '.cm-property:contains("controller")', ctx);
+      makeLines('.cm-attribute:contains(ng-app)', '.cm-property:contains(module)', ctx);
+      makeLines('.cm-property:contains($inject)', '.cm-property:contains(factory)', ctx);
 
-// console.log(text1.indexOf(text2), word1.innerHTML, word2.innerHTML);
-        if(word1.innerHTML.indexOf(word2.innerHTML) !== -1) {
-          console.log('should draw');
-            var x1 = $(word1).offset().left+5;
-            var y1 = $(word1).offset().top +10;
-            var x2 = $(word2).offset().left+5;
-            var y2 = $(word2).offset().top +10;
-            console.log(x1,x2,y1,y2);
-            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-            ctx.beginPath();
-            ctx.lineWidth = 0.2;
-            ctx.moveTo(x1, y1);
-            ctx.quadraticCurveTo(400,400,x2,y2);
-            ctx.stroke();
-            console.log(ctx.stroke);
-        }
-        if(temp1.length === 0) {
-            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-        }
-      }
+      return 'Line Created...';
+    }
+  function makeLines(query1, query2, ctx) {
+    var temp1 = $(query1),
+        word1 = temp1[0].nextElementSibling,
+        temp2 = $(query2),
+        word2 = temp2[0].nextElementSibling;
+
+    if(word1.className === "cm-operator") {
+      word1 = word1.nextElementSibling;
+    }
+
+    if(word1.innerHTML.substring(1,word1.innerHTML.length - 1).indexOf(word2.innerHTML.substring(1,word2.innerHTML.length - 1)) != -1) {
+        var x1 = $(word1).offset().left+5;
+        var y1 = $(word1).offset().top +10;
+        var x2 = $(word2).offset().left+5;
+        var y2 = $(word2).offset().top +10;
+
+        ctx.beginPath();
+        ctx.lineWidth = 0.2;
+        ctx.moveTo(x1, y1);
+        ctx.quadraticCurveTo(400,400,x2,y2);
+        ctx.stroke();
+    }
+
+  }
   }
 }());

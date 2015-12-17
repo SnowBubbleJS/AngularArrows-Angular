@@ -15,11 +15,9 @@
     vm.tutorial = "Tutorial prompts will go here";
 
     setInterval(function(){
-      console.log(promptFactory.shouldUpdate);
       if(promptFactory.shouldUpdate === 1) {
         vm.getTutorial();
         $scope.$apply();
-        console.log("omhhi");
       }
     },1000);
 
@@ -31,21 +29,12 @@
             vm.tutorial = promptFactory.allPrompts[0];
             promptFactory.counter = 0;
         }
-        else{
-          promptFactory.counter++;
-          promptFactory.shouldUpdate = 0;
-          vm.tutorial = promptFactory.allPrompts[promptFactory.counter];
-          console.log('should show', vm.tutorial);
-          promptFactory.currentPrompt = promptFactory.counter;
-          
-        }
-        // else if(inputFactory.answers[promptFactory.counter] === 0 || promptFactory.shouldUpdate === 1) {
-        //     promptFactory.counter++;
-        //     promptFactory.shouldUpdate = 0;
-        //     vm.tutorial = promptFactory.allPrompts[promptFactory.counter];
-        //     console.log('should show', vm.tutorial);
-        //     promptFactory.currentPrompt = promptFactory.counter;
-        //   }
+        else if(inputFactory.answers[promptFactory.counter] === 0 || promptFactory.shouldUpdate === 1) {
+            promptFactory.counter++;
+            promptFactory.shouldUpdate = 0;
+            vm.tutorial = promptFactory.allPrompts[promptFactory.counter];
+            promptFactory.currentPrompt = promptFactory.counter;
+          }
 
       }
     }

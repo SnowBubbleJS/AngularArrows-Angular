@@ -22,10 +22,10 @@
       output.render();
       _editor.on('change', function(inst, changes) {
         output.controller = _editor.getValue();
-          lineFactory.lineFunction('.cm-attribute:contains(ng-controller)', '.cm-property:contains("controller")');
+          lineFactory.lineHolder();
         output.render();
         setTimeout(function() {
-          lineFactory.lineFunction('.cm-attribute:contains(ng-controller)', '.cm-property:contains("controller")');
+          lineFactory.lineHolder();
         },0);
       });
     }
