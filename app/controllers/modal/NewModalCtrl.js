@@ -5,7 +5,7 @@
 
     function NewModalCtrl ($mdDialog, $mdMedia) {
       var vm = this;
-      var tieThisToPromptFactoryCounter = 1
+      var tieThisToPromptFactoryCounter = 1;
       // vm.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
 
       vm.openModal = function(ev) {
