@@ -22,8 +22,12 @@
       output.render();
       _editor.on('change', function(inst, changes) {
         output.app = _editor.getValue();
-        lineFactory.lineFunction('.cm-string:contains(myController)');
+        lineFactory.lineFunction('.cm-attribute:contains(ng-app)', '.cm-property:contains("module")');
         output.render();
+        setTimeout(function() {
+          // lineFactory.lineFunction('.cm-string:contains(myController)');
+          lineFactory.lineFunction('.cm-attribute:contains(ng-app)', '.cm-property:contains(module)');
+        }, 0);
       });
     }
   }
