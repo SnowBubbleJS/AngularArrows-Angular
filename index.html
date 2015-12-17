@@ -30,8 +30,9 @@
     <script type="text/javascript" src="./app/controllers/editors/controllerController.js"></script>
     <script type="text/javascript" src="./app/controllers/editors/htmlController.js"></script>
     <script type="text/javascript" src="./app/controllers/editors/factoryController.js"></script>
-    <script type="text/javascript" src="./app/controllers/modal/NewModalCtrl.js"></script>
     <script type="text/javascript" src="./app/controllers/output/urlController.js"></script>
+    <script type="text/javascript" src="./app/controllers/sidenav/SideNavCtrl.js"></script>
+    <!-- <script type="text/javascript" src="./app/controllers/sidenav/TESTSideNavCtrl.js"></script> -->
 
 
 
@@ -44,65 +45,62 @@
     <!-- Angular Material Library -->
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc7/angular-material.min.js"></script>
 
-
-
-
-    <script type="text/javascript" src="./app/controllers/output/urlController.js"></script>
-    <!-- <script type="text/javascript" src="./app/controllers/modal/modalCtrl.js"></script> -->
   </head>
   <body>
-    <div layout="column" style="background: transparent">
-    <!-- material-design -->
-    <!-- <md-toolbar class="md-primary" flex>
-      <div layout="row" ng-controller="PromptsController as promptsVM">
-        <div flex="30">
-          <md-button type="button" class="md-raised" ng-click="promptsVM.previousPrompt()"><</md-button>
-          <md-button type="button" class="md-raised" ng-click="promptsVM.getTutorial()">O</md-button>
-          <md-button type="button" class="md-raised" ng-click="promptsVM.nextPrompt()">></md-button>
-        </div>
-        <div flex="70">
-          <span style="display:inline-lists"><p class="md-body-2">{{promptsVM.tutorial}}<p/></span>
-        </div>
-      </div>
-    </md-toolbar> -->
 
-
-
-
+    <div layout="column" style="background: transparent" ng-controller="SideNavCtrl">
 
     <div layout="row" ng-controller="PromptsController as promptsVM">
       <md-button class="md-primary md-raised"  ng-click="promptsVM.getTutorial($event)" flex="100" flex-gt-md="auto">
         Test
       </md-button>
+      <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-primary md-raised" flex="25">
+        History
+      </md-button>
     </div>
 
-
-
-
+    <!-- Side Navigation -->
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">History</h1>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" layout-padding="" style="overflow:scroll">
+        <md-button class="md-primary">Save</md-button>
+        <md-button class="md-primary">Log Out</md-button>
+        <p>
+          lorem*2
+        </p>
+      </md-content>
+      <md-dialog-actions layout="row">
+        <md-button ng-click="close()" class="md-primary">
+          Close
+        </md-button>
+      </md-dialog-actions>
+    </md-sidenav>
 
 
     <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
     <!-- more material design -->
     <div layout="row" flex="50">
-      <md-card flex="30" ng-controller="HtmlController as htmlVM" id="html" class="textEditor md-whiteframe-1dp">
+      <md-card flex="35" ng-controller="HtmlController as htmlVM" id="html" class="textEditor md-whiteframe-1dp">
         <md-toolbar class="md-primary">
           <h1 class="md-flex md-title">HTML</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : htmlVM.codemirrorLoaded }" ui-codemirror-opts="htmlVM.editorOptions"></textarea>
       </md-card>
-      <md-card flex="10" ng-controller="PartialController as partialVM" id="partial" class="textEditor md-whiteframe-1dp">
+      <md-card flex="15" ng-controller="PartialController as partialVM" id="partial" class="textEditor md-whiteframe-1dp">
         <md-toolbar class="md-primary">
           <h1 class="md-flex md-title">Partial</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : partialVM.codemirrorLoaded }" ui-codemirror-opts="partialVM.editorOptions"></textarea>
       </md-card>
-      <md-card flex="30" ng-controller="AppController as appVM" id="app" class="textEditor md-whiteframe-1dp">
+      <md-card flex="25" ng-controller="AppController as appVM" id="app" class="textEditor md-whiteframe-1dp">
         <md-toolbar class="md-primary">
           <h1 class="md-flex md-title">App</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : appVM.codemirrorLoaded }" ui-codemirror-opts="appVM.editorOptions"></textarea>
       </md-card>
-      <md-card flex="30" ng-controller="ControllerController as controllerVM" id="controller" class="textEditor md-whiteframe-1dp">
+      <md-card flex="25" ng-controller="ControllerController as controllerVM" id="controller" class="textEditor md-whiteframe-1dp">
         <md-toolbar class="md-primary">
           <h1 class="md-flex md-title">Controller</h1>
         </md-toolbar>
@@ -115,13 +113,13 @@
         <md-toolbar class="md-primary">
           <h1 class="md-flex md-title">Output</h1>
         </md-toolbar>
-        <form id="embeddedPage" ng-submit="embeddedVM.changeLink()" ng-controller="EmbeddedPage as embeddedVM">
-          <input id="URL" type="text" style="width:400px" name="link" ng-model="embeddedVM.userInput" >
+        <form id="embeddedPage" ng-submit="embeddedVM.changeLink()" ng-controller="EmbeddedPage as embeddedVM" layout="row">
+          <input id="URL" type="text" flex="100" name="link" ng-model="embeddedVM.userInput" >
           <input type="submit" name="button" value="Enter">
         </form>
 
-        <section id="output">
-      		<iframe id="iframeOutput"></iframe>
+        <section id="output" layout="column">
+      		<iframe flex="100"></iframe>
       	</section>
       </md-card>
       <md-card flex="50" ng-controller="FactoryController as factoryVM" id="factory" class="textEditor md-whiteframe-1dp">

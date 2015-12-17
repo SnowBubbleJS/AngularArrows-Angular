@@ -18,8 +18,19 @@
         $scope.$apply();
     });
 
-
     ////////////
+    function startTutorial (ev) {
+      var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && vm.customFullscreen;
+      $mdDialog.show({
+        controller: DialogController,
+        templateUrl: 'htmltemplates/prompt1.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose:true,
+        fullscreen: useFullScreen
+      });
+      promptFactory.counter = 0;
+    }
 
     function getTutorial(ev) {
       if (promptFactory.counter < promptFactory.allPrompts.length) {
@@ -70,5 +81,18 @@
         $mdDialog.hide(answer);
       };
     }
+
+    // function nextPrompt() {
+    //   if (promptFactory.currentPrompt < promptFactory.counter) {
+    //     promptFactory.currentPrompt++;
+    //     vm.tutorial = promptFactory.allPrompts[promptFactory.currentPrompt];
+    //   }
+    // }
+    // function previousPrompt() {
+    //   if (promptFactory.currentPrompt > 0) {
+    //     promptFactory.currentPrompt--;
+    //     vm.tutorial = promptFactory.allPrompts[promptFactory.currentPrompt];
+    //   }
+    // }
   }
 }());
