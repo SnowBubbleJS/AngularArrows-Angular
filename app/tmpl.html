@@ -1,64 +1,48 @@
-<script type="text/ng-template" id="dialog1.tmpl.html">
-  <md-dialog aria-label="Angular JS"  ng-cloak>
+<md-dialog aria-label="Angular JS"  ng-cloak>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h1>Angular JS</h1>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content>
+    <div class="md-dialog-content">
+      <!-- <h1>Sweet Header</h1> -->
+      <p>
+        Content
+      </p>
+    </div>
+  </md-dialog-content>
+</md-dialog>
+
+<!-- division -->
+
+<md-dialog aria-label="Angular JS">
+  <form>
     <md-toolbar>
       <div class="md-toolbar-tools">
         <h2>Angular JS</h2>
       </div>
     </md-toolbar>
-
-    <md-dialog-content>
-      <div class="md-dialog-content">
-        <h2>Sweet Header</h2>
-        <p>
-          Content Material
-        </p>
-      </div>
+    <md-dialog-content style="max-width:800px;max-height:810px; ">
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="one">
+          <md-content class="md-padding">
+            <h1 class="md-display">Tab One</h1>
+            <p>
+              Content
+            </p>
+          </md-content>
+        </md-tab>
+        <md-tab label="two">
+          <md-content class="md-padding">
+            <h1 class="md-display">Tab Two</h1>
+            <p>
+              Content
+            </p>
+          </md-content>
+        </md-tab>
+      </md-tabs>
     </md-dialog-content>
-
-    <md-dialog-actions layout="row">
-      <!-- Footer -->
-    </md-dialog-actions>
-
-    </md-dialog>
-</script>
-
-<script type="text/ng-template" id="tabDialog.tmpl.html">
-  <md-dialog aria-label="Angular JS">
-    <form>
-      <md-toolbar>
-        <div class="md-toolbar-tools">
-          <h2>Angular JS</h2>
-        </div>
-      </md-toolbar>
-      <md-dialog-content style="max-width:800px;max-height:810px; ">
-        <md-tabs md-dynamic-height md-border-bottom>
-          <md-tab label="one">
-            <md-content class="md-padding">
-              <h1 class="md-display-2">Tab One</h1>
-              <p>Content One</p>
-            </md-content>
-          </md-tab>
-          <md-tab label="two">
-            <md-content class="md-padding">
-              <h1 class="md-display-2">Tab Two</h1>
-              <p>Content TWo</p>
-            </md-content>
-          </md-tab>
-          <md-tab label="three">
-            <md-content class="md-padding">
-              <h1 class="md-display-2">Tab Three</h1>
-              <p>Content Three</p>
-            </md-content>
-          </md-tab>
-        </md-tabs>
-      </md-dialog-content>
-
-      <md-dialog-actions layout="row">
-        <span flex></span>
-        <md-button ng-click="answer()" md-autofocus>
-          Close
-        </md-button>
-      </md-dialog-actions>
-    </form>
-  </md-dialog>
-</script>
+  </form>
+</md-dialog>
