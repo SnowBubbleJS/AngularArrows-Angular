@@ -9,10 +9,7 @@
     <div class="md-dialog-content">
       <!-- <h1>Sweet Header</h1> -->
       <p>
-        Now that we have our <b>factory.js</b> set up, we need to pass (or inject) the data from our <b>factory</b> to our <b>controller</b>.  Then from the controller, we can pass the data along to our HTML file.
-      </p>
-      <p>
-        In the <b>controller.js</b>, we need to inject our <b>factory</b> so that our <b>controller</b> has access to the factory’s data.  Right above where you declared your <i>MyController</i> function, write the following code <code>MyController.$inject = [‘myFactory’]</code>.  Because the MyController function is going to be dependent on the data from factory.js, we call it <i>dependency injection</i>. Note we’re injecting the names of the function and not the function itself.
+        As mentioned earlier, since we're using the 'controllerAs' syntax, we can now show these changes in the view using: <code><span>{{</span>myCtrl.name}}</code> <code><span>{{</span>myCtrl.age}}</code> <code><span>{{</span>myCtrl.occupation}}</code> This will also create two-way binding between our view and our controller, meaning that one change to either will affect the other. Why did we use such a random variable name <code>vm</code>?  Per john papa's style guide, <code>vm</code> stands for ViewModel. 'The <code>this</code> keyword is contextual and when used within a function inside a controller may change its context'. Therefore, capturing the context of <code>this</code> by setting <code>this</code> to <code>vm</code> avoids encountering this problem.  But why are we using <code>this</code> instead of <code>$scope</code>?  Per John Papa's Style Guide, it 'helps avoid the temptation of using <code>$scope</code> methods inside a controller when it may otherwise be better to avoid them or move the method to a factory, and reference them from the controller.  Consider using <code>$scope</code> in a controller only when needed.
       </p>
     </div>
   </md-dialog-content>

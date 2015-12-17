@@ -33,6 +33,7 @@ function inputFactory($rootScope, promptFactory) {
   function answers() {
     return [
       0,
+      //prompt 1
       `<html ng-app>
   <head>
     <meta charset="utf-8">
@@ -59,6 +60,7 @@ function inputFactory($rootScope, promptFactory) {
   return FriendsList;
 } </script></body>
 </html>`,
+  //prompt 2
     `<html ng-app>
   <head>
     <meta charset="utf-8">
@@ -85,6 +87,7 @@ function inputFactory($rootScope, promptFactory) {
   return FriendsList;
 } </script></body>
 </html>`,
+//prompt 3
     `<html ng-app>
   <head>
     <meta charset="utf-8">
@@ -111,6 +114,7 @@ function inputFactory($rootScope, promptFactory) {
   return FriendsList;
 } </script></body>
 </html>`,
+//prompt 4
       `<html ng-app>
   <head>
     <meta charset="utf-8">
@@ -137,6 +141,7 @@ function inputFactory($rootScope, promptFactory) {
   return FriendsList;
 } </script></body>
 </html>`,
+    //prompt 5
       `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
@@ -163,6 +168,7 @@ function inputFactory($rootScope, promptFactory) {
   return FriendsList;
 } </script></body>
 </html>`,
+      //prompt 6
       `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
@@ -189,6 +195,7 @@ function inputFactory($rootScope, promptFactory) {
   return FriendsList;
 } </script></body>
 </html>`,
+      //prompt 7
       `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
@@ -219,6 +226,7 @@ function MyController() {}</script><script>function myFactory(){
   return FriendsList;
 } </script></body>
 </html>`,
+      //prompt 8
       `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
@@ -254,7 +262,8 @@ $scope.age = 30;
   return FriendsList;
 } </script></body>
 </html>`,
-        `<html ng-app="myApp">
+    //prompt 9
+  `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
@@ -293,7 +302,8 @@ $scope.age = 30;
   return FriendsList;
 } </script></body>
 </html>`,
-        `<html ng-app="myApp">
+    //prompt 10
+  `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
@@ -332,7 +342,8 @@ $scope.age = 30;
   return FriendsList;
 } </script></body>
 </html>`,
-        `<html ng-app="myApp">
+      //prompt 11
+    `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
@@ -372,6 +383,7 @@ vm.occupation = 'hacker';
   return FriendsList;
 } </script></body>
 </html>`,
+    //prompt 12
     `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
@@ -379,7 +391,7 @@ vm.occupation = 'hacker';
   </head>
   <body>
     <div ng-controller="MyController as myCtrl">
-    {{myCtrl.name}}
+      {{myCtrl.name}}
       {{myCtrl.age}}
       {{myCtrl.occupation}}
     </div>
@@ -412,6 +424,7 @@ vm.occupation = 'hacker';
   return FriendsList;
 } </script></body>
 </html>`,
+      //prompt 13
     `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
@@ -455,6 +468,7 @@ function myFactory(){
   return FriendsList;
 } </script></body>
 </html>`,
+    //prompt 14
     `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
@@ -501,6 +515,7 @@ function myFactory(){
   return FriendsList;
 } </script></body>
 </html>`,
+    //prompt 15
     `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
@@ -546,6 +561,7 @@ function myFactory(){
   return FriendsList;
 } </script></body>
 </html>`,
+    //prompt 16
     `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
@@ -589,6 +605,7 @@ function myFactory(){
   return FriendsList;
 } </script></body>
 </html>`,
+    //prompt 17
     `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
@@ -630,6 +647,7 @@ function myFactory(){
   return FriendsList;
 } </script></body>
 </html>`,
+    //prompt 18
     `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
@@ -637,8 +655,8 @@ function myFactory(){
   </head>
   <body>
     <div ng-controller="MyController as myCtrl">
-    {{myCtrl.list[0].name}}
-         {{myCtrl.list[1].name}}
+          {{myCtrl.list[0].name}}
+          {{myCtrl.list[1].name}}
           {{myCtrl.list[2].name}}
     </div>
   <script>angular.module('myApp', [])</script><script>angular.module('myApp')
@@ -673,7 +691,8 @@ function myFactory(){
   return FriendsList;
 } </script></body>
 </html>`,
-    `<html ng-app="myApp">
+    //prompt 19
+  `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
@@ -714,6 +733,7 @@ function myFactory(){
   return FriendsList;
 } </script></body>
 </html>`,
+    //prompt 20
     `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
@@ -755,6 +775,7 @@ function myFactory(){
   return FriendsList;
 } </script></body>
 </html>`,
+    //prompt 21
     `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">

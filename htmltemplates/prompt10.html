@@ -1,16 +1,29 @@
-<md-dialog aria-label="Angular JS"  ng-cloak>
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <h1>Angular JS</h1>
-    </div>
-  </md-toolbar>
-
-  <md-dialog-content>
-    <div class="md-dialog-content">
-      <!-- <h1>Sweet Header</h1> -->
-      <p>
-        As mentioned earlier, since we're using the 'controllerAs' syntax, we can now show these changes in the view using: <code><span>{{</span>myCtrl.name}}</code> <code><span>{{</span>myCtrl.age}}</code> <code><span>{{</span>myCtrl.occupation}}</code> This will also create two-way binding between our view and our controller, meaning that one change to either will affect the other. Why did we use such a random variable name <code>vm</code>?  Per john papa's style guide, <code>vm</code> stands for ViewModel. 'The <code>this</code> keyword is contextual and when used within a function inside a controller may change its context'. Therefore, capturing the context of <code>this</code> by setting <code>this</code> to <code>vm</code> avoids encountering this problem.  But why are we using <code>this</code> instead of <code>$scope</code>?  Per John Papa's Style Guide, it 'helps avoid the temptation of using <code>$scope</code> methods inside a controller when it may otherwise be better to avoid them or move the method to a factory, and reference them from the controller'.  Consider using <code>$scope</code> in a controller only when needed.
-      </p>
-    </div>
-  </md-dialog-content>
+<md-dialog aria-label="Angular JS">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Angular JS</h2>
+      </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:800px;max-height:810px; ">
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="one">
+          <md-content class="md-padding">
+            <h1 class="md-display">Tab One</h1>
+            <p>
+              Great job! But, doesn't it seem like <code><span>{{</span>name}}</code>, <code><span>{{</span>age}}</code>, <code><span>{{</span>occupation}}</code> seem too broad? What if we were creating an application that used those properties a lot? Well we can fix that using John Papa's style guide using 'controllerAs' syntax.
+            </p>
+          </md-content>
+        </md-tab>
+        <md-tab label="two">
+          <md-content class="md-padding">
+            <h1 class="md-display">Tab Two</h1>
+            <p>
+              In the html instead of <code>&lt;body ng-controller='MyController'&gt;</code>, we will be using <code>&lt;body ng-controller='MyController as myCtrl'&gt;</code>, make this adjustment into your index.html. Using this syntax in the view, angular will force you to use 'dotted' objects in the view, which will prevent reference issues e.g using <code><span>{{</span>(Name of Controller).(some property)}}</code> makes it a lot more understandable/readable than <code><span>{{</span>name}}</code>, you might be using name in a lot more places, but it'll be difficult to catch at first. For more information about this method, please visit <a href="https://github.com/johnpapa/angular-styleguide#controllers">https://github.com/johnpapa/angular-styleguide#controllers</a>.
+            </p>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-dialog-content>
+  </form>
 </md-dialog>
