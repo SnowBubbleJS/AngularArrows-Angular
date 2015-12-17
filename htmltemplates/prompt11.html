@@ -1,29 +1,26 @@
-<md-dialog aria-label="Angular JS">
-  <form>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h2>Angular JS</h2>
-      </div>
-    </md-toolbar>
-    <md-dialog-content style="max-width:800px;max-height:810px; ">
-      <md-tabs md-dynamic-height md-border-bottom>
-        <md-tab label="one">
-          <md-content class="md-padding">
-            <h1 class="md-display">Tab One</h1>
-            <p>
-              Great job! But, doesn't it seem like <code><span>{{</span>name}}</code>, <code><span>{{</span>age}}</code>, <code><span>{{</span>occupation}}</code> seem too broad? What if we were creating an application that used those properties a lot? Well we can fix that using John Papa's style guide using 'controllerAs' syntax.,
-            </p>
-          </md-content>
-        </md-tab>
-        <md-tab label="two">
-          <md-content class="md-padding">
-            <h1 class="md-display">Tab Two</h1>
-            <p>
-              In the html instead of <code>&lt;body ng-controller='myController'&gt;</code>, we will be using <code>&lt;body ng-controller='myController as myCtrl'&gt;</code>, make this adjustment into your index.html. Using this syntax in the view, angular will force you to use 'dotted' objects in the view, which will prevent reference issues e.g using <code><span>{{</span>myCtrl.name}}</code> makes it a lot more understandable/readable than <code><span>{{</span>name}}</code>, you might be using name in a lot more places, but it'll be difficult to catch at first. For more information about this method, please visit <a href="https://github.com/johnpapa/angular-styleguide#controllers">https://github.com/johnpapa/angular-styleguide#controllers</a>.
-            </p>
-          </md-content>
-        </md-tab>
-      </md-tabs>
-    </md-dialog-content>
-  </form>
-</md-dialog>
+<md-dialog aria-label="Angular JS"  ng-cloak>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h1>Angular JS</h1>
+    </div>
+  </md-toolbar>
+  <md-dialog-content style="max-width:800px;max-height:810px; ">
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="one">
+        <md-content class="md-padding">
+          <h1 class="md-display">Tab One</h1>
+          <p>
+            You’re doing great! Now that we understand controllers a little more, let’s move onto the <b>factory</b>. A <b>factory</b> is a <b>service</b> in AngularJS that’s used to allow one or multiple <b>controllers</b> to access a data set. These <b>controllers</b> can then read or modify the data in the <b>factory</b>. The concept to create a <b>factory</b> is straightforward: create an object, add properties to the object, then return the object. After passing the <b>factory</b> to the <b>controller</b>, it will then have access to the object returned from the <b>factory</b>. For the purposes of this tutorial, in the <b>factory.js</b>, we have a function that returns an object with data that we want to use in our app. However, this data might also be used in another <b>controller</b>. In order to keep the data in one spot while allowing both <b>controllers</b> to read/manipulate the data, we’ll create a <b>factory</b> that returns this data set. Let’s move onto to the next prompt to see what we need to do.
+          </p>
+        </md-content>
+      </md-tab>
+      <md-tab label="two">
+        <md-content class="md-padding">
+          <h1 class="md-display">Tab Two</h1>
+          <p>
+            Take a look at the <b>factory.js</b>, we have the function myFactory with an array called ‘FriendsList’ with multiple objects. We want to use this ‘FriendsList’ and display just the names. Similar to how the <b>controller</b> was created, we first need to link our application to the <b>factory</b> using the 'getter' syntax. Then, we will add a <code>.factory(‘myFactory’, myFactory)</code> right below the <cdoe>.module</code>, just like how you did it in <b>controller.js</b>.  The first argument in the <b>factory</b> method is the name we want for our <b>factory</b>, and the second argument is a function that returns an object with data. For more information on how a factory should be implement, please refer to: <a href="https://github.com/johnpapa/angular-styleguide#factories">https://github.com/johnpapa/angular-styleguide#factories</a>.
+          </p>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-dialog-content>

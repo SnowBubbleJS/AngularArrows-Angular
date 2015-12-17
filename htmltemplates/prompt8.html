@@ -1,16 +1,29 @@
-<md-dialog aria-label="Angular JS"  ng-cloak>
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <h1>Angular JS</h1>
-    </div>
-  </md-toolbar>
-
-  <md-dialog-content>
-    <div class="md-dialog-content">
-      <!-- <h1>Sweet Header</h1> -->
-      <p>
-        First, we need to know the role of the controller. A controller as its basic form manages your applications data. We will be creating a controller in the controller.js. Similar to the structure of how you created the module in the app.js, we will need to build the controller in a similar manner. First we need to create the relationship of the controller to the 'myApp'. In the HTML file, add in <code>&lt;div ng-controller='myController'&gt;&lt;/div&gt;</code>. Next, move to the controller.js, in here you will be doing the same thing you did in the app.js to encapsulate the controller in your app. Start by using the getter syntax to chain onto the main module <code>angular.module('app')</code>. Notice the main difference here being that there is no second argument since we're essentially referring to the main module created in <b>app.js</b>. Now that you've created the relationship, let's tell the Angular App that you want to build a controller. You will be doing this by creating a method after the module <code>.controller()</code>, the method takes in two parameters. The first parameter is the name of the controller and the second parameter will be a callback function. The callback function will be responsible for managing data. Follow this format: <code>.controller('myController', myController); function myController(){})</code>.
-      </p>
-    </div>
-  </md-dialog-content>
+<md-dialog aria-label="Angular JS">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Angular JS</h2>
+      </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:800px;max-height:810px; ">
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="one">
+          <md-content class="md-padding">
+            <h1 class="md-display">Tab One</h1>
+            <p>
+              Great job! But, doesn't it seem like <code><span>{{</span>name}}</code>, <code><span>{{</span>age}}</code>, <code><span>{{</span>occupation}}</code> seem too broad? What if we were creating an application that used those properties a lot? Well we can fix that using John Papa's style guide using 'controllerAs' syntax.
+            </p>
+          </md-content>
+        </md-tab>
+        <md-tab label="two">
+          <md-content class="md-padding">
+            <h1 class="md-display">Tab Two</h1>
+            <p>
+              In the html instead of <code>&lt;body ng-controller='myController'&gt;</code>, we will be using <code>&lt;body ng-controller='myController as myCtrl'&gt;</code>, make this adjustment into your index.html. Using this syntax in the view, angular will force you to use 'dotted' objects in the view, which will prevent reference issues e.g using <code><span>{{</span>myCtrl.name}}</code> makes it a lot more understandable/readable than <code><span>{{</span>name}}</code>, you might be using name in a lot more places, but it'll be difficult to catch at first. For more information about this method, please visit <a href="https://github.com/johnpapa/angular-styleguide#controllers">https://github.com/johnpapa/angular-styleguide#controllers</a>.
+            </p>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-dialog-content>
+  </form>
 </md-dialog>
