@@ -52,6 +52,7 @@ function output(promptFactory, inputFactory) {
       iframe = document.querySelector('#output iframe');
       if(this.url === 'http://www.localhost:3000/' || this.url === 'http://www.localhost:3000') {
         this.source = this.prepareSource();
+        console.log(this.source);
         if(!!inputFactory.checkInput(this.source)) {
           promptFactory.shouldUpdate = 1;
           console.log('goodjob..should update');

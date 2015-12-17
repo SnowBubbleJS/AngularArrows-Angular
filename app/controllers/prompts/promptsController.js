@@ -10,7 +10,8 @@
 
     vm.getTutorial = getTutorial;
     vm.nextPrompt = nextPrompt;
-    vm.noAnswerPrompts = [0,1,2,3,7,8,12,13,14,18];
+    vm.promptFactory = promptFactory;
+    vm.promptUpdate = promptFactory.shouldUpdate;
     vm.previousPrompt = previousPrompt;
     vm.tutorial = "Tutorial prompts will go here";
 
@@ -21,6 +22,13 @@
       }
     },1000);
 
+    // $scope.$watch('promptFactory.shouldUpdate', function(newVal, oldVal) {
+    //   // if(newVal) {
+    //     console.log('hey watch works! ',newVal);
+    //   // }
+    // }, true);
+
+
     ////////////
 
     function getTutorial() {
@@ -30,6 +38,7 @@
             promptFactory.counter = 0;
         }
         else if(inputFactory.answers[promptFactory.counter] === 0 || promptFactory.shouldUpdate === 1) {
+          console.log(promptFactory.counter);
             promptFactory.counter++;
             promptFactory.shouldUpdate = 0;
             vm.tutorial = promptFactory.allPrompts[promptFactory.counter];
