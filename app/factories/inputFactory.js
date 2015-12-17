@@ -33,9 +33,6 @@ function inputFactory($rootScope, promptFactory) {
   function answers() {
     return [
       0,
-      0,
-      0,
-      0,
       `<html ng-app>
   <head>
     <meta charset="utf-8">
@@ -63,8 +60,6 @@ function inputFactory($rootScope, promptFactory) {
       {{yourName}}
   <script></script><script></script><script></script></body>
 </html>`,
-      0,
-      0,
       `<html ng-app>
   <head>
     <meta charset="utf-8">
@@ -89,8 +84,6 @@ function inputFactory($rootScope, promptFactory) {
   <body>
   <script>angular.module("myApp", [])</script><script></script><script></script></body>
 </html>`,
-      0,
-      0,
       0,
       `<html ng-app='myApp'>
   <head>
