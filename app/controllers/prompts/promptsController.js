@@ -5,10 +5,11 @@
 
   PromptsController.$inject = ["$http", "$scope", "inputFactory", "promptFactory"];
 
-  function PromptsController($http, $scope, inputFactory, promptFactory) {
+  function PromptsController($http, $scope, inputFactory, promptFactory, $mdDialog, $mdMedia) {
     var vm = this;
 
     vm.getTutorial = getTutorial;
+    vm.startTutorial
     vm.nextPrompt = nextPrompt;
     vm.previousPrompt = previousPrompt;
     vm.tutorial = "Tutorial prompts will go here";
@@ -20,8 +21,19 @@
         $scope.$apply();
     });
 
-
     ////////////
+    function startTutorial (ev) {
+      var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && vm.customFullscreen;
+      $mdDialog.show({
+        controller: DialogController,
+        templateUrl: 'htmltemplates/prompt1.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose:true,
+        fullscreen: useFullScreen
+      });
+      promptFactory.counter = 0;
+    }
 
     function getTutorial() {
       if (promptFactory.counter < promptFactory.allPrompts.length) {
@@ -38,17 +50,33 @@
 
       }
     }
-    function nextPrompt() {
-      if (promptFactory.currentPrompt < promptFactory.counter) {
-        promptFactory.currentPrompt++;
-        vm.tutorial = promptFactory.allPrompts[promptFactory.currentPrompt];
-      }
+
+    function DialogController($mdDialog) {
+      var vm = this;
+      vm.hide = function() {
+        $mdDialog.hide();
+      };
+
+      vm.cancel = function() {
+        $mdDialog.cancel();
+      };
+
+      vm.answer = function(answer) {
+        $mdDialog.hide(answer);
+      };
     }
-    function previousPrompt() {
-      if (promptFactory.currentPrompt > 0) {
-        promptFactory.currentPrompt--;
-        vm.tutorial = promptFactory.allPrompts[promptFactory.currentPrompt];
-      }
-    }
+
+    // function nextPrompt() {
+    //   if (promptFactory.currentPrompt < promptFactory.counter) {
+    //     promptFactory.currentPrompt++;
+    //     vm.tutorial = promptFactory.allPrompts[promptFactory.currentPrompt];
+    //   }
+    // }
+    // function previousPrompt() {
+    //   if (promptFactory.currentPrompt > 0) {
+    //     promptFactory.currentPrompt--;
+    //     vm.tutorial = promptFactory.allPrompts[promptFactory.currentPrompt];
+    //   }
+    // }
   }
 }());
