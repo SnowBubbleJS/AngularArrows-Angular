@@ -15,11 +15,9 @@
     vm.tutorial = "Tutorial prompts will go here";
 
     setInterval(function(){
-      console.log(promptFactory.shouldUpdate);
       if(promptFactory.shouldUpdate === 1) {
         vm.getTutorial();
         $scope.$apply();
-        console.log("omhhi");
       }
     },1000);
 
@@ -35,7 +33,6 @@
             promptFactory.counter++;
             promptFactory.shouldUpdate = 0;
             vm.tutorial = promptFactory.allPrompts[promptFactory.counter];
-            console.log('should show', vm.tutorial);
             promptFactory.currentPrompt = promptFactory.counter;
           }
 

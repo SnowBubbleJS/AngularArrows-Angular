@@ -2,9 +2,9 @@
   .module('app')
   .controller('FactoryController', FactoryController);
 
-  FactoryController.$inject = ["output"];
+  FactoryController.$inject = ["lineFactory", "output"];
 
-  function FactoryController(output) {
+  function FactoryController(lineFactory, output) {
     var vm = this;
 
     vm.codemirrorLoaded = codemirrorLoaded;
@@ -14,15 +14,19 @@
       mode: 'text/javascript',
     };
 
+
     ////////////
 
     function codemirrorLoaded(_editor) {
       output.factory = _editor.getValue();
       output.render();
       _editor.on('change', function(inst, changes) {
-        console.log('im here');
         output.factory = _editor.getValue();
-        output.render();
+        lineFactory.lineHolder();
+      output.render();
+      setTimeout(function() {
+        lineFactory.lineHolder();
+      },0);
       });
     }
   }

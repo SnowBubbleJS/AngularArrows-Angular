@@ -22,10 +22,10 @@
       output.render();
       _editor.on('change', function(inst, changes) {
         output.controller = _editor.getValue();
-        lineFactory.lineFunction('.cm-string:contains(myController)');
+          lineFactory.lineHolder();
         output.render();
         setTimeout(function() {
-          lineFactory.lineFunction('.cm-string:contains(myController)');
+          lineFactory.lineHolder();
         },0);
       });
     }
