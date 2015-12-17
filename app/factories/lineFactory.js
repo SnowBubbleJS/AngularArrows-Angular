@@ -14,7 +14,8 @@
             text1 = word1.innerHTML,
             temp2 = $(query2),
             word2 = temp2[0].nextElementSibling,
-            text2 = word2.innerHTML
+            text2 = word2.innerHTML;
+          
         var c = document.getElementById("canvas");
         c.width = window.innerWidth;
         c.height = window.innerHeight;
