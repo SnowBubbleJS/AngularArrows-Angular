@@ -24,13 +24,25 @@
     }
   function makeLines(query1, query2, ctx) {
     var temp1 = $(query1),
-        word1 = temp1[0].nextElementSibling,
+        word1,
         temp2 = $(query2),
-        word2 = temp2[0].nextElementSibling;
+        word2;
 
-    if(word1.className === "cm-operator") {
-      word1 = word1.nextElementSibling;
+    if(temp1[0]) {
+      word1 = temp1[0].nextElementSibling;
+      if(word1.className === "cm-operator") {
+        word1 = word1.nextElementSibling;
+      }
+    } else {
+      return;
     }
+    if(temp2[0]) {
+      word2 = temp2[0].nextElementSibling;
+    }else {
+      return;
+    }
+
+
 
     if(word1.innerHTML.substring(1,word1.innerHTML.length - 1).indexOf(word2.innerHTML.substring(1,word2.innerHTML.length - 1)) != -1) {
         var x1 = $(word1).offset().left+5;
