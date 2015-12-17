@@ -2,9 +2,9 @@ angular
   .module('app')
   .factory('output', output);
 
-output.$inject = ["promptFactory","inputFactory"];
+output.$inject = ["$rootScope", "promptFactory","inputFactory"];
 
-function output(promptFactory, inputFactory) {
+function output($rootScope, promptFactory, inputFactory) {
   var out = {
     html: '',
     partial: '',
@@ -52,8 +52,9 @@ function output(promptFactory, inputFactory) {
       iframe = document.querySelector('#output iframe');
       if(this.url === 'http://www.localhost:3000/' || this.url === 'http://www.localhost:3000') {
         this.source = this.prepareSource();
+        console.log(this.source);
         if(!!inputFactory.checkInput(this.source)) {
-          promptFactory.shouldUpdate = 1;
+          $rootScope.$broadcast('answer:correct', promptFactory.counter);
           console.log('goodjob..should update');
         }
 

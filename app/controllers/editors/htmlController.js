@@ -35,7 +35,6 @@
       output.render();
       _editor.on('change', function(inst, changes) {
         output.html = _editor.getValue();
-        // lineFactory.lineHolder('.cm-string:contains(myController)');
         lineFactory.lineHolder();
         output.render();
 
@@ -49,7 +48,6 @@
         //   });
 
         setTimeout(function() {
-          // lineFactory.lineHolder('.cm-string:contains(myController)');
           lineFactory.lineHolder();
         },0);
       });
