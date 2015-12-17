@@ -2,9 +2,9 @@ angular
   .module('app')
   .factory('inputFactory', inputFactory);
 
-inputFactory.$inject = ["promptFactory"];
+inputFactory.$inject = ["$rootScope", "promptFactory"];
 
-function inputFactory(promptFactory) {
+function inputFactory($rootScope, promptFactory) {
   var words = {};
   words.checkInput = checkInput;
   words.answers = answers();
