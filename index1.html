@@ -53,22 +53,6 @@
   <body>
     <div layout="column" style="background: transparent">
     <!-- material-design -->
-    <!-- <md-toolbar class="md-primary" flex>
-      <div layout="row" ng-controller="PromptsController as promptsVM">
-        <div flex="30">
-          <div style="display: inline" ng-controller="ModalCtrl as modalVM">
-            <script type="text/ng-template" src="tutorialContent.html"></script>
-            <md-button type="button" class="md-warn md-raised" ng-click="modalVM.open()">History</md-button>
-          </div>
-          <md-button type="button" class="md-raised" ng-click="promptsVM.previousPrompt()"><</md-button>
-          <md-button type="button" class="md-raised" ng-click="promptsVM.getTutorial()">O</md-button>
-          <md-button type="button" class="md-raised" ng-click="promptsVM.nextPrompt()">></md-button>
-        </div>
-        <div flex="70">
-          <span style="display:inline-lists"><p class="md-body-2">{{promptsVM.tutorial}}<p/></span>
-        </div>
-      </div>
-    </md-toolbar> -->
     <div layout="row" ng-controller="NewModalCtrl as modalVM">
       <md-button class="md-primary md-raised"  ng-click="modalVM.openModal($event)" flex="100" flex-gt-md="auto">
         Test
