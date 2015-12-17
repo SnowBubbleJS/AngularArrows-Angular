@@ -9,7 +9,10 @@
     <div class="md-dialog-content">
       <!-- <h1>Sweet Header</h1> -->
       <p>
-        In your <b>controller.js</b> let's not use <code>$scope</code> to bind our data, but <code>this</code>. Using <code>this</code>, will help avoid defining methods into your controller (they should go into factories, which will be discussed later). For now, take out the <code>$scope</code> as the first parameter in your <code>myController</code> function. Instead write <code> var vm = this; </code> as the first line in your function. Because our controller is binded through  <code>this</code>, which we set as <code>vm</code>, let's change all of our code to <code>vm.name = 'Bob'</code>, <code>vm.age = 30</code>, and <code> vm.occupation = 'hacker'</code>.
+        Now that we have our <b>factory.js</b> set up, we need to pass (or inject) the data from our <b>factory</b> to our <b>controller</b>.  Then from the controller, we can pass the data along to our HTML file.
+      </p>
+      <p>
+        In the <b>controller.js</b>, we need to inject our <b>factory</b> so that our <b>controller</b> has access to the factory’s data.  Right above where you declared your <i>MyController</i> function, write the following code <code>MyController.$inject = [‘myFactory’]</code>.  Because the MyController function is going to be dependent on the data from factory.js, we call it <i>dependency injection</i>. Note we’re injecting the names of the function and not the function itself.
       </p>
     </div>
   </md-dialog-content>
