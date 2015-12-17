@@ -53,12 +53,9 @@ code {
   color: black;
 }
 
-/*iframe {
-  height: 350px;
-  width: 500px;
-}*/
-
-
+iframe {
+  border: none;
+}
 
 
 .menuBardemoBasicUsage .page-container {

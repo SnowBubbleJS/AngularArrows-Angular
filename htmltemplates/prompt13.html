@@ -9,7 +9,7 @@
     <div class="md-dialog-content">
       <!-- <h1>Sweet Header</h1> -->
       <p>
-        As mentioned earlier, since we're using the 'controllerAs' syntax, we can now show these changes in the view using: <code><span>{{</span>myCtrl.name}}</code> <code><span>{{</span>myCtrl.age}}</code> <code><span>{{</span>myCtrl.occupation}}</code> This will also create two-way binding between our view and our controller, meaning that one change to either will affect the other.
+        We injected <code>myFactory</code> to the <b>controller.js</b>, but we also need to inject it to our function.  Pass <code>myFactory</code> as the first parameter in the MyController function.  Your MyController function should look like this <code>function MyController(myFactory){}</code>. Even though it might seem repetitive, realize that multiple functions can exist in the <b>controller.js</b> and you can control which functions require access to <code>myFactory</code>.
       </p>
     </div>
   </md-dialog-content>

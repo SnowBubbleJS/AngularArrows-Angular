@@ -39,26 +39,77 @@ function inputFactory($rootScope, promptFactory) {
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
   </head>
   <body>
-  <script></script><script></script><script></script></body>
+  <script></script><script></script><script>function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
 </html>`,
     `<html ng-app>
   <head>
     <meta charset="utf-8">
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
   </head>
-  <body>
-    <input type='text' ng-model='yourName'>
-  <script></script><script></script><script></script></body>
+  <body><input type="text" ng-model="yourName">
+  <script></script><script></script><script>function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
 </html>`,
     `<html ng-app>
   <head>
     <meta charset="utf-8">
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
   </head>
-  <body>
-        <input type='text' ng-model='yourName'>
-      {{yourName}}
-  <script></script><script></script><script></script></body>
+  <body><input type="text" ng-model="yourName"> {{yourName}}
+  <script></script><script></script><script>function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
 </html>`,
       `<html ng-app>
   <head>
@@ -66,15 +117,25 @@ function inputFactory($rootScope, promptFactory) {
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
   </head>
   <body>
-  <script></script><script></script><script></script></body>
-</html>`,
-  `<html ng-app="myApp">
-  <head>
-    <meta charset="utf-8">
-    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
-  </head>
-  <body>
-  <script></script><script></script><script></script></body>
+  <script></script><script></script><script>function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
 </html>`,
       `<html ng-app="myApp">
   <head>
@@ -82,17 +143,51 @@ function inputFactory($rootScope, promptFactory) {
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
   </head>
   <body>
-  <script>angular.module("myApp", [])</script><script></script><script></script></body>
+  <script></script><script></script><script>function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
 </html>`,
-      0,
-      `<html ng-app='myApp'>
+      `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
   </head>
   <body>
-<div ng-controller='MyController' > </div>
-  <script>angular.module('myApp', [ ])</script><script>angular.module('myApp').controller('MyController', MyController); function MyController(){}</script><script></script></body>
+  <script>angular.module('myApp', [])</script><script></script><script>function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
 </html>`,
       `<html ng-app="myApp">
   <head>
@@ -101,14 +196,28 @@ function inputFactory($rootScope, promptFactory) {
   </head>
   <body>
     <div ng-controller="MyController"></div>
-  <script>angular.module("myApp", []);</script><script>angular.module("myApp")
-        .controller("MyController", MyController);
+  <script>angular.module('myApp', [])</script><script>angular.module('myApp')
+	.controller('MyController', MyController)
 
-function MyController($scope) {
-$scope.name = "Bob";
-  $scope.age = 30;
-  $scope.occupation = "hacker";
-}</script><script></script></body>
+function MyController() {}</script><script>function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
 </html>`,
       `<html ng-app="myApp">
   <head>
@@ -116,21 +225,74 @@ $scope.name = "Bob";
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
   </head>
   <body>
-    <div ng-controller="MyController">
-    {{name}}
-          {{age}}
-          {{occupation}}
-    </div>
-  <script>angular.module("myApp", [])</script><script>angular.module("myApp")
-        .controller("MyController", MyController);
+    <div ng-controller="MyController"></div>
+  <script>angular.module('myApp', [])</script><script>angular.module('myApp')
+	.controller('MyController', MyController)
 
 function MyController($scope) {
 $scope.name = "Bob";
-  $scope.age = 30;
-  $scope.occupation = "hacker";
-}</script><script></script></body>
+$scope.age = 30;
+  $scope.occupation = 'hacker';
+
+}</script><script>function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
 </html>`,
-        0,
+        `<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
+  </head>
+  <body>
+    <div ng-controller="MyController">
+    {{name}}
+      {{age}}
+      {{occupation}}
+    </div>
+  <script>angular.module('myApp', [])</script><script>angular.module('myApp')
+	.controller('MyController', MyController)
+
+function MyController($scope) {
+$scope.name = "Bob";
+$scope.age = 30;
+  $scope.occupation = 'hacker';
+
+}</script><script>function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
+</html>`,
         `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
@@ -139,37 +301,78 @@ $scope.name = "Bob";
   <body>
     <div ng-controller="MyController as myCtrl">
     {{name}}
-          {{age}}
-          {{occupation}}
+      {{age}}
+      {{occupation}}
     </div>
-  <script>angular.module("myApp", [])</script><script>angular.module("myApp")
-        .controller("MyController", MyController);
+  <script>angular.module('myApp', [])</script><script>angular.module('myApp')
+	.controller('MyController', MyController)
 
 function MyController($scope) {
 $scope.name = "Bob";
-  $scope.age = 30;
-  $scope.occupation = "hacker";
-}</script><script></script></body>
+$scope.age = 30;
+  $scope.occupation = 'hacker';
+
+}</script><script>function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
 </html>`,
-        `<html ng-app='myApp'>
+        `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
   </head>
   <body>
-<div ng-controller='MyController as myCtrl'>
+    <div ng-controller="MyController as myCtrl">
     {{name}}
       {{age}}
       {{occupation}}
     </div>
-  <script>angular.module('myApp', [ ])</script><script>angular.module('myApp').controller('MyController', MyController); function MyController(){
+  <script>angular.module('myApp', [])</script><script>angular.module('myApp')
+	.controller('MyController', MyController)
+
+function MyController() {
   var vm = this;
-vm.name = 'Bob';
+vm.name = "Bob";
 vm.age = 30;
-  vm.occupation = 'hacker';
-}</script><script></script></body>
+vm.occupation = 'hacker';
+
+}</script><script>function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
 </html>`,
-        `<html ng-app="myApp">
+    `<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
@@ -177,18 +380,421 @@ vm.age = 30;
   <body>
     <div ng-controller="MyController as myCtrl">
     {{myCtrl.name}}
-          {{myCtrl.age}}
-          {{myCtrl.occupation}}
+      {{myCtrl.age}}
+      {{myCtrl.occupation}}
     </div>
-  <script>angular.module("myApp", [])</script><script>angular.module("myApp")
-        .controller("MyController", MyController);
+  <script>angular.module('myApp', [])</script><script>angular.module('myApp')
+	.controller('MyController', MyController)
 
 function MyController() {
-  vm = this;
+  var vm = this;
 vm.name = "Bob";
 vm.age = 30;
-vm.occupation = "hacker";
-}</script><script></script></body>
+vm.occupation = 'hacker';
+
+}</script><script>function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
+</html>`,
+    `<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
+  </head>
+  <body>
+    <div ng-controller="MyController as myCtrl">
+    {{myCtrl.name}}
+      {{myCtrl.age}}
+      {{myCtrl.occupation}}
+    </div>
+  <script>angular.module('myApp', [])</script><script>angular.module('myApp')
+	.controller('MyController', MyController)
+
+function MyController() {
+  var vm = this;
+vm.name = "Bob";
+vm.age = 30;
+vm.occupation = 'hacker';
+
+}</script><script>angular.module('myApp')
+	.factory('myFactory', myFactory);
+
+function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
+</html>`,
+    `<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
+  </head>
+  <body>
+    <div ng-controller="MyController as myCtrl">
+    {{myCtrl.name}}
+      {{myCtrl.age}}
+      {{myCtrl.occupation}}
+    </div>
+  <script>angular.module('myApp', [])</script><script>angular.module('myApp')
+	.controller('MyController', MyController)
+
+MyController.$inject = ["myFactory"]
+
+function MyController() {
+  var vm = this;
+vm.name = "Bob";
+vm.age = 30;
+vm.occupation = 'hacker';
+
+}</script><script>angular.module('myApp')
+	.factory('myFactory', myFactory);
+
+
+function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
+</html>`,
+    `<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
+  </head>
+  <body>
+    <div ng-controller="MyController as myCtrl">
+    {{myCtrl.name}}
+      {{myCtrl.age}}
+      {{myCtrl.occupation}}
+    </div>
+  <script>angular.module('myApp', [])</script><script>angular.module('myApp')
+	.controller('MyController', MyController)
+
+MyController.$inject = ["myFactory"]
+
+function MyController(myFactory) {
+  var vm = this;
+vm.name = "Bob";
+vm.age = 30;
+vm.occupation = 'hacker';
+}</script><script>angular.module('myApp')
+	.factory('myFactory', myFactory);
+
+
+function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
+</html>`,
+    `<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
+  </head>
+  <body>
+    <div ng-controller="MyController as myCtrl">
+    {{myCtrl.name}}
+      {{myCtrl.age}}
+      {{myCtrl.occupation}}
+    </div>
+  <script>angular.module('myApp', [])</script><script>angular.module('myApp')
+	.controller('MyController', MyController)
+
+MyController.$inject = ["myFactory"]
+
+function MyController(myFactory) {
+  var vm = this;
+  vm.list = myFactory;
+}</script><script>angular.module('myApp')
+	.factory('myFactory', myFactory);
+
+
+function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
+</html>`,
+    `<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
+  </head>
+  <body>
+    <div ng-controller="MyController as myCtrl">
+    {{myCtrl.list}}
+    </div>
+  <script>angular.module('myApp', [])</script><script>angular.module('myApp')
+	.controller('MyController', MyController)
+
+MyController.$inject = ["myFactory"]
+
+function MyController(myFactory) {
+  var vm = this;
+  vm.list = myFactory;
+}</script><script>angular.module('myApp')
+	.factory('myFactory', myFactory);
+
+
+function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
+</html>`,
+    `<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
+  </head>
+  <body>
+    <div ng-controller="MyController as myCtrl">
+    {{myCtrl.list[0].name}}
+         {{myCtrl.list[1].name}}
+          {{myCtrl.list[2].name}}
+    </div>
+  <script>angular.module('myApp', [])</script><script>angular.module('myApp')
+	.controller('MyController', MyController)
+
+MyController.$inject = ["myFactory"]
+
+function MyController(myFactory) {
+  var vm = this;
+  vm.list = myFactory;
+}</script><script>angular.module('myApp')
+	.factory('myFactory', myFactory);
+
+
+function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
+</html>`,
+    `<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
+  </head>
+  <body>
+    <div ng-controller="MyController as myCtrl">
+      <div></div>
+    </div>
+  <script>angular.module('myApp', [])</script><script>angular.module('myApp')
+	.controller('MyController', MyController)
+
+MyController.$inject = ["myFactory"]
+
+function MyController(myFactory) {
+  var vm = this;
+  vm.list = myFactory;
+}</script><script>angular.module('myApp')
+	.factory('myFactory', myFactory);
+
+
+function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
+</html>`,
+    `<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
+  </head>
+  <body>
+    <div ng-controller="MyController as myCtrl">
+      <div ng-repeat="list in myCtrl.list"></div>
+    </div>
+  <script>angular.module('myApp', [])</script><script>angular.module('myApp')
+	.controller('MyController', MyController)
+
+MyController.$inject = ["myFactory"]
+
+function MyController(myFactory) {
+  var vm = this;
+  vm.list = myFactory;
+} </script><script>angular.module('myApp')
+	.factory('myFactory', myFactory);
+
+
+function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
+</html>`,
+    `<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>
+  </head>
+  <body>
+    <div ng-controller="MyController as myCtrl">
+      <div ng-repeat="list in myCtrl.list">{{list.name}}</div>
+    </div>
+  <script>angular.module('myApp', [])</script><script>angular.module('myApp')
+	.controller('MyController', MyController)
+
+MyController.$inject = ["myFactory"]
+
+function MyController(myFactory) {
+  var vm = this;
+  vm.list = myFactory;
+}  </script><script>angular.module('myApp')
+	.factory('myFactory', myFactory);
+
+
+function myFactory(){
+
+  var FriendsList = [
+    {'name':'Bryan',
+     'age': 30,
+     'pet': 'none'
+    },
+    {'name': 'Matt',
+     'age': 29,
+     'pet': 'nyan_cat'
+    },
+    {'name':'Daniel',
+     'age': 25,
+     'pet':'catdog'
+    }
+ ]
+
+  return FriendsList;
+} </script></body>
 </html>`
     ];
   }
