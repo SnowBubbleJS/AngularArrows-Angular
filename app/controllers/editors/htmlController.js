@@ -28,7 +28,7 @@
   <body>
 
   </body>
-</html>
+</html>  
       `);
       output.html = _editor.getValue();
       output.render();

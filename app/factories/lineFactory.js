@@ -11,6 +11,8 @@
     function lineFunction(query){
         var temp = $(query);
         var c = document.getElementById("canvas");
+        c.width = window.innerWidth;
+        c.height = window.innerHeight;
         var ctx = c.getContext("2d");
         if(temp.length > 1) {
           var x1 = $(temp[0]).offset().left+5;
