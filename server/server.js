@@ -14,8 +14,7 @@ app.get("/prompts", Prompt.findPrompts);
 console.log(path.join(__dirname, "../"));
 app.use(express.static(path.join(__dirname, "../")));
 
-
-app.listen(process.env.PORT || 5000);
+app.listen(3000 || process.env.PORT);
 
 // @ds027835.mongolab.com:27835/prompts
 // mongodb://<dbuser>:<dbpassword>@ds029615.mongolab.com:29615/promptsv2

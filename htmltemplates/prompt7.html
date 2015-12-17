@@ -1,0 +1,32 @@
+<md-dialog aria-label="Angular JS">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Angular JS</h2>
+      </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:800px;max-height:810px; ">
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="one">
+          <md-content class="md-padding">
+            <h1 class="md-display">Tab One</h1>
+            <p>
+              You must be wondering what .module is.  A module is a container for different parts of your app. In order to add functionality to our application, we need to build a container for our application. We just wrote <code>angular.module('myApp', [ ]); </code> This is telling angular to create a new container encased in where we defined our ng-app. We will explain in depth why the [ ] is there, but briefly, it's where we do dependency injections so our angular app can do cool things. Note the 2nd parameter of [ ] is only put in when we are initially creating the module or container. Because we created this container, it only needs to be referenced when we want to add functionality to our application. What you just did was create a 'setter' (the defining of your angular module with a second argument) following the style guide. Now we can use the 'getter' syntax (discussed later) for every other time we need to reference it! For more information on getters and setters, please visit https://github.com/johnpapa/angular-styleguide#modules.
+            </p>
+          </md-content>
+        </md-tab>
+        <md-tab label="two">
+          <md-content class="md-padding">
+            <h1 class="md-display">Tab Two</h1>
+            <p>
+              Now that we've built the foundation of our application, let's build a controller using the Angular Style Guide by John Papa.
+            </p>
+            <p>
+              Before we build the controller, you need to understand that it is common practice to keep all Angular componentry modularized by defining only 1 component per file and even more so to have these separate JavaScript files wrapped within an Immediately Invoked Function expression (IIFE). These IIFEs are created as wrappers for our AngularJS components so that variable names do not clutter the global workspace. IIFEs are characterized by wrapping your function in parentheses followed by a pair of parentheses, for example - ( function(){//codeblock} )(); For more information about the single responsibility of files, please visit https://github.com/johnpapa/angular-styleguide#single-responsibility. For more information about using IIFEs, please visit https://github.com/johnpapa/angular-styleguide#iife.,
+            </p>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-dialog-content>
+  </form>
+</md-dialog>
