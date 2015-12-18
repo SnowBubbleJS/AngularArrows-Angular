@@ -14,9 +14,20 @@ function output($rootScope, promptFactory, inputFactory) {
     source: '',
     url: "http://www.localhost:3000/",
     prepareSource: function(partial) {
-      // HTML
-      var src = this.html;
+      // var src = "<!DOCTYPE html>\n" +
+			// "<html>\n\t" +
+      // "<head>\n\t\t" +
+      // "<meta charset=\"utf-8\">\n\t\t" +
+      // "<title>Test</title>\n\n\t\t\n\t" +
+      // "<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>" +
+      // "</head>\n\t" +
+      // "<body>\n\t\n\t" +
+      // "</body>\n" +
+      // "</html>";
 
+      // HTML
+      // src = src.replace('</body>',this.html + '</body>');
+      var src = this.html;
       // Partial
       if(!!partial) {
         src = src.replace(/<body([\s\S]*)\/body>/, '<body ui-view>' + this.partial + '<body>' );
@@ -25,6 +36,7 @@ function output($rootScope, promptFactory, inputFactory) {
       // App
       var appScript = '<script>' + this.app + '<\/script>';
       src = src.replace('</body>', appScript + '</body>');
+
 
       // Controller
       var controllerScript = '<script>' + this.controller + '<\/script>';
@@ -54,6 +66,7 @@ function output($rootScope, promptFactory, inputFactory) {
       else if (this.url === 'http://www.localhost:3000/partial') {
         console.log('RENDER PARTIAL');
           this.source = this.prepareSource(true);
+          // console.log(this.source);
           iframe_doc = iframe.contentDocument;
           iframe_doc.open();
           iframe_doc.write(this.source);
