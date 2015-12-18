@@ -33,9 +33,9 @@
     }
 
     function getTutorial(ev) {
-      setInterval(function(){
-        console.log(vm.currentTutorial);
-      },10);
+      // setInterval(function(){
+      //   console.log(vm.currentTutorial);
+      // },10);
       var file;
       if (promptFactory.counter < promptFactory.allPrompts.length) {
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && vm.customFullscreen;
