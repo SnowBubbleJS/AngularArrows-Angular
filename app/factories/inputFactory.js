@@ -10,6 +10,7 @@ function inputFactory($rootScope, promptFactory) {
   words.answers = answers();
   return words;
 
+  ////////////
 
   function checkInput(source) {
     console.log('reached here');
@@ -26,6 +27,8 @@ function inputFactory($rootScope, promptFactory) {
       return false;
     }
   }
+
+
 
   function answers() {
     return [

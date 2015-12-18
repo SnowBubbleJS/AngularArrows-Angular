@@ -1,0 +1,31 @@
+<div ng-controller="AppCtrl" layout="column" style="height:500px;" ng-cloak="" class="sidenavdemoBasicUsage" ng-app="MyApp">
+  <div>
+    <h1><center>Stuff</center></h1>
+  </div>
+  <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-primary md-raised">
+    History
+  </md-button>
+  <section layout="row" flex="">
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">History</h1>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" layout-padding="" style="overflow:scroll">
+        <md-button class="md-primary">Save</md-button>
+        <md-button class="md-primary">Log Out</md-button>
+        <p>
+          lorem*2
+        </p>
+      </md-content>
+      <md-dialog-actions layout="row">
+        <md-button ng-click="close()" class="md-primary">
+          Close
+        </md-button>
+      </md-dialog-actions>
+
+    </md-sidenav>
+
+  </section>
+
+</div>
