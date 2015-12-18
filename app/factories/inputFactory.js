@@ -816,7 +816,9 @@ function myFactory(){
 
   return FriendsList;
 } </script></body>
-</html>`
+</html>`,
+//prompt 22
+'askldnaslkdasld'
     ];
   }
 }
