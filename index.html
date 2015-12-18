@@ -85,7 +85,7 @@
     <div layout="row" flex="50">
       <md-card flex="40" ng-controller="HtmlController as htmlVM" id="html" class="textEditor md-whiteframe-1dp">
         <md-toolbar class="md-primary">
-          <h1 class="md-flex md-title">HTML</h1>
+          <h1 class="md-flex md-title" layout-align="center center">HTML</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : htmlVM.codemirrorLoaded }" ui-codemirror-opts="htmlVM.editorOptions"></textarea>
       </md-card>
