@@ -83,25 +83,25 @@
     <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
     <!-- more material design -->
     <div layout="row" flex="50" >
-      <md-card flex="40" ng-controller="HtmlController as htmlVM" id="html" class="textEditor md-whiteframe-1dp">
+      <md-card flex="40" ng-controller="HtmlController as htmlVM" id="html" class="editor">
         <md-toolbar class="md-primary" layout-align="center center">
           <h1 class="md-flex md-title" >HTML</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : htmlVM.codemirrorLoaded }" ui-codemirror-opts="htmlVM.editorOptions"></textarea>
       </md-card>
-      <!-- <md-card flex="15" ng-controller="PartialController as partialVM" id="partial" class="textEditor md-whiteframe-1dp">
+      <!-- <md-card flex="15" ng-controller="PartialController as partialVM" id="partial" class="editor">
         <md-toolbar class="md-primary">
           <h1 class="md-flex md-title">Partial</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : partialVM.codemirrorLoaded }" ui-codemirror-opts="partialVM.editorOptions"></textarea>
       </md-card> -->
-      <md-card flex="25" ng-controller="AppController as appVM" id="app" class="textEditor md-whiteframe-1dp">
+      <md-card flex="25" ng-controller="AppController as appVM" id="app" class="editor">
         <md-toolbar class="md-primary" layout-align="center center">
           <h1 class="md-flex md-title">App</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : appVM.codemirrorLoaded }" ui-codemirror-opts="appVM.editorOptions"></textarea>
       </md-card>
-      <md-card flex="35" ng-controller="ControllerController as controllerVM" id="controller" class="textEditor md-whiteframe-1dp">
+      <md-card flex="35" ng-controller="ControllerController as controllerVM" id="controller" class="editor">
         <md-toolbar class="md-primary" layout-align="center center">
           <h1 class="md-flex md-title">Controller</h1>
         </md-toolbar>
@@ -110,7 +110,7 @@
     </div>
 
     <div layout="row" flex="50">
-      <md-card class="embeddedPage md-whiteframe-1dp" flex="50">
+      <md-card class="embeddedPage editor" flex="50">
         <md-toolbar class="md-primary" layout-align="center center">
           <h1 class="md-flex md-title">Output</h1>
         </md-toolbar>
@@ -121,9 +121,9 @@
 
         <section id="output" layout="column">
       		<iframe flex="100"></iframe>
-      	</section> 
+      	</section>
       </md-card>
-      <md-card flex="50" ng-controller="FactoryController as factoryVM" id="factory" class="textEditor md-whiteframe-1dp">
+      <md-card flex="50" ng-controller="FactoryController as factoryVM" id="factory" class="editor">
         <md-toolbar class="md-primary" layout-align="center center">
           <h1 class="md-flex md-title">Factory</h1>
         </md-toolbar>
