@@ -56,21 +56,24 @@
     </div>
 
     <!-- Side Navigation -->
-    <div layout="column">
-      <md-sidenav class="md-sidenav-right md-whiteframe-10dp" md-component-id="right" flex="100" layout="column">
-        <md-toolbar class="md-theme-light">
-          <h1 class="md-toolbar-tools">History</h1>
-        </md-toolbar>
-        <md-content flex="100" ng-controller="RightCtrl" layout-padding="" style="overflow:scroll">
-          <md-button class="md-primary">Save</md-button>
-          <md-button class="md-primary">Log Out</md-button>
-          <p>
-            lorem*20
-          </p>
-          <ng-include src="'/htmltemplates/prompt1.html'"></ng-include>
-        </md-content>
-      </md-sidenav>
-    </div>
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">History</h1>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" layout-padding="" style="overflow:scroll">
+        <md-button class="md-primary">Save</md-button>
+        <md-button class="md-primary">Log Out</md-button>
+        <p>
+          What is AngularJS? - Let's start this project off by understanding what AngularJS is. AngularJS is a client-side JavaScript framework for making dynamic web applications. Angular lets you use HTML as your template language and allows you to extend HTML's syntax to express your application's components clearly. Angular's two-way data binding and dependency injection eliminate much of the code you would otherwise have to write.
+        </p>
+        <p>We need to bring in the  Angular library so we can start using the Angular Framework.  Copy and paste this right below the meta tag.  &lt;script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'&gt;&lt;/script&gt;</p>
+      </md-content>
+      <md-dialog-actions layout="row">
+        <md-button ng-click="close()" class="md-primary">
+          Close
+        </md-button>
+      </md-dialog-actions>
+    </md-sidenav>
 
 
     <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
