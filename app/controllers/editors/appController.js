@@ -25,7 +25,6 @@
         lineFactory.lineHolder();
         output.render();
         setTimeout(function() {
-          // lineFactory.lineHolder('.cm-string:contains(myController)');
           lineFactory.lineHolder();
         }, 0);
       });
