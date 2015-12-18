@@ -9,7 +9,7 @@
     <div class="md-dialog-content">
       <!-- <h1>Sweet Header</h1> -->
       <p>
-        Head over to your HTML file and let’s display the data from our <b>factory</b>.  We need to get rid of the previous angular expressions we used so delete <code>{{myCtrl.name}}</code>, <code>{{myCtrl.age}}</code>, and <code>{{myCtrl.occupation}}</code>. Now let's display the data from our <code>factory</code>, use angular expressions to show the data. Use <code><span>{{</span>myCtrl.list}}</code>.
+        We injected <code>myFactory</code> to the <b>controller.js</b>, but we also need to inject it to our function.  Pass <code>myFactory</code> as the first parameter in the MyController function.  Your MyController function should look like this <code>function MyController(myFactory){}</code>. Even though it might seem repetitive, realize that multiple functions can exist in the <b>controller.js</b> and you can control which functions require access to <code>myFactory</code>.
       </p>
     </div>
   </md-dialog-content>

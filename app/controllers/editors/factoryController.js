@@ -21,8 +21,7 @@
       _editor.setValue(`
 
 
-
-function myFactory(){
+  function myFactory(){
 
   var FriendsList = [
     {'name':'Bryan',

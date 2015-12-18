@@ -20,7 +20,7 @@
 
     <!-- Developer Scripts -->
     <script type="text/javascript" src="./app/app.js"></script>
-    <script type="text/javascript" src="./app/factories/promptFactory.js"></script>
+    <script type="text/javascript" src="./app/factories/promptServer.js"></script>
     <script type="text/javascript" src="./app/factories/inputFactory.js"></script>
     <script type="text/javascript" src="./app/factories/factory.js"></script>
     <script type="text/javascript" src="./app/factories/lineFactory.js"></script>
@@ -30,9 +30,8 @@
     <script type="text/javascript" src="./app/controllers/editors/controllerController.js"></script>
     <script type="text/javascript" src="./app/controllers/editors/htmlController.js"></script>
     <script type="text/javascript" src="./app/controllers/editors/factoryController.js"></script>
+    <script type="text/javascript" src="./app/controllers/modal/NewModalCtrl.js"></script>
     <script type="text/javascript" src="./app/controllers/output/urlController.js"></script>
-    <script type="text/javascript" src="./app/controllers/sidenav/SideNavCtrl.js"></script>
-    <!-- <script type="text/javascript" src="./app/controllers/sidenav/TESTSideNavCtrl.js"></script> -->
 
 
 
@@ -45,45 +44,41 @@
     <!-- Angular Material Library -->
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc7/angular-material.min.js"></script>
 
+
+
+
+    <script type="text/javascript" src="./app/controllers/output/urlController.js"></script>
+    <!-- <script type="text/javascript" src="./app/controllers/modal/modalCtrl.js"></script> -->
   </head>
   <body>
-
-    <div layout="column" style="background: transparent" ng-controller="SideNavCtrl">
-
-    <div layout="row" ng-controller="PromptsController as promptsVM">
-      <md-button class="md-primary md-raised"  ng-click="promptsVM.getTutorial($event)" flex="100" flex-gt-md="auto">
+    <div layout="column" style="background: transparent">
+    <!-- material-design -->
+    <!-- <md-toolbar class="md-primary" flex>
+      <div layout="row" ng-controller="PromptsController as promptsVM">
+        <div flex="30">
+          <div style="display: inline" ng-controller="ModalCtrl as modalVM">
+            <script type="text/ng-template" src="tutorialContent.html"></script>
+            <md-button type="button" class="md-warn md-raised" ng-click="modalVM.open()">History</md-button>
+          </div>
+          <md-button type="button" class="md-raised" ng-click="promptsVM.previousPrompt()"><</md-button>
+          <md-button type="button" class="md-raised" ng-click="promptsVM.getTutorial()">O</md-button>
+          <md-button type="button" class="md-raised" ng-click="promptsVM.nextPrompt()">></md-button>
+        </div>
+        <div flex="70">
+          <span style="display:inline-lists"><p class="md-body-2">{{promptsVM.tutorial}}<p/></span>
+        </div>
+      </div>
+    </md-toolbar> -->
+    <div layout="row" ng-controller="NewModalCtrl as modalVM">
+      <md-button class="md-primary md-raised"  ng-click="modalVM.openModal($event)" flex="100" flex-gt-md="auto">
         Test
       </md-button>
-      <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-primary md-raised" flex="25">
-        History
-      </md-button>
     </div>
-
-    <!-- Side Navigation -->
-    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-      <md-toolbar class="md-theme-light">
-        <h1 class="md-toolbar-tools">History</h1>
-      </md-toolbar>
-      <md-content ng-controller="RightCtrl" layout-padding="" style="overflow:scroll">
-        <md-button class="md-primary">Save</md-button>
-        <md-button class="md-primary">Log Out</md-button>
-        <p>
-          What is AngularJS? - Let's start this project off by understanding what AngularJS is. AngularJS is a client-side JavaScript framework for making dynamic web applications. Angular lets you use HTML as your template language and allows you to extend HTML's syntax to express your application's components clearly. Angular's two-way data binding and dependency injection eliminate much of the code you would otherwise have to write.
-        </p>
-        <p>We need to bring in the  Angular library so we can start using the Angular Framework.  Copy and paste this right below the meta tag.  &lt;script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'&gt;&lt;/script&gt;</p>
-      </md-content>
-      <md-dialog-actions layout="row">
-        <md-button ng-click="close()" class="md-primary">
-          Close
-        </md-button>
-      </md-dialog-actions>
-    </md-sidenav>
-
 
     <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
     <!-- more material design -->
     <div layout="row" flex="50">
-      <md-card flex="40" ng-controller="HtmlController as htmlVM" id="html" class="textEditor md-whiteframe-1dp">
+      <md-card flex="35" ng-controller="HtmlController as htmlVM" id="html" class="textEditor md-whiteframe-1dp">
         <md-toolbar class="md-primary">
           <h1 class="md-flex md-title">HTML</h1>
         </md-toolbar>
@@ -101,7 +96,7 @@
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : appVM.codemirrorLoaded }" ui-codemirror-opts="appVM.editorOptions"></textarea>
       </md-card>
-      <md-card flex="35" ng-controller="ControllerController as controllerVM" id="controller" class="textEditor md-whiteframe-1dp">
+      <md-card flex="25" ng-controller="ControllerController as controllerVM" id="controller" class="textEditor md-whiteframe-1dp">
         <md-toolbar class="md-primary">
           <h1 class="md-flex md-title">Controller</h1>
         </md-toolbar>
@@ -114,13 +109,13 @@
         <md-toolbar class="md-primary">
           <h1 class="md-flex md-title">Output</h1>
         </md-toolbar>
-        <!-- <form id="embeddedPage" ng-submit="embeddedVM.changeLink()" ng-controller="EmbeddedPage as embeddedVM" layout="row">
-          <input id="URL" type="text" flex="100" name="link" ng-model="embeddedVM.userInput" >
+        <form layout="row" id="embeddedPage" ng-submit="embeddedVM.changeLink()" ng-controller="EmbeddedPage as embeddedVM">
+          <input flex="auto" id="URL" type="text" style="width:400px" name="link" ng-model="embeddedVM.userInput" >
           <input type="submit" name="button" value="Enter">
-        </form> -->
+        </form>
 
-        <section id="output" layout="column">
-      		<iframe flex="100"></iframe>
+        <section layout="row" id="output">
+      		<iframe flex="auto" id="iframeOutput"></iframe>
       	</section>
       </md-card>
       <md-card flex="50" ng-controller="FactoryController as factoryVM" id="factory" class="textEditor md-whiteframe-1dp">
