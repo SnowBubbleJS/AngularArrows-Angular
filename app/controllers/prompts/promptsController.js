@@ -68,8 +68,17 @@
               clickOutsideToClose:true,
               fullscreen: useFullScreen
             });
-
           }
+          else {
+              $mdDialog.show({
+                controller: DialogController,
+                templateUrl: 'htmltemplates/prompt' + promptFactory.counter + '.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose:true,
+                fullscreen: useFullScreen
+              });
+            }
 
       }
     }
