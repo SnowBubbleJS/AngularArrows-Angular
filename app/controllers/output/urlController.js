@@ -11,8 +11,6 @@
       vm.changeLink = changeLink;
       vm.userInput = 'http://www.localhost:3000/';
 
-      ////////////
-
       function changeLink() {
         output.url = vm.userInput;
         console.log('im here', output);

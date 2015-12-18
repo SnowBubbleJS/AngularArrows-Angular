@@ -2,7 +2,8 @@
 <html ng-app="app">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <meta name="description" content="Spectangular is an AngularJS tutorial for beginner's that follows John Papa's style guide in order to create easy to follow code architecture that has emphasizes modularization and data flow best practices.">
+    <title>Spectangular | Premier AngularJS Tutorial for Beginners Focusing on Code Architecture and JavaScript Function Relationships</title>
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css">
     <link rel="stylesheet" href="css/style.css">
@@ -11,11 +12,13 @@
     <!-- Application Dependencies -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-    <script type="text/javascript" src="bower_components/codemirror/lib/codemirror.js"></script>
-    <script type="text/javascript" src="bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-    <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
-    <script type="text/javascript" src="ui-bootstrap-tpls-0.12.0.js"></script>
+    <script type="text/javascript" src="./bower_components/codemirror/lib/codemirror.js"></script>
+    <script type="text/javascript" src="./bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+    <script type="text/javascript" src="./bower_components/codemirror/mode/xml/xml.js"></script>
+    <script type="text/javascript" src="./bower_components/codemirror/mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="./app/scripts/ui-bootstrap-tpls-0.12.0.js"></script>
 
     <!-- Developer Scripts -->
     <script type="text/javascript" src="./app/app.js"></script>
@@ -44,91 +47,82 @@
   </head>
   <body ng-cloak>
 
+
     <div layout="column" style="background: transparent" ng-controller="SideNavCtrl">
 
-    <div layout="row" ng-controller="PromptsController as promptsVM">
-      <md-button class="md-primary md-raised"  ng-click="promptsVM.getTutorial($event)" flex="100" flex-gt-md="auto">
-        Test
-      </md-button>
-      <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-primary md-raised" flex="25">
-        History
-      </md-button>
-    </div>
-
-    <!-- Side Navigation -->
-    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-      <md-toolbar class="md-theme-light">
-        <h1 class="md-toolbar-tools">History</h1>
-      </md-toolbar>
-      <md-content ng-controller="RightCtrl" layout-padding="" style="overflow:scroll">
-        <md-button class="md-primary">Save</md-button>
-        <md-button class="md-primary">Log Out</md-button>
-        <p>
-          What is AngularJS? - Let's start this project off by understanding what AngularJS is. AngularJS is a client-side JavaScript framework for making dynamic web applications. Angular lets you use HTML as your template language and allows you to extend HTML's syntax to express your application's components clearly. Angular's two-way data binding and dependency injection eliminate much of the code you would otherwise have to write.
-        </p>
-        <p>We need to bring in the  Angular library so we can start using the Angular Framework.  Copy and paste this right below the meta tag.  &lt;script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'&gt;&lt;/script&gt;</p>
-      </md-content>
-      <md-dialog-actions layout="row">
-        <md-button ng-click="close()" class="md-primary">
-          Close
+      <div layout="row" ng-controller="PromptsController as promptsVM">
+        <md-button class="md-primary md-raised"  ng-click="promptsVM.getTutorial($event)" flex="100" flex-gt-md="auto">
+          Tutorial
         </md-button>
-      </md-dialog-actions>
-    </md-sidenav>
+        <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-primary md-raised" flex="25">
+          Menu
+        </md-button>
+      </div>
 
+      <!-- Side Navigation -->
+      <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+        <md-toolbar class="md-theme-light">
+          <h1 class="md-toolbar-tools">History</h1>
+        </md-toolbar>
+        <md-content ng-controller="RightCtrl" layout-padding="" style="overflow:scroll">
+          <md-button class="md-primary">Save</md-button>
+          <md-button class="md-primary">Log Out</md-button>
+          <p>
+            What is AngularJS? - Let's start this project off by understanding what AngularJS is. AngularJS is a client-side JavaScript framework for making dynamic web applications. Angular lets you use HTML as your template language and allows you to extend HTML's syntax to express your application's components clearly. Angular's two-way data binding and dependency injection eliminate much of the code you would otherwise have to write.
+          </p>
+          <p>We need to bring in the  Angular library so we can start using the Angular Framework.  Copy and paste this right below the meta tag.  &lt;script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'&gt;&lt;/script&gt;</p>
+        </md-content>
+        <md-dialog-actions layout="row">
+          <md-button ng-click="close()" class="md-primary">
+            Close
+          </md-button>
+        </md-dialog-actions>
+      </md-sidenav>
 
-    <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
-    <!-- more material design -->
-    <div layout="row" flex="50" >
-      <md-card flex="40" ng-controller="HtmlController as htmlVM" id="html" class="textEditor md-whiteframe-1dp">
-        <md-toolbar class="md-primary" layout-align="center center">
-          <h1 class="md-flex md-title" >HTML</h1>
-        </md-toolbar>
-        <textarea ui-codemirror="{ onLoad : htmlVM.codemirrorLoaded }" ui-codemirror-opts="htmlVM.editorOptions"></textarea>
-      </md-card>
-      <!-- <md-card flex="15" ng-controller="PartialController as partialVM" id="partial" class="textEditor md-whiteframe-1dp">
-        <md-toolbar class="md-primary">
-          <h1 class="md-flex md-title">Partial</h1>
-        </md-toolbar>
-        <textarea ui-codemirror="{ onLoad : partialVM.codemirrorLoaded }" ui-codemirror-opts="partialVM.editorOptions"></textarea>
-      </md-card> -->
-      <md-card flex="25" ng-controller="AppController as appVM" id="app" class="textEditor md-whiteframe-1dp">
-        <md-toolbar class="md-primary" layout-align="center center">
-          <h1 class="md-flex md-title">App</h1>
-        </md-toolbar>
-        <textarea ui-codemirror="{ onLoad : appVM.codemirrorLoaded }" ui-codemirror-opts="appVM.editorOptions"></textarea>
-      </md-card>
-      <md-card flex="35" ng-controller="ControllerController as controllerVM" id="controller" class="textEditor md-whiteframe-1dp">
-        <md-toolbar class="md-primary" layout-align="center center">
-          <h1 class="md-flex md-title">Controller</h1>
-        </md-toolbar>
-        <textarea ui-codemirror="{ onLoad : controllerVM.codemirrorLoaded }" ui-codemirror-opts="controllerVM.editorOptions"></textarea>
-      </md-card>
-    </div>
+      <!-- Line drawing canvas -->
+      <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
 
-    <div layout="row" flex="50">
-      <md-card class="embeddedPage md-whiteframe-1dp" flex="50">
-        <md-toolbar class="md-primary" layout-align="center center">
-          <h1 class="md-flex md-title">Output</h1>
-        </md-toolbar>
-        <!-- <form id="embeddedPage" ng-submit="embeddedVM.changeLink()" ng-controller="EmbeddedPage as embeddedVM" layout="row">
-          <input id="URL" type="text" flex="100" name="link" ng-model="embeddedVM.userInput" >
-          <input type="submit" name="button" value="Enter">
-        </form> -->
+      <!-- Text editors -->
+      <div layout="row" flex="50" >
+        <md-card flex="40" ng-controller="HtmlController as htmlVM" id="html" class="textEditor md-whiteframe-1dp">
+          <md-toolbar class="md-primary" layout-align="center center">
+            <h1 class="md-flex md-title" >HTML</h1>
+          </md-toolbar>
+          <textarea ui-codemirror="{ onLoad : htmlVM.codemirrorLoaded }" ui-codemirror-opts="htmlVM.editorOptions"></textarea>
+        </md-card>
+        <md-card flex="25" ng-controller="AppController as appVM" id="app" class="textEditor md-whiteframe-1dp">
+          <md-toolbar class="md-primary" layout-align="center center">
+            <h1 class="md-flex md-title">App</h1>
+          </md-toolbar>
+          <textarea ui-codemirror="{ onLoad : appVM.codemirrorLoaded }" ui-codemirror-opts="appVM.editorOptions"></textarea>
+        </md-card>
+        <md-card flex="35" ng-controller="ControllerController as controllerVM" id="controller" class="textEditor md-whiteframe-1dp">
+          <md-toolbar class="md-primary" layout-align="center center">
+            <h1 class="md-flex md-title">Controller</h1>
+          </md-toolbar>
+          <textarea ui-codemirror="{ onLoad : controllerVM.codemirrorLoaded }" ui-codemirror-opts="controllerVM.editorOptions"></textarea>
+        </md-card>
+      </div>
 
-        <section id="output" layout="column">
-      		<iframe flex="100"></iframe>
-      	</section>
-      </md-card>
-      <md-card flex="50" ng-controller="FactoryController as factoryVM" id="factory" class="textEditor md-whiteframe-1dp">
-        <md-toolbar class="md-primary" layout-align="center center">
-          <h1 class="md-flex md-title">Factory</h1>
-        </md-toolbar>
-        <textarea ui-codemirror="{ onLoad : factoryVM.codemirrorLoaded }" ui-codemirror-opts="factoryVM.editorOptions"></textarea>
-      </md-card>
-    </div>
+      <!-- Browswer output and more text editors -->
+      <div layout="row" flex="50">
+        <md-card class="embeddedPage md-whiteframe-1dp" flex="50">
+          <md-toolbar class="md-primary" layout-align="center center">
+            <h1 class="md-flex md-title">Output</h1>
+          </md-toolbar>
+          <section id="output" layout="column">
+        		<iframe flex="100"></iframe>
+        	</section>
+        </md-card>
+        <md-card flex="50" ng-controller="FactoryController as factoryVM" id="factory" class="textEditor md-whiteframe-1dp">
+          <md-toolbar class="md-primary" layout-align="center center">
+            <h1 class="md-flex md-title">Factory</h1>
+          </md-toolbar>
+          <textarea ui-codemirror="{ onLoad : factoryVM.codemirrorLoaded }" ui-codemirror-opts="factoryVM.editorOptions"></textarea>
+        </md-card>
+      </div>
+
   </div>
-  <!-- For JS -->
-  <script src="./bower_components/codemirror/mode/xml/xml.js"></script>
-  <script src="./bower_components/codemirror/mode/javascript/javascript.js"></script>
+
   </body>
 </html>

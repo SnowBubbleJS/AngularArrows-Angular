@@ -18,7 +18,6 @@
         $scope.$apply();
     });
 
-    ////////////
     function startTutorial (ev) {
       var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && vm.customFullscreen;
       $mdDialog.show({
@@ -79,7 +78,6 @@
                 fullscreen: useFullScreen
               });
             }
-
       }
     }
 
@@ -98,17 +96,5 @@
       };
     }
 
-    // function nextPrompt() {
-    //   if (promptFactory.currentPrompt < promptFactory.counter) {
-    //     promptFactory.currentPrompt++;
-    //     vm.tutorial = promptFactory.allPrompts[promptFactory.currentPrompt];
-    //   }
-    // }
-    // function previousPrompt() {
-    //   if (promptFactory.currentPrompt > 0) {
-    //     promptFactory.currentPrompt--;
-    //     vm.tutorial = promptFactory.allPrompts[promptFactory.currentPrompt];
-    //   }
-    // }
   }
 }());
