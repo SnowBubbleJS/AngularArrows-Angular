@@ -156,10 +156,13 @@
     </div>
 
     <div layout="row" flex="50">
-      <md-card class="editor" flex="50">
-        <md-toolbar id="output" layout-align="center center">
-          <h1 class="md-flex md-title">Output</h1>
-        </md-toolbar>
+      <div class='code-box' flex='50'>
+        <header class='code-box-header'>
+          <nav class='code-box-nav'>
+            <button class='testbutton'>SpectAngular Browser
+            </button>
+          </nav>
+        </header>
         <!-- <form id="embeddedPage" ng-submit="embeddedVM.changeLink()" ng-controller="EmbeddedPage as embeddedVM" layout="row">
           <input id="URL" type="text" flex="100" name="link" ng-model="embeddedVM.userInput" >
           <input type="submit" name="button" value="Enter">
@@ -168,7 +171,7 @@
         <section layout="column">
       		<iframe flex="100"></iframe>
       	</section>
-      </md-card>
+      </div>
 
       <div class='code-box' flex='50'>
         <header class='code-box-header'>
