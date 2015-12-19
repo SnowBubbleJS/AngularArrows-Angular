@@ -5584,7 +5584,7 @@ md-bottom-sheet {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  top: 0;
   padding: 8px 16px 88px 16px;
   z-index: 70;
   border-top-width: 1px;

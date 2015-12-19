@@ -81,3 +81,7 @@ iframe {
 .menuBardemoBasicUsage .page p {
   line-height: 1.6rem;
 }
+
+.CodeMirror-scroll {
+  background-color: rgba(245,246,247, 0.4);;
+}
