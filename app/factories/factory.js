@@ -54,7 +54,7 @@ function output($rootScope, promptFactory, inputFactory) {
         this.source = this.prepareSource();
         console.log(this.source);
         if(!!inputFactory.checkInput(this.source)) {
-          $rootScope.$broadcast('answer:correct', promptFactory.counter);
+          $rootScope.$broadcast('answer:correct');
           console.log('goodjob..should update');
         }
 
