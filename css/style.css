@@ -1,3 +1,30 @@
+.code-box {
+    border-radius: 3px;
+    background-color: rgba(245,246,247, 0.5);
+    margin: 3px;
+}
+
+.code-box-header {
+    background: #1976D2;
+    color: #fff;
+    padding: 8px 8px 0 8px;
+    border-radius: 4px 4px 0 0;
+}
+
+
+.testbutton{
+  line-height: 28px;
+      height: 28px;
+      padding: 0 24px;
+      margin-right: 8px;
+      font-size: 13px;
+      background: #F5F6F7;
+      color: #5C707A;
+      border: none;
+      border-radius: 4px 4px 0 0;
+      text-transform: none;
+
+}
 
 #canvas {
   z-index: -1;
