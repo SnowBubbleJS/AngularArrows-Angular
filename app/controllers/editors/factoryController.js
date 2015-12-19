@@ -13,6 +13,7 @@
       lineNumbers: true,
       mode: 'text/javascript',
     };
+  //vm.markText({line:4,ch:1},{line:22,ch:1},{readOnly:true});
 
 
     ////////////
@@ -42,6 +43,7 @@
 } `);
       output.factory = _editor.getValue();
       output.render();
+
       _editor.on('change', function(inst, changes) {
         output.factory = _editor.getValue();
         lineFactory.lineHolder();

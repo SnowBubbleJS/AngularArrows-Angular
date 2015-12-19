@@ -1,3 +1,28 @@
+
+
+paper-ripple {
+  color: #7a8b94;
+  
+}
+
+/* paper effect rising on hover */
+/*.editor {
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+  transition-property: box-shadow;
+  transition-duration: 0.5s;
+}
+
+.editor:hover {
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+
+.editor:focus {
+  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
+}*/
+
+
+
 .code-box {
     border-radius: 3px;
     background-color: rgba(245,246,247, 0.5);
