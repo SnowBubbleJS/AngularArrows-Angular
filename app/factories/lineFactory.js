@@ -51,7 +51,7 @@
         var y2 = $(word2).offset().top +10;
 
         ctx.beginPath();
-        ctx.lineWidth = 0.2;
+        ctx.lineWidth = 0.5;
         ctx.moveTo(x1, y1);
         ctx.quadraticCurveTo(400,400,x2,y2);
         ctx.stroke();

@@ -83,30 +83,76 @@
     <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
     <!-- more material design -->
     <div layout="row" flex="50" >
+      <div class='code-box' flex='40' >
+        <header class='code-box-header'>
+          <nav class='code-box-nav'>
+            <button class='testbutton'> index.html
+            </button>
+          </nav>
+        </header>
+    <div id="html" class="textEditor" ng-controller="HtmlController as htmlVM">
+      <textarea ui-codemirror="{ onLoad : htmlVM.codemirrorLoaded }" ui-codemirror-opts="htmlVM.editorOptions"></textarea>
+    </div>
+      </div>
+
+
+
+  <!-- this is the correct one
       <md-card flex="40" ng-controller="HtmlController as htmlVM" id="html" class="textEditor md-whiteframe-1dp">
         <md-toolbar class="md-primary" layout-align="center center">
           <h1 class="md-flex md-title" >HTML</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : htmlVM.codemirrorLoaded }" ui-codemirror-opts="htmlVM.editorOptions"></textarea>
       </md-card>
+        -->
+
+
       <!-- <md-card flex="15" ng-controller="PartialController as partialVM" id="partial" class="textEditor md-whiteframe-1dp">
         <md-toolbar class="md-primary">
           <h1 class="md-flex md-title">Partial</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : partialVM.codemirrorLoaded }" ui-codemirror-opts="partialVM.editorOptions"></textarea>
       </md-card> -->
-      <md-card flex="25" ng-controller="AppController as appVM" id="app" class="textEditor md-whiteframe-1dp">
+      <div class='code-box' flex='25'>
+        <header class='code-box-header'>
+          <nav class='code-box-nav'>
+            <button class='testbutton'> app.js
+            </button>
+          </nav>
+        </header>
+      <div id="app" class="textEditor" ng-controller="AppController as appVM">
+      <textarea ui-codemirror="{ onLoad : appVM.codemirrorLoaded }" ui-codemirror-opts="appVM.editorOptions"></textarea>
+      </div>
+        </div>
+
+
+      <!-- this is the previous app editor -->
+      <!-- <md-card flex="25" ng-controller="AppController as appVM" id="app" class="textEditor md-whiteframe-1dp">
         <md-toolbar class="md-primary" layout-align="center center">
           <h1 class="md-flex md-title">App</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : appVM.codemirrorLoaded }" ui-codemirror-opts="appVM.editorOptions"></textarea>
-      </md-card>
+      </md-card> -->
+
+      <div class='code-box' flex='35'>
+        <header class='code-box-header'>
+          <nav class='code-box-nav'>
+            <button class='testbutton'> controller.js
+            </button>
+          </nav>
+        </header>
+      <div id="controller" class="textEditor" ng-controller="ControllerController as controllerVM">
+      <textarea ui-codemirror="{ onLoad : controllerVM.codemirrorLoaded }" ui-codemirror-opts="controllerVM.editorOptions"></textarea>
+      </div>
+        </div>
+
+      <!-- this is the previous controller editor
       <md-card flex="35" ng-controller="ControllerController as controllerVM" id="controller" class="textEditor md-whiteframe-1dp">
         <md-toolbar class="md-primary" layout-align="center center">
           <h1 class="md-flex md-title">Controller</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : controllerVM.codemirrorLoaded }" ui-codemirror-opts="controllerVM.editorOptions"></textarea>
-      </md-card>
+      </md-card> -->
     </div>
 
     <div layout="row" flex="50">
@@ -121,14 +167,27 @@
 
         <section id="output" layout="column">
       		<iframe flex="100"></iframe>
-      	</section> 
+      	</section>
       </md-card>
+
+      <div class='code-box' flex='50'>
+        <header class='code-box-header'>
+          <nav class='code-box-nav'>
+            <button class='testbutton'> factory.js
+            </button>
+          </nav>
+        </header>
+      <div id="factory" class="textEditor" ng-controller="FactoryController as factoryVM">
+      <textarea ui-codemirror="{ onLoad : factoryVM.codemirrorLoaded }" ui-codemirror-opts="factoryVM.editorOptions"></textarea>
+      </div>
+        </div>
+      <!-- this is the previous factory
       <md-card flex="50" ng-controller="FactoryController as factoryVM" id="factory" class="textEditor md-whiteframe-1dp">
         <md-toolbar class="md-primary" layout-align="center center">
           <h1 class="md-flex md-title">Factory</h1>
         </md-toolbar>
         <textarea ui-codemirror="{ onLoad : factoryVM.codemirrorLoaded }" ui-codemirror-opts="factoryVM.editorOptions"></textarea>
-      </md-card>
+      </md-card> -->
     </div>
   </div>
   <!-- For JS -->
