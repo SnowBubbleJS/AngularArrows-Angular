@@ -44,13 +44,13 @@
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && vm.customFullscreen;
         if(promptFactory.counter === -5) {
             promptFactory.counter = 1;
-
+            // vm.template.url = 'htmltemplates/prompt1.html';
+            // $scope.$apply();
             $mdSidenav('left').toggle();
         }
         else if(vm.shouldUpdate === 1) {
             vm.shouldUpdate = 0;
-            promptFactory.counter++;
-            console.log(promptFactory.counter);
+            promptFactory.counter += 0.5;
             // $mdDialog.show({
             //   controller: DialogController,
             //   templateUrl: 'htmltemplates/prompt' + promptFactory.counter + '.html',
@@ -60,10 +60,11 @@
             //   fullscreen: useFullScreen
             // });
             console.log('ths is the counter ', promptFactory.counter);
-            vm.template.url = 'htmltemplates/prompt' + promptFactory.counter + '.html';
-            console.log(vm.template.url);
-            // $scope.$apply();
-            $mdSidenav('left').toggle();
+            if(promptFactory.counter % 1 === 0) {
+              vm.template.url = 'htmltemplates/prompt' + promptFactory.counter + '.html';
+              $scope.$apply();
+              $mdSidenav('left').toggle();
+            }
           }
           else {
               // $mdDialog.show({
