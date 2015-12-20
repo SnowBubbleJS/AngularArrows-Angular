@@ -32,7 +32,8 @@ function inputFactory($rootScope, promptFactory) {
 
   function answers() {
     return [
-      0,
+      //changed this because i thought the counter was working fine... change back if having more troubleshooting problems.
+      // 0,
       //prompt 1
       `<html ng-app>
   <head>

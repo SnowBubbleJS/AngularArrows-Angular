@@ -17,7 +17,7 @@
     vm.getTutorial = getTutorial;
     vm.tutorial = "Tutorial prompts will go here";
     vm.template = {};
-    vm.template.url = '';
+    vm.template.url = 'htmltemplates/prompt1.html';
     vm.shouldUpdate = 0;
     vm.currentTutorial = "";
 
@@ -39,18 +39,21 @@
     ////////////
 
     function getTutorial() {
-      console.log('insiddeee');
+
       if (promptFactory.counter < promptFactory.allPrompts.length) {
         if(promptFactory.counter === -5) {
             promptFactory.counter = 0;
             vm.template.url = 'htmltemplates/prompt' + promptFactory.counter + '.html';
             $scope.$apply();
             $mdSidenav('left').toggle();
+
+
         }
-        else if(vm.shouldUpdate === 1) {
-            vm.shouldUpdate = 0;
+        else if(vm.shouldUpdate === 0) {
+
+            // vm.shouldUpdate = 0;
             promptFactory.counter++;
-            console.log(promptFactory.counter);
+
             // $mdDialog.show({
             //   controller: DialogController,
             //   templateUrl: 'htmltemplates/prompt' + promptFactory.counter + '.html',
@@ -59,9 +62,9 @@
             //   clickOutsideToClose:true,
             //   fullscreen: useFullScreen
             // });
-            console.log('ths is the counter ', promptFactory.counter);
+            console.log('this is the counter ', promptFactory.counter);
             vm.template.url = 'htmltemplates/prompt' + promptFactory.counter + '.html';
-            console.log(vm.template.url);
+            // $scope.$apply();
             $mdSidenav('left').toggle();
           }
           else {
