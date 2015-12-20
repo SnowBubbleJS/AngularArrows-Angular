@@ -71,13 +71,13 @@
           History
         </button>  -->
       </md-toolbar>
+      <div ng-controller="PromptsController as promptsVM">
+        <div id="promptSidenav" ng-include="promptsVM.template.url">
+
+        </div>
+
+      </div>
     </div>
-<div ng-controller="PromptsController as promptsVM">
-  <div id="promptSidenav" ng-include="promptsVM.template.url">
-
-  </div>
-
-</div>
 
     <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
     <!-- more material design -->

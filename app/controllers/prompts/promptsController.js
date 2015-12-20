@@ -20,18 +20,18 @@
     vm.template.url = 'htmltemplates/prompt1.html';
     vm.shouldUpdate = 0;
     vm.currentTutorial = "";
+    $scope.toastPosition = angular.extend({},last);
+    vm.close = function () {
+      $mdSidenav('left').close();
+    };
+
 
     $scope.$on('answer:correct', function(event, data) {
-
-      if (!event.defaultPrevented) {
-        console.log(event);
-         vm.shouldUpdate = 1;
-         vm.getTutorial();
-         vm.shouldUpdate = 0;
-        //  $scope.$apply();
-         $mdSidenav('left').toggle();
-         event.defaultPrevented = true;
-     }
+        vm.shouldUpdate = 1;
+        vm.getTutorial();
+        vm.shouldUpdate = 0;
+        // $scope.$apply();
+        $mdSidenav('left').toggle();
     });
 
 
@@ -41,10 +41,10 @@
     function getTutorial() {
 
       if (promptFactory.counter < promptFactory.allPrompts.length) {
+        var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && vm.customFullscreen;
         if(promptFactory.counter === -5) {
-            promptFactory.counter = 0;
-            vm.template.url = 'htmltemplates/prompt' + promptFactory.counter + '.html';
-            $scope.$apply();
+            promptFactory.counter = 1;
+
             $mdSidenav('left').toggle();
 
 
@@ -64,6 +64,7 @@
             // });
             console.log('this is the counter ', promptFactory.counter);
             vm.template.url = 'htmltemplates/prompt' + promptFactory.counter + '.html';
+            console.log(vm.template.url);
             // $scope.$apply();
             $mdSidenav('left').toggle();
           }
