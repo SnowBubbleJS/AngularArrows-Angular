@@ -1,2 +1,2 @@
 angular
-  .module('app', ['ngMaterial', 'ngMessages', 'ui.codemirror']);
+  .module('app', ['ngMaterial', 'ui.codemirror']);

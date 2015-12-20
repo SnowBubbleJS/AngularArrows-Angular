@@ -3,81 +3,79 @@
     .module('app')
     .controller('PromptsController', PromptsController);
 
-  PromptsController.$inject = ["$http", "$scope", "inputFactory", "promptFactory", "$mdDialog", "$mdMedia"];
+  PromptsController.$inject = ["$http", "$scope", "promptFactory", "$mdSidenav", "$mdMedia"];
 
-  function PromptsController($http, $scope, inputFactory, promptFactory, $mdDialog, $mdMedia) {
+  function PromptsController($http, $scope, promptFactory, $mdSidenav, $mdMedia) {
     var vm = this;
+    var last = {
+        bottom: false,
+        top: true,
+        left: false,
+        right: true
+      };
 
     vm.getTutorial = getTutorial;
     vm.tutorial = "Tutorial prompts will go here";
+    vm.template = {};
+    vm.template.url = 'htmltemplates/prompt1.html';
     vm.shouldUpdate = 0;
     vm.currentTutorial = "";
+    $scope.toastPosition = angular.extend({},last);
+    vm.close = function () {
+      $mdSidenav('left').close();
+    };
+
+
     $scope.$on('answer:correct', function(event, data) {
         vm.shouldUpdate = 1;
         vm.getTutorial();
-        $scope.$apply();
+        vm.shouldUpdate = 0;
+        // $scope.$apply();
+        $mdSidenav('left').toggle();
     });
 
-    ////////////
-    function startTutorial (ev) {
-      var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && vm.customFullscreen;
-      $mdDialog.show({
-        controller: DialogController,
-        templateUrl: 'htmltemplates/prompt1.html',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose:true,
-        fullscreen: useFullScreen
-      });
-      promptFactory.counter = 0;
-    }
 
-    function getTutorial(ev) {
-      // setInterval(function(){
-      //   console.log(vm.currentTutorial);
-      // },10);
-      var file;
+
+    ////////////
+
+    function getTutorial() {
+      console.log('insiddeee');
       if (promptFactory.counter < promptFactory.allPrompts.length) {
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && vm.customFullscreen;
         if(promptFactory.counter === -5) {
             promptFactory.counter = 1;
-            file = 'htmltemplates/prompt' + promptFactory.counter + '.html';
-            $(function(){
-              $('#history').load(file);
-            });
-            $mdDialog
-              .show({
-                controller: DialogController,
-                templateUrl: file,
-                parent: angular.element(document.body),
-                targetEvent: ev,
-                clickOutsideToClose:true,
-                fullscreen: useFullScreen
-              });
-
+            // vm.template.url = 'htmltemplates/prompt1.html';
+            // $scope.$apply();
+            $mdSidenav('left').toggle();
         }
-        else if(inputFactory.answers[promptFactory.counter] === 0 || vm.shouldUpdate === 1) {
-            promptFactory.counter++;
+        else if(vm.shouldUpdate === 1) {
             vm.shouldUpdate = 0;
-
-            $mdDialog.show({
-              controller: DialogController,
-              templateUrl: 'htmltemplates/prompt' + promptFactory.counter + '.html',
-              parent: angular.element(document.body),
-              targetEvent: ev,
-              clickOutsideToClose:true,
-              fullscreen: useFullScreen
-            });
+            promptFactory.counter += 0.5;
+            // $mdDialog.show({
+            //   controller: DialogController,
+            //   templateUrl: 'htmltemplates/prompt' + promptFactory.counter + '.html',
+            //   parent: angular.element(document.body),
+            //   targetEvent: ev,
+            //   clickOutsideToClose:true,
+            //   fullscreen: useFullScreen
+            // });
+            console.log('ths is the counter ', promptFactory.counter);
+            if(promptFactory.counter % 1 === 0) {
+              vm.template.url = 'htmltemplates/prompt' + promptFactory.counter + '.html';
+              $scope.$apply();
+              $mdSidenav('left').toggle();
+            }
           }
           else {
-              $mdDialog.show({
-                controller: DialogController,
-                templateUrl: 'htmltemplates/prompt' + promptFactory.counter + '.html',
-                parent: angular.element(document.body),
-                targetEvent: ev,
-                clickOutsideToClose:true,
-                fullscreen: useFullScreen
-              });
+              // $mdDialog.show({
+              //   controller: DialogController,
+              //   templateUrl: 'htmltemplates/prompt' + promptFactory.counter + '.html',
+              //   parent: angular.element(document.body),
+              //   targetEvent: ev,
+              //   clickOutsideToClose:true,
+              //   fullscreen: useFullScreen
+              // });
+              $mdSidenav('left').toggle();
             }
 
       }
@@ -97,18 +95,5 @@
         $mdDialog.hide(answer);
       };
     }
-
-    // function nextPrompt() {
-    //   if (promptFactory.currentPrompt < promptFactory.counter) {
-    //     promptFactory.currentPrompt++;
-    //     vm.tutorial = promptFactory.allPrompts[promptFactory.currentPrompt];
-    //   }
-    // }
-    // function previousPrompt() {
-    //   if (promptFactory.currentPrompt > 0) {
-    //     promptFactory.currentPrompt--;
-    //     vm.tutorial = promptFactory.allPrompts[promptFactory.currentPrompt];
-    //   }
-    // }
   }
 }());

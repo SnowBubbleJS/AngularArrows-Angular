@@ -1,4 +1,4 @@
-<md-dialog aria-label="Angular JS"  ng-cloak>
+<!-- <md-dialog aria-label="Angular JS"  ng-cloak>
   <md-toolbar>
     <div class="md-toolbar-tools">
       <h1>Angular JS</h1>
@@ -7,10 +7,33 @@
 
   <md-dialog-content>
     <div class="md-dialog-content">
-      <!-- <h1>Sweet Header</h1> -->
+
       <p>
         Head over to your HTML file and let’s display the data from our <b>factory</b>.  We need to get rid of the previous angular expressions we used so delete <code><span>{{</span>myCtrl.name}}</code>, <code><span>{{</span>myCtrl.age}}</code>, and <code><span>{{</span>myCtrl.occupation}}</code>. Now let's display the data from our <code>factory</code>, use angular expressions to show the data. Use <code><span>{{</span>myCtrl.list}}</code>.
       </p>
     </div>
   </md-dialog-content>
-</md-dialog>
+</md-dialog> -->
+
+
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h1>Angular JS</h1>
+      </div>
+    </md-toolbar>
+  <md-tabs>
+    <md-tab label="one">
+      <md-content class="md-padding">
+        <div class="md-dialog-content">
+          <h1 class="md-display">Input</h1>
+          <p>
+            Head over to your HTML file and let’s display the data from our <b>factory</b>.  We need to get rid of the previous angular expressions we used so delete <code><span>{{</span>myCtrl.name}}</code>, <code><span>{{</span>myCtrl.age}}</code>, and <code><span>{{</span>myCtrl.occupation}}</code>. Now let's display the data from our <code>factory</code>, use angular expressions to show the data. Use <code><span>{{</span>myCtrl.list}}</code>.
+          </p>
+          </div>
+        </md-tab>
+      </md-content>
+  </md-tabs>
+  </form>
+</md-sidenav>
