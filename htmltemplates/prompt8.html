@@ -1,4 +1,4 @@
-<md-dialog aria-label="Angular JS"  ng-cloak>
+<!-- <md-dialog aria-label="Angular JS"  ng-cloak>
   <md-toolbar>
     <div class="md-toolbar-tools">
       <h1>Angular JS</h1>
@@ -7,10 +7,33 @@
 
   <md-dialog-content>
     <div class="md-dialog-content">
-      <!-- <h1>Sweet Header</h1> -->
+
       <p>
         In order to bind the view to our controller, we will use $scope. $scope is the glue between the Controller and the View that helps with all of our data binding needs. First we need to tell Angular that we want to use $scope. In order to do this, we need to put it as the first parameter in our myController function like so <code>function MyController($scope){}</code>, now that we glued the controller to the view, let's make the controller do things. Inside the controller write <code>$scope.name = 'Bob';</code> <code>$scope.age = 30;</code> <code>$scope.occupation = 'hacker';</code>. Now that we're done with that, let's display this information so you can see it.
       </p>
     </div>
   </md-dialog-content>
-</md-dialog>
+</md-dialog> -->
+
+
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h1>Angular JS</h1>
+      </div>
+    </md-toolbar>
+  <md-tabs>
+    <md-tab label="one">
+      <md-content class="md-padding">
+        <div class="md-dialog-content">
+          <h1 class="md-display">Input</h1>
+          <p>
+            In order to bind the view to our controller, we will use $scope. $scope is the glue between the Controller and the View that helps with all of our data binding needs. First we need to tell Angular that we want to use $scope. In order to do this, we need to put it as the first parameter in our myController function like so <code>function MyController($scope){}</code>, now that we glued the controller to the view, let's make the controller do things. Inside the controller write <code>$scope.name = 'Bob';</code> <code>$scope.age = 30;</code> <code>$scope.occupation = 'hacker';</code>. Now that we're done with that, let's display this information so you can see it.
+          </p>
+          </div>
+        </md-tab>
+      </md-content>
+  </md-tabs>
+  </form>
+</md-sidenav>
