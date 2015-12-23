@@ -18,6 +18,7 @@ function inputFactory($rootScope, promptFactory) {
     if(current === -5) {
       return;
     }
+    if(!source || !words.answers[current]) { return; }
     userInput = source.replace(/(\r\n|\n|\r|\;|\s)/g, '').replace(/(')/g, '"');
     correctAnswer = words.answers[current].replace(/(\r\n|\n|\r|\;|\s)/g, '').replace(/(')/g, '"');
     if (correctAnswer === userInput) {

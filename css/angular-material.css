@@ -8667,7 +8667,7 @@ md-sidenav {
 
 @media screen and (min-width: 600px) {
   md-sidenav {
-    max-width: 600px; } }
+    max-width: 500px; } }
 
 @media screen and (max-width: 456px) {
   md-sidenav {
@@ -9171,7 +9171,7 @@ md-tabs {
       -ms-flex-negative: 0;
           flex-shrink: 0; }
   md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
-    min-height: 320px; }
+    min-height: 300px; }
   md-tabs[md-align-tabs="bottom"] {
     padding-bottom: 48px; }
     md-tabs[md-align-tabs="bottom"] md-tabs-wrapper {

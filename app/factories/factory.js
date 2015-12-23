@@ -52,7 +52,7 @@ function output($rootScope, promptFactory, inputFactory) {
       iframe = document.querySelector('#output iframe');
       if(this.url === 'http://www.localhost:3000/' || this.url === 'http://www.localhost:3000') {
         this.source = this.prepareSource();
-        console.log(this.source);
+        // console.log(this.source);
         if(!!inputFactory.checkInput(this.source)) {
           $rootScope.$broadcast('answer:correct');
           console.log('goodjob..should update');
@@ -64,7 +64,7 @@ function output($rootScope, promptFactory, inputFactory) {
         iframe_doc.close();
       }
       else if (this.url === 'http://www.localhost:3000/partial') {
-        console.log('RENDER PARTIAL');
+        // console.log('RENDER PARTIAL');
           this.source = this.prepareSource(true);
           // console.log(this.source);
           iframe_doc = iframe.contentDocument;

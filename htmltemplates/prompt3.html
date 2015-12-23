@@ -1,21 +1,21 @@
-<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
   <form>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h1>Angular JS</h1>
-      </div>
-    </md-toolbar>
-  <md-tabs>
-    <md-tab label="one">
-      <md-content class="md-padding">
-        <div class="md-dialog-content">
-          <h1 class="md-display">Input</h1>
-          <p>
-            Right underneath your input, write <code><span>{{</span>yourName}}</code>.
-          </p>
-          </div>
-        </md-tab>
-      </md-content>
-  </md-tabs>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="one">
+        <md-content class="md-padding">
+          <div class="md-dialog-content">
+            <h1 class="md-display">Input</h1>
+            <p>
+              Right underneath your input, write <code><span>{{</span>yourName}}</code>.
+            </p>
+            </div>
+          </md-tab>
+        </md-content>
+    </md-tabs>
   </form>
+  <div layout="row" layout-align="start" >
+    <md-button ng-click="vm.close()" class="md-primary">
+      Close
+    </md-button>
+  </div>
 </md-sidenav>

@@ -1,9 +1,48 @@
+h4 {
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  position: relative;
+  display: inline;
+  height: 0;
+  top: 4px;
+  right: 20px;
+}
+
+md-card {
+  margin: 0;
+}
+
+footer {
+  height: 90px;
+  background: #424242;
+  color: white;
+  position: relative;
+  top: 15px;
+}
+
+/*#topFooter {
+  background: #757575;
+}*/
+
+/*#bottFooter {
+  background: #424242;
+  color: white;
+}*/
+
+#header {
+  background: rgb(96,125,139);
+  height: 42px;
+}
 
 #canvas {
   z-index: -1;
   position: absolute;
   top: 0;
  left: 0;
+ width: 100%;
+ overflow: hidden;
 }
 
 .cm-s-default {
@@ -19,33 +58,8 @@ code {
   background: #f9f2f4;
 }
 
-/*
 
-#partial{
-  height: 400px;
-  width: 300px;
-  display: inline-block;
-}
-#app{
-  height: 400px;
-  width: 350px;
-  display: inline-block;
-}
-#controller{
-  height:400px;
-  width: 400px;
-  display: inline-block;
-}*/
 
-/*.embeddedPage {
-  display: inline-block;
-}*/
-
-/*#factory {
-  height:400px;
-  width: 400px;
-  display: inline-block;
-}*/
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
   font-family: monospace;
@@ -53,10 +67,27 @@ code {
   color: black;
 }
 
+
 iframe {
   border: none;
+  width: 80%;
 }
 
+.output {
+  margin: 20px;
+}
+
+
+
+ng-md-icon svg {
+  transform: translate3d(0, 25%, 0);
+  display: inline-block;
+}
+
+#logo svg{
+  transform: translate3d(0, 5%, 0);
+  display: inline-block;
+}
 
 .menuBardemoBasicUsage .page-container {
   background-color: #f1f1f1;
@@ -83,5 +114,11 @@ iframe {
 }
 
 .CodeMirror-scroll {
-  background-color: rgba(245,246,247, 0.4);;
+  background-color: rgba(245,246,247, 0.4);
+  /*width: 100%;*/
+  /*margin: 0;*/
+}
+
+.CodeMirror-sizer {
+  /*border: 0;*/
 }

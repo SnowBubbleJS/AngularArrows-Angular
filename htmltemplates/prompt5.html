@@ -1,37 +1,21 @@
-<!-- <md-dialog aria-label="Angular JS"  ng-cloak>
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <h1>Angular JS</h1>
-    </div>
-  </md-toolbar>
-
-  <md-dialog-content>
-    <div class="md-dialog-content">
-      <p>
-        First things first, let's give your Angular application a name of <b>myApp</b>. To do this all you need to do is give the value of your <code>ng-app</code> as <b>myApp</b>. Like so, <code>ng-app='myApp'</code>. Having declared the <code>ng-app</code> directive in the <code>html</code> tag, we have made all application functionality available to the html element and all of its nested elements.
-      </p>
-    </div>
-  </md-dialog-content>
-</md-dialog> -->
-
-<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
   <form>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h1>Angular JS</h1>
-      </div>
-    </md-toolbar>
-  <md-tabs>
-    <md-tab label="one">
-      <md-content class="md-padding">
-        <div class="md-dialog-content">
-          <h1 class="md-display">Input</h1>
-          <p>
-            First things first, let's give your Angular application a name of <b>myApp</b>. To do this all you need to do is give the value of your <code>ng-app</code> as <b>myApp</b>. Like so, <code>ng-app='myApp'</code>. Having declared the <code>ng-app</code> directive in the <code>html</code> tag, we have made all application functionality available to the html element and all of its nested elements.
-          </p>
-          </div>
-        </md-tab>
-      </md-content>
-  </md-tabs>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="one">
+        <md-content class="md-padding">
+          <div class="md-dialog-content">
+            <h1 class="md-display">Input</h1>
+            <p>
+              First things first, let's give your Angular application a name of <b>myApp</b>. To do this all you need to do is give the value of your <code>ng-app</code> as <b>myApp</b>. Like so, <code>ng-app='myApp'</code>. Having declared the <code>ng-app</code> directive in the <code>html</code> tag, we have made all application functionality available to the html element and all of its nested elements.
+            </p>
+            </div>
+          </md-tab>
+        </md-content>
+    </md-tabs>
   </form>
+  <div layout="row" layout-align="start" >
+    <md-button ng-click="vm.close()" class="md-primary">
+      Close
+    </md-button>
+  </div>
 </md-sidenav>

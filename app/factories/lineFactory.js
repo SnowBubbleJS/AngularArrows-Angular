@@ -19,8 +19,6 @@
       makeLines('.cm-attribute:contains(ng-controller)', '.cm-property:contains("controller")', ctx);
       makeLines('.cm-attribute:contains(ng-app)', '.cm-property:contains(module)', ctx);
       makeLines('.cm-property:contains($inject)', '.cm-property:contains(factory)', ctx);
-
-      return 'Line Created...';
     }
   function makeLines(query1, query2, ctx) {
     var temp1 = $(query1),
@@ -28,23 +26,22 @@
         temp2 = $(query2),
         word2;
 
+console.log(temp1, temp2);
     if(temp1[0]) {
       word1 = temp1[0].nextElementSibling;
-      if(word1.className === "cm-operator") {
-        word1 = word1.nextElementSibling;
+      if(word1) {
+        if(word1.className === "cm-operator") {
+          word1 = word1.nextElementSibling;
+        }
       }
-    } else {
-      return;
     }
     if(temp2[0]) {
       word2 = temp2[0].nextElementSibling;
-    }else {
-      return;
     }
 
-
-
-    if(word1.innerHTML.substring(1,word1.innerHTML.length - 1).indexOf(word2.innerHTML.substring(1,word2.innerHTML.length - 1)) != -1) {
+    console.log(word1, word2);
+    if(word1 && word2) {
+      if(word1.innerHTML.substring(1,word1.innerHTML.length - 1).indexOf(word2.innerHTML.substring(1,word2.innerHTML.length - 1)) != -1) {
         var x1 = $(word1).offset().left+5;
         var y1 = $(word1).offset().top +10;
         var x2 = $(word2).offset().left+5;
@@ -55,6 +52,8 @@
         ctx.moveTo(x1, y1);
         ctx.quadraticCurveTo(400,400,x2,y2);
         ctx.stroke();
+      }
+      
     }
 
   }

@@ -1,38 +1,21 @@
-<!-- <md-dialog aria-label="Angular JS"  ng-cloak>
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <h1>Angular JS</h1>
-    </div>
-  </md-toolbar>
-
-  <md-dialog-content>
-    <div class="md-dialog-content">
-
-      <p>
-        In your <b>controller.js</b> let's not use <code>$scope</code> to bind our data, but <code>this</code>. Using <code>this</code>, will help avoid defining methods into your controller (they should go into factories, which will be discussed later). For now, take out the <code>$scope</code> as the first parameter in your <code>MyController</code> function. Instead write <code>var vm = this;</code> as the first line in your function. Because our controller is binded through <code>this</code>, which we set as <code>vm</code>, let's change all of our code to <code>vm.name = 'Bob'</code>, <code>vm.age = 30</code>, and <code> vm.occupation = 'hacker'</code>.
-      </p>
-    </div>
-  </md-dialog-content>
-</md-dialog> -->
-
-<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
   <form>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h1>Angular JS</h1>
-      </div>
-    </md-toolbar>
-  <md-tabs>
-    <md-tab label="one">
-      <md-content class="md-padding">
-        <div class="md-dialog-content">
-          <h1 class="md-display">Input</h1>
-          <p>
-            In your <b>controller.js</b> let's not use <code>$scope</code> to bind our data, but <code>this</code>. Using <code>this</code>, will help avoid defining methods into your controller (they should go into factories, which will be discussed later). For now, take out the <code>$scope</code> as the first parameter in your <code>MyController</code> function. Instead write <code>var vm = this;</code> as the first line in your function. Because our controller is binded through <code>this</code>, which we set as <code>vm</code>, let's change all of our code to <code>vm.name = 'Bob'</code>, <code>vm.age = 30</code>, and <code> vm.occupation = 'hacker'</code>.
-          </p>
-          </div>
-        </md-tab>
-      </md-content>
-  </md-tabs>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="one">
+        <md-content class="md-padding">
+          <div class="md-dialog-content">
+            <h1 class="md-display">Input</h1>
+            <p>
+              In your <b>controller.js</b> let's not use <code>$scope</code> to bind our data, but <code>this</code>. Using <code>this</code>, will help avoid defining methods into your controller (they should go into factories, which will be discussed later). For now, take out the <code>$scope</code> as the first parameter in your <code>MyController</code> function. Instead write <code>var vm = this;</code> as the first line in your function. Because our controller is binded through <code>this</code>, which we set as <code>vm</code>, let's change all of our code to <code>vm.name = 'Bob'</code>, <code>vm.age = 30</code>, and <code> vm.occupation = 'hacker'</code>.
+            </p>
+            </div>
+          </md-tab>
+        </md-content>
+    </md-tabs>
   </form>
+  <div layout="row" layout-align="start" >
+    <md-button ng-click="vm.close()" class="md-primary">
+      Close
+    </md-button>
+  </div>
 </md-sidenav>
