@@ -18,6 +18,7 @@
     ////////////
 
     function codemirrorLoaded(_editor) {
+      _editor.setValue(``);
       output.controller = _editor.getValue();
       output.render();
       _editor.on('change', function(inst, changes) {
