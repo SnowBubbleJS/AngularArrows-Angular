@@ -1,11 +1,6 @@
-<md-dialog aria-label="Angular JS">
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
   <form>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h2>Angular JS</h2>
-      </div>
-    </md-toolbar>
-    <md-dialog-content style="max-width:800px;max-height:810px; ">
+    <md-content style="max-width:800px;max-height:810px; ">
       <md-tabs md-dynamic-height md-border-bottom>
         <md-tab label="one">
           <md-content class="md-padding">
@@ -24,6 +19,11 @@
           </md-content>
         </md-tab>
       </md-tabs>
-    </md-dialog-content>
+    </md-content>
   </form>
-</md-dialog>
+  <div layout="row" layout-align="start" >
+    <md-button ng-click="vm.close()" class="md-primary">
+      Close
+    </md-button>
+  </div>
+</md-sidenav>

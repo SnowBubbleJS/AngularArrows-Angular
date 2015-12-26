@@ -1,54 +1,39 @@
-
-
-paper-ripple {
-  color: #7a8b94;
-  
+h4 {
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  position: relative;
+  display: inline;
+  height: 0;
+  top: 4px;
+  right: 20px;
 }
 
-/* paper effect rising on hover */
-/*.editor {
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-  transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
-  transition-property: box-shadow;
-  transition-duration: 0.5s;
+md-card {
+  margin: 0;
 }
 
-.editor:hover {
-  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+footer {
+  height: 90px;
+  background: #424242;
+  color: white;
+  position: relative;
+  top: 15px;
 }
 
-.editor:focus {
-  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
+/*#topFooter {
+  background: #757575;
 }*/
 
+/*#bottFooter {
+  background: #424242;
+  color: white;
+}*/
 
-
-.code-box {
-    border-radius: 3px;
-    background-color: rgba(245,246,247, 0.5);
-    margin: 3px;
-}
-
-.code-box-header {
-    background: #1976D2;
-    color: #fff;
-    padding: 8px 8px 0 8px;
-    border-radius: 4px 4px 0 0;
-}
-
-
-.testbutton{
-  line-height: 28px;
-      height: 28px;
-      padding: 0 24px;
-      margin-right: 8px;
-      font-size: 13px;
-      background: #F5F6F7;
-      color: #5C707A;
-      border: none;
-      border-radius: 4px 4px 0 0;
-      text-transform: none;
-
+#header {
+  background: rgb(96,125,139);
+  height: 42px;
 }
 
 #canvas {
@@ -56,6 +41,8 @@ paper-ripple {
   position: absolute;
   top: 0;
  left: 0;
+ width: 100%;
+ overflow: hidden;
 }
 
 .cm-s-default {
@@ -71,33 +58,8 @@ code {
   background: #f9f2f4;
 }
 
-/*
 
-#partial{
-  height: 400px;
-  width: 300px;
-  display: inline-block;
-}
-#app{
-  height: 400px;
-  width: 350px;
-  display: inline-block;
-}
-#controller{
-  height:400px;
-  width: 400px;
-  display: inline-block;
-}*/
 
-/*.embeddedPage {
-  display: inline-block;
-}*/
-
-/*#factory {
-  height:400px;
-  width: 400px;
-  display: inline-block;
-}*/
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
   font-family: monospace;
@@ -105,10 +67,27 @@ code {
   color: black;
 }
 
+
 iframe {
   border: none;
+  width: 80%;
 }
 
+.output {
+  margin: 20px;
+}
+
+
+
+ng-md-icon svg {
+  transform: translate3d(0, 25%, 0);
+  display: inline-block;
+}
+
+#logo svg{
+  transform: translate3d(0, 5%, 0);
+  display: inline-block;
+}
 
 .menuBardemoBasicUsage .page-container {
   background-color: #f1f1f1;
@@ -135,5 +114,22 @@ iframe {
 }
 
 .CodeMirror-scroll {
-  background-color: rgba(245,246,247, 0.4);;
+  /*background-color: rgba(245,246,247, 0.4);*/
+  /*width: 100%;*/
+  /*margin: 0;*/
+}
+
+.CodeMirror {
+  /*background: #F7F7F7;*/
+  background-color: rgba(247,247,247, 0.4);
+  /*width: 100%;*/
+  /*margin: 0;*/
+}
+
+.CodeMirror-focused {
+  background-color: rgba(255,255,255, 0.4);
+}
+
+.CodeMirror-sizer {
+  /*border: 0;*/
 }
