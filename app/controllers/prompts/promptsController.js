@@ -38,6 +38,10 @@
         vm.shouldUpdate = 0;
     });
 
+
+
+
+
     ////////////
 
     function close() {

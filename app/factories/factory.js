@@ -40,6 +40,7 @@ function output($rootScope, promptFactory, inputFactory) {
         this.source = this.prepareSource();
         if(!!inputFactory.checkInput(this.source)) {
           $rootScope.$broadcast('answer:correct');
+          $rootScope.$destroy('answer:correct');
           console.log('goodjob..should update');
         }
         iframe_doc = iframe.contentDocument;
