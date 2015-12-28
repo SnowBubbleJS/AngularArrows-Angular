@@ -55,6 +55,7 @@ function output($rootScope, promptFactory, inputFactory) {
         // console.log(this.source);
         if(!!inputFactory.checkInput(this.source)) {
           $rootScope.$broadcast('answer:correct');
+          $rootScope.$destroy('answer:correct');
           console.log('goodjob..should update');
         }
 
