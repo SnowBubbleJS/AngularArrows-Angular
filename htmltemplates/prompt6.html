@@ -1,16 +1,21 @@
-<md-dialog aria-label="Angular JS"  ng-cloak>
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <h1>Angular JS</h1>
-    </div>
-  </md-toolbar>
-
-  <md-dialog-content>
-    <div class="md-dialog-content">
-      <!-- <h1>Sweet Header</h1> -->
-      <p>
-        Now let's move onto the <b>App</b> box. In here we're going to create a foundation for our application. Write <code>angular.module('myApp', [ ])</code>, in the next section we're going to discuss what you just wrote.
-      </p>
-    </div>
-  </md-dialog-content>
-</md-dialog>
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <form>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="one">
+        <md-content class="md-padding">
+          <div class="md-dialog-content">
+            <h1 class="md-display">Input</h1>
+            <p>
+              Now let's move onto the <b>App</b> box. In here we're going to create a foundation for our application. Write <code>angular.module('myApp', [ ])</code>, in the next section we're going to discuss what you just wrote.
+            </p>
+            </div>
+          </md-tab>
+        </md-content>
+    </md-tabs>
+  </form>
+  <div layout="row" layout-align="start" >
+    <md-button ng-click="vm.close()" class="md-primary">
+      Close
+    </md-button>
+  </div>
+</md-sidenav>
