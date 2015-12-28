@@ -25,8 +25,6 @@
         word1,
         temp2 = $(query2),
         word2;
-
-console.log(temp1, temp2);
     if(temp1[0]) {
       word1 = temp1[0].nextElementSibling;
       if(word1) {
@@ -38,8 +36,6 @@ console.log(temp1, temp2);
     if(temp2[0]) {
       word2 = temp2[0].nextElementSibling;
     }
-
-    console.log(word1, word2);
     if(word1 && word2) {
       if(word1.innerHTML.substring(1,word1.innerHTML.length - 1).indexOf(word2.innerHTML.substring(1,word2.innerHTML.length - 1)) != -1) {
         var x1 = $(word1).offset().left+5;
@@ -53,7 +49,7 @@ console.log(temp1, temp2);
         ctx.quadraticCurveTo(400,400,x2,y2);
         ctx.stroke();
       }
-      
+
     }
 
   }

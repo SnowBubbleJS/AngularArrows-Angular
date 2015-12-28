@@ -13,7 +13,6 @@ function inputFactory($rootScope, promptFactory) {
   ////////////
 
   function checkInput(source) {
-    console.log('reached here');
     var userInput, correctAnswer, current = promptFactory.counter;
     if(current === -5) {
       return;

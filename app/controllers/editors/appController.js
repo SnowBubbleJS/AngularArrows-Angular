@@ -25,10 +25,10 @@
         output.app = _editor.getValue();
         lineFactory.lineHolder();
         output.render();
-        setTimeout(function() {
+        setInterval(function() {
           // lineFactory.lineHolder('.cm-string:contains(myController)');
           lineFactory.lineHolder();
-        }, 0);
+        }, 500);
       });
     }
   }

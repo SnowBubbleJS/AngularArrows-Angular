@@ -6,6 +6,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css">
     <link rel="stylesheet" href="css/angular-material.css">
+    <link rel="stylesheet" href="css/introjs.min.css">
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Application Dependencies -->
@@ -17,7 +18,8 @@
     <!-- <script type="text/javascript" src="bower_components/angular/angular.js"></script> -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script> -->
     <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
-    <script type="text/javascript" src="ui-bootstrap-tpls-0.12.0.js"></script>
+    <script type="text/javascript" src="intro.min.js"></script>
+    <script type="text/javascript" src="angular-intro.min.js"></script>
 
     <!-- Developer Scripts -->
     <script type="text/javascript" src="./app/app.js"></script>
@@ -44,29 +46,37 @@
   </head>
   <body>
     <div layout="column" id="mainBody" style="background: transparent" ng-controller="PromptsController as vm">
-      <md-progress-linear md-mode="determinate" value="{{vm.progress}}" class="md-hue-2"></md-progress-linear>
-        <md-toolbar ng-hide="vm.shouldStart" ng-cloak >
+
+      <md-progress-linear id="progress" md-mode="determinate" value="{{vm.progress}}" class="md-hue-2" ng-show="vm.shouldStart"></md-progress-linear>
+      <md-progress-linear id="progress" md-mode="determinate" value="{{vm.progress}}" class="md-primary" ng-hide="vm.shouldStart"></md-progress-linear>
+        <md-toolbar ng-hide="vm.shouldStart" ng-cloak>
           <div class="md-toolbar-tools">
             <ng-md-icon id="logo" icon="whatshot" style="fill: white" size="45"></ng-md-icon>
             <h1>GroupName</h1>
             <span flex></span>
             <h1>Angular 1.0 Track</h1>
             <span flex></span>
-            <md-button class="md-fab" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
-              <ng-md-icon icon="repeat" style="fill: white" size="24"></ng-md-icon>
-            </md-button>
-            <md-button class="md-fab" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
-              <ng-md-icon icon="replay" style="fill: white" size="24"></ng-md-icon>
-            </md-button>
+            <div ng-controller="IntroController as introVM" >
+              <div  ng-intro-options="introVM.IntroOptions" ng-intro-method="introVM.CallMe"
+              ng-intro-oncomplete="introVM.CompletedEvent" ng-intro-onexit="introVM.ExitEvent"
+              ng-intro-onchange="introVM.ChangeEvent" ng-intro-onbeforechange="introVM.BeforeChangeEvent"
+              ng-intro-onafterchange="introVM.AfterChangeEvent"
+              ng-intro-autostart="introVM.ShouldAutoStart">
+                <md-button id="step1" class="md-fab" aria-label="" ng-click="introVM.CallMe()">
+                  <ng-md-icon icon="picture_in_picture" style="fill: white" size="24"></ng-md-icon>
+                </md-button>
+                <md-button class="md-fab" aria-label="" id="test" ng-click="vm.getTutorial($event)">
+                  <ng-md-icon icon="repeat" style="fill: white" size="24"></ng-md-icon>
+                </md-button>
+                <md-button class="md-fab" aria-label="" id="test" ng-click="vm.getTutorial($event)">
+                  <ng-md-icon icon="replay" style="fill: white" size="24"></ng-md-icon>
+                </md-button>
+              </div>
+            </div>
           </div>
         </md-toolbar>
-
-
-
-
-
-    <!-- <div ng-controller="PromptsController as promptsVM" > -->
-      <div id="promptSidenav" onLoad="vm.getTutorial()" ng-include="vm.template.url" ng-hide="vm.shouldStart"></div>
+    <!-- <div ng-controller="PromptsController as promptsVM" >   onLoad="vm.getTutorial()"-->
+      <div id="promptSidenav"  ng-include="vm.template.url" onLoad="vm.getTutorial()" ng-hide="vm.shouldStart"></div>
 
     <!-- </div> -->
     <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
@@ -123,29 +133,6 @@
         </div>
       </div>
     </div>
-
-    <!-- <footer layout="column" ng-hide="vm.shouldStart" ng-cloak>
-      <div layout="row" id="topFooter" layout="center center">
-        <div layout="column" layout-align="center center" class="footerItem" flex>
-          hi there
-          <br>
-          sdf
-        </div>
-        <div layout="column" layout-align="center center" class="footerItem" flex>
-          <div layout="row">
-            <a class="md-fab" href="#">
-              <ng-md-icon id="logo" icon="favorite" style="fill: white" size="24"></ng-md-icon>
-            </a>
-            <a class="md-fab" href="#">
-              <ng-md-icon id="logo" icon="github-box" style="fill: white" size="24"></ng-md-icon>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div layout="row" id="bottFooter" layout-align="center center" flex>
-        Powered by GroupName ©2015-2016. Code licensed under the MIT License.
-      </div>
-    </footer> -->
     <footer layout="row" layout-align="center center" ng-hide="vm.shouldStart" ng-cloak>
       <div layout="column" layout-align="center center" flex>
           <ng-md-icon id="logo" icon="mood" style="fill: white" size="24"></ng-md-icon>
@@ -170,6 +157,8 @@
     </footer>
   </div>
   <!-- For JS -->
+
+  <script type="text/javascript" src="./app/controllers/intro/introController.js"></script>
   <script src="./bower_components/codemirror/mode/xml/xml.js"></script>
   <script src="./bower_components/codemirror/mode/javascript/javascript.js"></script>
   <script>

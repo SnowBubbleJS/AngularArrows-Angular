@@ -14,19 +14,6 @@ function output($rootScope, promptFactory, inputFactory) {
     source: '',
     url: "http://www.localhost:3000/",
     prepareSource: function(partial) {
-      // var src = "<!DOCTYPE html>\n" +
-			// "<html>\n\t" +
-      // "<head>\n\t\t" +
-      // "<meta charset=\"utf-8\">\n\t\t" +
-      // "<title>Test</title>\n\n\t\t\n\t" +
-      // "<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'></script>" +
-      // "</head>\n\t" +
-      // "<body>\n\t\n\t" +
-      // "</body>\n" +
-      // "</html>";
-
-      // HTML
-      // src = src.replace('</body>',this.html + '</body>');
       var src = this.html;
       // Partial
       if(!!partial) {
@@ -36,7 +23,6 @@ function output($rootScope, promptFactory, inputFactory) {
       // App
       var appScript = '<script>' + this.app + '<\/script>';
       src = src.replace('</body>', appScript + '</body>');
-
 
       // Controller
       var controllerScript = '<script>' + this.controller + '<\/script>';
@@ -52,12 +38,10 @@ function output($rootScope, promptFactory, inputFactory) {
       iframe = document.querySelector('#output iframe');
       if(this.url === 'http://www.localhost:3000/' || this.url === 'http://www.localhost:3000') {
         this.source = this.prepareSource();
-        // console.log(this.source);
         if(!!inputFactory.checkInput(this.source)) {
           $rootScope.$broadcast('answer:correct');
           console.log('goodjob..should update');
         }
-
         iframe_doc = iframe.contentDocument;
         iframe_doc.open();
         iframe_doc.write(this.source);
