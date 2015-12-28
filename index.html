@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css">
     <link rel="stylesheet" href="css/angular-material.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
 
     <!-- Application Dependencies -->
     <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALT04VidD/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALT0/wC09P9YnQ//WJ0P/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtPT/ALT0/wC09P8AVXkJAAAAAFidD/9YnQ//WJ0P/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC09P8AtPT/ALT0/wC09P8AAAAAN0Tb/zdE2/8AAAAAWJ0P/1idD/9YnQ//WJ0P/wAAAAAAAAAAAAAAAAAAAAAAtPT/ALT0/wAAAAA3RNv/N0Tb/zdE2/83RNv/N0Tb/zdE2/8AAAAAWJ0P/1idD/8AAAAAAAAAAAAAAAAAAAAAALT0/wAAAAA3RNv//////zdE2/83RNv/N0Tb/zdE2///////N0Tb/wAAAABYnQ//AAAAAAAAAAAAAAAAALT0/wC09P8AAAAAN0Tb//////83RNv/N0Tb/zdE2/83RNv//////zdE2/8AAAAAWJ0P/1idD/8AAAAAAAAAAAC09P8AtPT/AAAAADdE2/83RNv//////////////////////zdE2/83RNv/AAAAAFidD/9YnQ//AAAAAAAAAAAAtPT/ALT0/zdE2/83RNv/N0Tb//////83RNv/N0Tb//////83RNv/N0Tb/zdE2/9YnQ//WJ0P/wAAAAAAAAAAALT0/wC09P83RNv/N0Tb/zdE2/83RNv///////////83RNv/N0Tb/zdE2/83RNv/WJ0P/1idD/8AAAAAAAAAAAC09P8AtPT/N0Tb/zdE2/83RNv/N0Tb////////////N0Tb/zdE2/83RNv/N0Tb/1idD/9YnQ//AAAAAAAAAAAAtPT/AAAAADdE2603RNv/N0Tb/zdE2/84Rdv//////zdE2/83RNv/N0Tb/zdE2/4AAAAAWJ0P/wAAAAAAAAAAAAAAAPSFQv/0hUL/9IVC/wAAAAA3RNv/N0Tb/zdE2/83RNv/AAAAAPSFQv/0hUL/9IVC/wAAAAAAAAAAAAAAAAAAAAD0hUL/9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/9IVC//SFQv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/n8AAPw/AADxjwAAwkMAAMgTAADQCwAAkAkAAJAJAACAAQAAgAEAAIABAACgBQAAxCMAAMADAAD4HwAA//8AAA==" rel="icon" type="image/x-icon" />
@@ -51,15 +54,15 @@
       <md-progress-linear md-mode="determinate" value="{{vm.progress}}" class="md-hue-2"></md-progress-linear>
         <md-toolbar ng-hide="vm.shouldStart" ng-cloak >
           <div class="md-toolbar-tools">
-            <ng-md-icon id="logo" icon="whatshot" style="fill: white" size="45"></ng-md-icon>
-            <h1>GroupName</h1>
+            <ng-md-icon id="logo" icon="blur_circular" style="fill: white" size="45"></ng-md-icon>
+            <h1 style="font-family: 'Lobster'; font-size: 36px;">SnowBubble</h1>
             <span flex></span>
-            <h1>Angular 1.0 Track</h1>
+            <h1 style="font-weight: 600; font-size: 24px; font-family: 'Montserrat';">Perfect Angular 1.0</h1>
             <span flex></span>
-            <md-button class="md-fab" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
+            <md-button class="md-fab md-mini" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
               <ng-md-icon icon="repeat" style="fill: white" size="24"></ng-md-icon>
             </md-button>
-            <md-button class="md-fab" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
+            <md-button class="md-fab md-mini" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
               <ng-md-icon icon="replay" style="fill: white" size="24"></ng-md-icon>
             </md-button>
           </div>
@@ -116,15 +119,6 @@
             </section>
           </md-card>
         </div>
-        <div layout="row" flex>
-          <md-card flex class="output embeddedPage md-whiteframe-1dp">
-            <h4 class="md-flex" ng-cloak>output</h4>
-            <section id="output" layout="column" ng-cloak>
-              SOMETHING ELSE AMAZING GOES HERE
-              <iframe></iframe>
-            </section>
-          </md-card>
-        </div>
       </div>
     </div>
 
@@ -147,7 +141,7 @@
         </div>
       </div>
       <div layout="row" id="bottFooter" layout-align="center center" flex>
-        Powered by GroupName ©2015-2016. Code licensed under the MIT License.
+        Powered by SnowBubble ©2015-2016. Code licensed under the MIT License.
       </div>
     </footer> -->
     <footer layout="row" layout-align="center center" ng-hide="vm.shouldStart" ng-cloak>
@@ -155,7 +149,7 @@
           <ng-md-icon id="logo" icon="mood" style="fill: white" size="24"></ng-md-icon>
       </div>
       <div layout="column" layout-align="center center" flex>
-        <h5>Powered by GroupName ©2015-2016. Code licensed under the MIT License.</h5>
+        <h5>Powered by SnowBubble ©2015-2016. Code licensed under the MIT License.</h5>
       </div>
       <div layout="column" layout-align="center center" class="footerItem" flex>
         <div layout="row">
