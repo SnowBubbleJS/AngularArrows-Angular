@@ -13,7 +13,7 @@
       lineNumbers: true,
       mode: 'text/javascript',
     };
-  //vm.markText({line:4,ch:1},{line:22,ch:1},{readOnly:true});
+  //vm.markText({line:4,ch:0},{line:22},{readOnly:true});
 
 
     ////////////
