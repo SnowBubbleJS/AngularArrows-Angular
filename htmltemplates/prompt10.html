@@ -14,7 +14,7 @@
           <md-content class="md-padding">
             <h1 class="md-display">Implementing 'controllerAs' syntax</h1>
             <p>
-              In the html instead of <code>&lt;body ng-controller='MyController'&gt;</code>, we will be using <code>&lt;body ng-controller='MyController as myCtrl'&gt;</code>, make this adjustment into your index.html. Using this syntax in the view, angular will force you to use 'dotted' objects in the view, which will prevent reference issues e.g using <code><span>{{</span>(Name of Controller).(some property)}}</code> makes it a lot more understandable/readable than <code><span>{{</span>name}}</code>, you might be using name in a lot more places, but it'll be difficult to catch at first. For more information about this method, please visit <a href="https://github.com/johnpapa/angular-styleguide#controllers">https://github.com/johnpapa/angular-styleguide#controllers</a>.
+              In the html instead of <code>&lt;div ng-controller='MyController'&gt;</code>, we will be using <code>&lt;div ng-controller='MyController as myCtrl'&gt;</code>, make this adjustment into your index.html. Using this syntax in the view, angular will force you to use 'dotted' objects in the view, which will prevent reference issues e.g using <code><span>{{</span>(Name of Controller).(some property)}}</code> makes it a lot more understandable/readable than <code><span>{{</span>name}}</code>, you might be using name in a lot more places, but it'll be difficult to catch at first. For more information about this method, please visit <a href="https://github.com/johnpapa/angular-styleguide#controllers">https://github.com/johnpapa/angular-styleguide#controllers</a>.
             </p>
           </md-content>
         </md-tab>
