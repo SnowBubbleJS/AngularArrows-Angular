@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="no"?>
+<!-- The icon set is based on Material Design icons by Google (https://github.com/google/material-design-icons) -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="0 0 48 48" style="background-color:#ffffff00" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+>
+
+  <g id="bug_report" style="display:none">
+    <path d="M40,16h-5.6c-0.9-1.6-2.1-2.9-3.6-3.9L34,8.8L31.2,6l-4.3,4.3C25.9,10.1,25,10,24,10s-1.9,0.1-2.8,0.3L16.8,6L14,8.8
+      l3.2,3.3c-1.5,1-2.7,2.4-3.6,3.9H8v4h4.2c-0.1,0.7-0.2,1.3-0.2,2v2H8v4h4v2c0,0.7,0.1,1.3,0.2,2H8v4h5.6c2.1,3.6,5.9,6,10.4,6
+      s8.3-2.4,10.4-6H40v-4h-4.2c0.1-0.7,0.2-1.3,0.2-2v-2h4v-4h-4v-2c0-0.7-0.1-1.3-0.2-2H40V16z" fill="#336699"/>
+    <path d="M28,32h-8v-4h8V32z" fill="#FFF"/>
+    <path d="M28,24h-8v-4h8V24z" fill="#FFF"/>
+  </g>
+
+  <g id="drawer" style="display:none">
+    <path d="M24,16c2.2,0,4-1.8,4-4s-1.8-4-4-4c-2.2,0-4,1.8-4,4S21.8,16,24,16z" fill="#336699"/>
+    <path d="M24,20c-2.2,0-4,1.8-4,4s1.8,4,4,4c2.2,0,4-1.8,4-4S26.2,20,24,20z" fill="#336699"/>
+    <path d="M24,32c-2.2,0-4,1.8-4,4s1.8,4,4,4c2.2,0,4-1.8,4-4S26.2,32,24,32z" fill="#336699"/>
+  </g>
+
+  <g id="help" style="display:none">
+    <path d="M24,4C13,4,4,13,4,24s9,20,20,20c11,0,20-9,20-20S35,4,24,4z" fill="#336699"/>
+    <path d="M26,38h-4v-4h4V38z" fill="#FFF"/>
+    <path d="M30.1,22.5l-1.8,1.8C26.9,25.8,26,27,26,30h-4v-1c0-2.2,0.9-4.2,2.3-5.7l2.5-2.5c0.7-0.7,1.2-1.7,1.2-2.8c0-2.2-1.8-4-4-4s-4,1.8-4,4h-4c0-4.4,3.6-8,8-8c4.4,0,8,3.6,8,8C32,19.8,31.3,21.4,30.1,22.5z" fill="#FFF"/>
+  </g>
+  <g id="history" style="display:none">
+    <path d="M25,4c-7.1,0-13.2,3.8-16.4,9.5L4,9v13h13l-5.5-5.5C13.9,11.5,19,8,25,8c8.3,0,15,6.7,15,15
+      c0,8.3-6.7,15-15,15c-6.5,0-12.1-4.2-14.1-10H6.7c2.2,8.1,9.5,14,18.3,14c10.5,0,19-8.5,19-19S35.5,4,25,4z" fill="#336699"/>
+    <path d="M22,14v10.2l9.4,5.6
+      l1.5-2.6l-8-4.7V14H22z" fill="#336699"/>
+  </g>
+
+  <g id="info" style="display:none">
+    <path d="M24,4C13,4,4,13,4,24s9,20,20,20c11,0,20-9,20-20S35,4,24,4z" fill="#336699"/>
+    <path d="M26,34h-4V22h4V34z" fill="#FFF"/>
+    <path d="M26,18h-4v-4h4V18z" fill="#FFF"/>
+  </g>
+
+
+
+</svg>
