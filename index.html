@@ -78,7 +78,7 @@
             <div>
               <md-menu>
                 <md-button class="md-raised md-accent" aria-label="history" id="test" ng-click="historyVM.openMenu($mdOpenMenu, $event)">
-                  HISTORY
+                  <span style="color:white; font-weight: 700">HISTORY</span>
                 </md-button>
                 <md-menu-content width=6>
                   <md-menu-item  ng-repeat="prompt in historyVM.poossiblePrompts">
@@ -177,7 +177,9 @@
     </footer> -->
     <footer layout="row" layout-align="center center" ng-hide="vm.shouldStart" ng-cloak>
       <div layout="column" layout-align="center center" flex>
-          <ng-md-icon id="logo" icon="mood" style="fill: white" size="24"></ng-md-icon>
+          <ng-md-icon id="logo" icon="mood" style="fill: white" size="24">
+            <md-tooltip md-direction="top">Just a smiley</md-tooltip>
+          </ng-md-icon>
       </div>
       <div layout="column" layout-align="center center" flex>
         <h5>Powered by SnowBubble ©2015-2016. Code licensed under the MIT License.</h5>

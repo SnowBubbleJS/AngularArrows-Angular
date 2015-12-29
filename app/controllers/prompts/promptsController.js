@@ -95,8 +95,10 @@
         if(promptFactory.counter % 1 === 0) {
 
           vm.template.url = 'htmltemplates/prompt' + promptFactory.counter + '.html';
+          console.log(vm.template.url);
           $scope.$apply();
           $timeout(function(){
+            console.log('inhere');
             vm.success = false;
             $mdSidenav('right').toggle();
           },1300);
