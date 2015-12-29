@@ -52,7 +52,13 @@
   </head>
   <body>
     <div layout="column" id="mainBody" style="background: transparent" ng-controller="PromptsController as vm">
+      <!-- Success Icon -->
+      <div ng-show="vm.success" id="success">
+        <center>
 
+          <ng-md-icon icon="done" size="500px" id="check" class="fade animated jello"/>
+        </center>
+      </div>
       <md-progress-linear id="progress" md-mode="determinate" value="{{vm.progress}}" class="md-hue-2" ng-show="vm.shouldStart"></md-progress-linear>
       <md-progress-linear id="progress" md-mode="determinate" value="{{vm.progress}}" class="md-primary" ng-hide="vm.shouldStart"></md-progress-linear>
         <md-toolbar ng-hide="vm.shouldStart" ng-cloak>
