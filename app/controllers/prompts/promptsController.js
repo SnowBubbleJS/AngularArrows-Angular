@@ -42,8 +42,13 @@
 
     $scope.$on('answer:correct', function(event, data) {
         vm.shouldUpdate = 1;
-        vm.getTutorial();
-        vm.shouldUpdate = 0;
+        //added timeout so the prompt doesn't show up too quickly
+        $timeout(function(){
+          vm.getTutorial();
+          vm.shouldUpdate = 0;
+        },700);
+
+
     });
 
 
