@@ -22,15 +22,6 @@ footer {
   top: 15px;
 }
 
-/*#topFooter {
-  background: #757575;
-}*/
-
-/*#bottFooter {
-  background: #424242;
-  color: white;
-}*/
-
 #header {
   background: rgb(96,125,139);
   height: 42px;
@@ -58,8 +49,6 @@ code {
   background: #f9f2f4;
 }
 
-
-
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
   font-family: 'Inconsolata', 'Monaco', 'Consolas', 'Courier New', 'Courier';
@@ -78,8 +67,6 @@ iframe {
   margin: 20px;
   border: 3px solid black;
 }
-
-
 
 ng-md-icon svg {
   transform: translate3d(0, 25%, 0);
@@ -122,16 +109,25 @@ ng-md-icon svg {
 }
 
 .CodeMirror {
-  /*background: #F7F7F7;*/
-  background-color: rgba(247,247,247, 0.4);
-  /*width: 100%;*/
-  /*margin: 0;*/
+  background-color: rgba(237,237,237, 0.4);
 }
 
 .CodeMirror-focused {
   background-color: rgba(255,255,255, 0.4);
 }
 
-.CodeMirror-sizer {
-  /*border: 0;*/
+/*.md-sidenav-backdrop {
+    opacity: 0 !important;
+}*/
+
+/*md-sidenav.md-closed-add,
+md-sidenav.md-closed-remove {
+    -webkit-transition: all .4s cubic-bezier(0.25, .8, .25, 1) !important;
+    transition: all .4s cubic-bezier(0.25, .8, .25, 1) !important;
+}*/
+
+md-sidenav.md-closed-add,
+md-sidenav.md-closed-remove {
+    -webkit-transition: none !important;
+    transition: none !important;
 }

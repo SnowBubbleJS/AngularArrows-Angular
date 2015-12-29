@@ -6,6 +6,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css">
     <link rel="stylesheet" href="css/angular-material.css">
+    <!-- <link rel="stylesheet" href="css/introjs.min.css"> -->
     <link rel="stylesheet" href="css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
@@ -17,14 +18,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/codemirror/lib/codemirror.js"></script>
     <script type="text/javascript" src="bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-    <!-- <script type="text/javascript" src="bower_components/angular/angular.js"></script> -->
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script> -->
     <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
     <script type="text/javascript" src="bower_components/webcomponentsjs/webcomponents.js"></script>
 <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
 <link rel="import" href="bower_components/paper-card/paper-card.html">
 
-    <script type="text/javascript" src="ui-bootstrap-tpls-0.12.0.js"></script>
+    <!-- <script type="text/javascript" src="ui-bootstrap-tpls-0.12.0.js"></script> -->
 
     <!-- Developer Scripts -->
     <script type="text/javascript" src="./app/app.js"></script>
@@ -51,29 +52,32 @@
   </head>
   <body>
     <div layout="column" id="mainBody" style="background: transparent" ng-controller="PromptsController as vm">
-      <md-progress-linear md-mode="determinate" value="{{vm.progress}}" class="md-hue-2"></md-progress-linear>
-        <md-toolbar ng-hide="vm.shouldStart" ng-cloak >
+
+      <md-progress-linear id="progress" md-mode="determinate" value="{{vm.progress}}" class="md-hue-2" ng-show="vm.shouldStart"></md-progress-linear>
+      <md-progress-linear id="progress" md-mode="determinate" value="{{vm.progress}}" class="md-primary" ng-hide="vm.shouldStart"></md-progress-linear>
+        <md-toolbar ng-hide="vm.shouldStart" ng-cloak>
           <div class="md-toolbar-tools">
             <ng-md-icon id="logo" icon="blur_circular" style="fill: white" size="45"></ng-md-icon>
             <h1 style="font-family: 'Lobster'; font-size: 36px;">SnowBubble</h1>
             <span flex></span>
             <h1 style="font-weight: 600; font-size: 24px; font-family: 'Montserrat';">Perfect Angular 1.0</h1>
             <span flex></span>
+            <div class="">
+              <md-switch ng-model="vm.switchStatus" aria-label="switchStatus">
+                Lines
+              </md-switch>
+
+            </div>
             <md-button class="md-fab md-mini" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
               <ng-md-icon icon="repeat" style="fill: white" size="24"></ng-md-icon>
             </md-button>
-            <md-button class="md-fab md-mini" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
+            <!-- <md-button class="md-fab md-mini" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
               <ng-md-icon icon="replay" style="fill: white" size="24"></ng-md-icon>
-            </md-button>
+            </md-button> -->
           </div>
         </md-toolbar>
-
-
-
-
-
-    <!-- <div ng-controller="PromptsController as promptsVM" > -->
-      <div id="promptSidenav" onLoad="vm.getTutorial()" ng-include="vm.template.url" ng-hide="vm.shouldStart"></div>
+    <!-- <div ng-controller="PromptsController as promptsVM" >   onLoad="vm.getTutorial()"-->
+      <div id="promptSidenav"  ng-include="vm.template.url" onLoad="vm.getTutorial()" ng-hide="vm.shouldStart"></div>
 
     <!-- </div> -->
     <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
@@ -110,7 +114,7 @@
           </md-card>
         </div>
       </div>
-      <div layout="column" flex=30>
+      <div layout="column" flex=30 ng-cloak>
         <div layout="row" flex>
           <md-card flex class="output embeddedPage md-whiteframe-1dp">
             <h4 class="md-flex" ng-cloak>output</h4>
@@ -167,7 +171,10 @@
 
     </footer>
   </div>
+
   <!-- For JS -->
+
+  <!-- <script type="text/javascript" src="./app/controllers/intro/introController.js"></script> -->
   <script src="./bower_components/codemirror/mode/xml/xml.js"></script>
   <script src="./bower_components/codemirror/mode/javascript/javascript.js"></script>
   <script>
@@ -178,5 +185,6 @@
     ga('create', 'UA-71549558-1', 'auto');
     ga('send', 'pageview');
   </script>
+
   </body>
 </html>

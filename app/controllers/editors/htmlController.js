@@ -35,7 +35,7 @@
       output.render();
       _editor.on('change', function(inst, changes) {
         output.html = _editor.getValue();
-        lineFactory.lineHolder();
+        // lineFactory.lineHolder();
         output.render();
 
         // $http({
@@ -47,9 +47,9 @@
         //     console.log('failure....');
         //   });
 
-        setTimeout(function() {
-          lineFactory.lineHolder();
-        },0);
+        // setTimeout(function() {
+        //   lineFactory.lineHolder();
+        // },0);
       });
     };
   }
