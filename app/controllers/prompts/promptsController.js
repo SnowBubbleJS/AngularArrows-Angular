@@ -14,7 +14,6 @@
           left: false,
           right: true
         };
-    vm.tutorial = false;
     vm.toggle = toggle;
     vm.getTutorial = getTutorial;
     vm.tutorial = false;
