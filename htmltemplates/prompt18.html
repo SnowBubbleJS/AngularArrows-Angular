@@ -1,15 +1,10 @@
-<md-dialog aria-label="Angular JS">
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
   <form>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h2>Angular JS</h2>
-      </div>
-    </md-toolbar>
-    <md-dialog-content style="max-width:800px;max-height:810px; ">
+    <md-content style="max-width:800px;max-height:810px; ">
       <md-tabs md-dynamic-height md-border-bottom>
         <md-tab label="one">
           <md-content class="md-padding">
-            <h1 class="md-display">Tab One</h1>
+            <h1 class="md-display">Displaying just the names from myFactory part 1</h1>
             <p>
               Wait a minute, we only wanted the names, how come our whole array is showing up? We know that the list is an array and in the array are three objects. Knowing that, how can we display all three names using expressions? If you get stuck, check out the next slide.
             </p>
@@ -17,13 +12,18 @@
         </md-tab>
         <md-tab label="two">
           <md-content class="md-padding">
-            <h1 class="md-display">Tab Two</h1>
+            <h1 class="md-display">Displaying just the names from myFactory part 2</h1>
             <p>
               So we need three Angular expressions to display all the names <code><span>{{</span>myCtrl.list[0].name}}</code>, <code><span>{{</span>myCtrl.list[1].name}}</code> and <code><span>{{</span>myCtrl.list[2].name}}</code>. Wow that’s a lot of coding just to display the names, no? Well, Angular is here to make things easier.
             </p>
           </md-content>
         </md-tab>
       </md-tabs>
-    </md-dialog-content>
+    </md-content>
   </form>
-</md-dialog>
+  <div layout="row" layout-align="start" >
+    <md-button ng-click="vm.close()" class="md-primary">
+      Close
+    </md-button>
+  </div>
+</md-sidenav>

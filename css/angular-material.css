@@ -5584,7 +5584,7 @@ md-bottom-sheet {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  top: 0;
   padding: 8px 16px 88px 16px;
   z-index: 70;
   border-top-width: 1px;
@@ -8599,8 +8599,8 @@ md-sidenav {
       -ms-flex-direction: column;
           flex-direction: column;
   z-index: 60;
-  width: 320px;
-  max-width: 320px;
+  width: 800px;
+  max-width: 800px;
   bottom: 0;
   overflow: auto; }
   md-sidenav ul {
@@ -8639,8 +8639,8 @@ md-sidenav {
             transform: translate3d(0%, 0, 0); }
   md-sidenav.md-closed.md-locked-open-add-active {
     transition: width 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), min-width 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
-    width: 320px;
-    min-width: 320px;
+    width: 800px;
+    min-width: 800px;
     -webkit-transform: translate3d(0%, 0, 0);
             transform: translate3d(0%, 0, 0); }
 
@@ -8667,7 +8667,7 @@ md-sidenav {
 
 @media screen and (min-width: 600px) {
   md-sidenav {
-    max-width: 400px; } }
+    max-width: 500px; } }
 
 @media screen and (max-width: 456px) {
   md-sidenav {
@@ -9171,7 +9171,7 @@ md-tabs {
       -ms-flex-negative: 0;
           flex-shrink: 0; }
   md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
-    min-height: 248px; }
+    min-height: 300px; }
   md-tabs[md-align-tabs="bottom"] {
     padding-bottom: 48px; }
     md-tabs[md-align-tabs="bottom"] md-tabs-wrapper {
@@ -9787,3 +9787,24 @@ md-tooltip {
 @media screen and (-ms-high-contrast: active) {
   md-whiteframe {
     border: 1px solid #fff; } }
+
+
+    /**
+    * fix md-sidenav lag by removing animation
+    **/
+/*
+    .md-sidenav-backdrop {
+        opacity: 0 !important;
+    }
+
+    md-sidenav.md-closed-add,
+    md-sidenav.md-closed-remove,
+    md-sidenav.md-closed-add.md-closed-add-active,
+    md-sidenav.md-closed-remove.md-closed-remove-active,
+    md-sidenav.md-locked-open-remove-active,
+    md-sidenav.md-closed.md-locked-open-add-active
+
+    {
+        -w  ebkit-transition: none !important;
+        transition: none !important;
+    }*/

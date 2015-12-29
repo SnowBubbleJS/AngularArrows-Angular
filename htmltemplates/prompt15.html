@@ -1,16 +1,21 @@
-<md-dialog aria-label="Angular JS"  ng-cloak>
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <h1>Angular JS</h1>
-    </div>
-  </md-toolbar>
-
-  <md-dialog-content>
-    <div class="md-dialog-content">
-      <!-- <h1>Sweet Header</h1> -->
-      <p>
-        We injected <code>myFactory</code> to the <b>controller.js</b>, but we also need to inject it to our function.  Pass <code>myFactory</code> as the first parameter in the MyController function.  Your MyController function should look like this <code>function MyController(myFactory){}</code>. Even though it might seem repetitive, realize that multiple functions can exist in the <b>controller.js</b> and you can control which functions require access to <code>myFactory</code>.
-      </p>
-    </div>
-  </md-dialog-content>
-</md-dialog>
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <form>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="one">
+        <md-content class="md-padding">
+          <div class="md-dialog-content">
+            <h1 class="md-display">Passing in myFactory after the injection</h1>
+            <p>
+              We injected <code>myFactory</code> to the <b>controller.js</b>, but we also need to inject it to our function.  Pass <code>myFactory</code> as the first parameter in the MyController function.  Your MyController function should look like this <code>function MyController(myFactory){}</code>. Even though it might seem repetitive, realize that multiple functions can exist in the <b>controller.js</b> and you can control which functions require access to <code>myFactory</code>.
+            </p>
+            </div>
+          </md-tab>
+        </md-content>
+    </md-tabs>
+  </form>
+  <div layout="row" layout-align="start" >
+    <md-button ng-click="vm.close()" class="md-primary">
+      Close
+    </md-button>
+  </div>
+</md-sidenav>

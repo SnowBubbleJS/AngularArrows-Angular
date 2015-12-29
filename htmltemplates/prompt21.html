@@ -1,16 +1,21 @@
-<md-dialog aria-label="Angular JS"  ng-cloak>
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <h1>Angular JS</h1>
-    </div>
-  </md-toolbar>
-
-  <md-dialog-content>
-    <div class="md-dialog-content">
-      <!-- <h1>Sweet Header</h1> -->
-      <p>
-        We need to use angular expressions to display the data now. Get rid of what you did before iterating through the array manually. Use a new expression like this <code><span>{{</span>list.name}}</code>.
-      </p>
-    </div>
-  </md-dialog-content>
-</md-dialog>
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <form>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="one">
+        <md-content class="md-padding">
+          <div class="md-dialog-content">
+            <h1 class="md-display">Using Angular Expressions with ng-repeat</h1>
+            <p>
+              We need to use angular expressions to display the data now. Get rid of what you did before iterating through the array manually. Use a new expression like this <code><span>{{</span>list.name}}</code>.
+            </p>
+            </div>
+          </md-tab>
+        </md-content>
+    </md-tabs>
+  </form>
+  <div layout="row" layout-align="start" >
+    <md-button ng-click="vm.close()" class="md-primary">
+      Close
+    </md-button>
+  </div>
+</md-sidenav>

@@ -18,15 +18,17 @@
     ////////////
 
     function codemirrorLoaded(_editor) {
+      _editor.setValue(``);
       output.app = _editor.getValue();
       output.render();
       _editor.on('change', function(inst, changes) {
         output.app = _editor.getValue();
         lineFactory.lineHolder();
         output.render();
-        setTimeout(function() {
+        setInterval(function() {
+          // lineFactory.lineHolder('.cm-string:contains(myController)');
           lineFactory.lineHolder();
-        }, 0);
+        }, 500);
       });
     }
   }

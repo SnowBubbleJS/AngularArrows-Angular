@@ -1,16 +1,21 @@
-<md-dialog aria-label="Angular JS"  ng-cloak>
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <h1>Angular JS</h1>
-    </div>
-  </md-toolbar>
-
-  <md-dialog-content>
-    <div class="md-dialog-content">
-      <!-- <h1>Sweet Header</h1> -->
-      <p>
-        As mentioned earlier, since we're using the 'controllerAs' syntax, we can now show these changes in the view using: <code><span>{{</span>myCtrl.name}}</code> <code><span>{{</span>myCtrl.age}}</code> <code><span>{{</span>myCtrl.occupation}}</code> This will also create two-way binding between our view and our controller, meaning that one change to either will affect the other. Why did we use such a random variable name <code>vm</code>?  Per john papa's style guide, <code>vm</code> stands for ViewModel. 'The <code>this</code> keyword is contextual and when used within a function inside a controller may change its context'. Therefore, capturing the context of <code>this</code> by setting <code>this</code> to <code>vm</code> avoids encountering this problem.  But why are we using <code>this</code> instead of <code>$scope</code>?  Per John Papa's Style Guide, it 'helps avoid the temptation of using <code>$scope</code> methods inside a controller when it may otherwise be better to avoid them or move the method to a factory, and reference them from the controller.  Consider using <code>$scope</code> in a controller only when needed.
-      </p>
-    </div>
-  </md-dialog-content>
-</md-dialog>
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <form>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="one">
+        <md-content class="md-padding">
+          <div class="md-dialog-content">
+            <h1 class="md-display">Data binding using 'this' part 2</h1>
+            <p>
+              As mentioned earlier, since we're using the 'controllerAs' syntax, we can now show these changes in the view using: <code><span>{{</span>myCtrl.name}}</code> <code><span>{{</span>myCtrl.age}}</code> <code><span>{{</span>myCtrl.occupation}}</code> This will also create two-way binding between our view and our controller, meaning that one change to either will affect the other. Why did we use such a random variable name <code>vm</code>?  Per john papa's style guide, <code>vm</code> stands for ViewModel. 'The <code>this</code> keyword is contextual and when used within a function inside a controller may change its context'. Therefore, capturing the context of <code>this</code> by setting <code>this</code> to <code>vm</code> avoids encountering this problem.  But why are we using <code>this</code> instead of <code>$scope</code>?  Per John Papa's Style Guide, it 'helps avoid the temptation of using <code>$scope</code> methods inside a controller when it may otherwise be better to avoid them or move the method to a factory, and reference them from the controller.  Consider using <code>$scope</code> in a controller only when needed.
+            </p>
+            </div>
+          </md-tab>
+        </md-content>
+    </md-tabs>
+  </form>
+  <div layout="row" layout-align="start" >
+    <md-button ng-click="vm.close()" class="md-primary">
+      Close
+    </md-button>
+  </div>
+</md-sidenav>

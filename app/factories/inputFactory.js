@@ -10,13 +10,14 @@ function inputFactory($rootScope, promptFactory) {
   words.answers = answers();
   return words;
 
+  ////////////
 
   function checkInput(source) {
-    console.log('reached here');
     var userInput, correctAnswer, current = promptFactory.counter;
     if(current === -5) {
       return;
     }
+    if(!source || !words.answers[current]) { return; }
     userInput = source.replace(/(\r\n|\n|\r|\;|\s)/g, '').replace(/(')/g, '"');
     correctAnswer = words.answers[current].replace(/(\r\n|\n|\r|\;|\s)/g, '').replace(/(')/g, '"');
     if (correctAnswer === userInput) {
@@ -26,6 +27,8 @@ function inputFactory($rootScope, promptFactory) {
       return false;
     }
   }
+
+
 
   function answers() {
     return [
@@ -813,7 +816,9 @@ function myFactory(){
 
   return FriendsList;
 } </script></body>
-</html>`
+</html>`,
+//prompt 22
+'askldnaslkdasld'
     ];
   }
 }
