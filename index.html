@@ -43,6 +43,7 @@
     <script type="text/javascript" src="./app/factories/factory.js"></script>
     <script type="text/javascript" src="./app/factories/lineFactory.js"></script>
     <script type="text/javascript" src="./app/controllers/prompts/promptsController.js"></script>
+    <script type="text/javascript" src="./app/controllers/prompts/historyController.js"></script>
     <script type="text/javascript" src="./app/controllers/editors/partialController.js"></script>
     <script type="text/javascript" src="./app/controllers/editors/appController.js"></script>
     <script type="text/javascript" src="./app/controllers/editors/controllerController.js"></script>
@@ -60,15 +61,18 @@
   <script src="https://gitcdn.xyz/repo/angular/bower-material/master/angular-material.js"></script>
   <script type="text/javascript" src="./app/controllers/intro/introController.js"></script>
   </head>
-  <body>
-
-
-
-    <div layout="column" id="mainBody" style="background: transparent" ng-controller="PromptsController as vm">
-
+  <body >
+    <div layout="column" id="mainBody" style="background: transparent" ng-controller="PromptsController as vm" menu-key="vm.toggle()">
+      <!-- Success Icon -->
+      <div ng-show="vm.success" id="success">
+        <center>
+          <ng-md-icon icon="done" size="500px" id="check" class="fade animated jello"/>
+        </center>
+      </div>
       <md-progress-linear id="progress" md-mode="determinate" value="{{vm.progress}}" class="md-hue-2" ng-show="vm.shouldStart"></md-progress-linear>
       <md-progress-linear id="progress" md-mode="determinate" value="{{vm.progress}}" class="md-primary" ng-hide="vm.shouldStart"></md-progress-linear>
-        <md-toolbar  ng-hide="vm.shouldStart" ng-cloak>
+      <div ng-controller="HistoryController as historyVM">
+        <md-toolbar ng-hide="vm.shouldStart" ng-cloak>
           <div class="md-toolbar-tools">
             <ng-md-icon  id="logo" icon="blur_circular" style="fill: white" size="45"></ng-md-icon>
             <h1 style="font-family: 'Lobster'; font-size: 36px;">SnowBubble</h1>
@@ -81,118 +85,140 @@
             </div>
 
             <div class="">
-
               <md-switch ng-model="vm.switchStatus" aria-label="switchStatus" id="toggleLine">
-                Lines
               </md-switch>
+              <md-tooltip md-direction="bottom">Toggle Lines</md-tooltip>
 
             </div>
-
-            <md-button  class="md-fab md-mini" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
-              <ng-md-icon  icon="repeat" style="fill: white" size="24"></ng-md-icon>
+            <div>
+              <md-menu>
+                <md-button class="md-raised md-accent" aria-label="history" id="test" ng-click="historyVM.openMenu($mdOpenMenu, $event)">
+                  <span style="color:white; font-weight: 700">HISTORY</span>
+                </md-button>
+                <md-menu-content width=6>
+                  <md-menu-item  ng-repeat="prompt in historyVM.poossiblePrompts">
+                    <md-button md-menu-align-target ng-click="historyVM.template.getHistory($index)">
+                      {{prompt}}
+                    </md-button>
+                  </md-menu-item>
+                </md-menu-content>
+              </md-menu>
+            </div>
+            <md-button class="md-fab md-mini" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
+              <ng-md-icon icon="format_indent_decrease" style="fill: white" size="24"></ng-md-icon>
+              <md-tooltip md-visible="vm.toolTip.showToolTip" md-direction="bottom">Show (Esc)</md-tooltip>
             </md-button>
             <!-- <md-button class="md-fab md-mini" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
-              <ng-md-icon icon="replay" style="fill: white" size="24"></ng-md-icon>
-            </md-button> -->
+            <ng-md-icon icon="replay" style="fill: white" size="24"></ng-md-icon>
+          </md-button> -->
+        </div>
+      </md-toolbar>
+      <!-- <div ng-controller="PromptsController as promptsVM" >   onLoad="vm.getTutorial()"-->
+
+
+      <div>
+        <div id="historySidenav"  ng-include="historyVM.template.historyUrl" ng-hide="vm.shouldStart"></div>
+      </div>
+      <div id="promptSidenav"  ng-include="vm.template.url" onLoad="vm.getTutorial()" ng-hide="vm.shouldStart"></div>
+
+      <!-- </div> -->
+      <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
+      <!-- more material design -->
+      <div layout="row" id="mainBody" flex=100 ng-hide="vm.shouldStart" >
+        <div layout="column" flex=70>
+          <div layout="row" flex>
+            <md-card  ng-controller="HtmlController as htmlVM" id="html" class="textEditor md-whiteframe-1dp" flex=50>
+              <!-- <md-toolbar class="md-primary" layout-align="right" ng-cloak> -->
+              <h4 class="md-flex" ng-hide="vm.shouldStart" ng-cloak>index.html</h4>
+              <!-- </md-toolbar> -->
+              <ui-codemirror ui-codemirror="{ onLoad : htmlVM.codemirrorLoaded }" ui-codemirror-opts="htmlVM.editorOptions"></ui-codemirror>
+            </md-card>
+            <md-card  ng-controller="AppController as appVM" id="app" class="textEditor md-whiteframe-1dp" flex=50>
+              <!-- <md-toolbar class="md-primary" layout-align="center center" ng-cloak> -->
+              <h4 class="md-flex" ng-cloak>app.js</h4>
+              <!-- </md-toolbar> -->
+              <ui-codemirror ui-codemirror="{ onLoad : appVM.codemirrorLoaded }" ui-codemirror-opts="appVM.editorOptions"></ui-codemirror>
+            </md-card>
           </div>
-        </md-toolbar>
-    <!-- <div ng-controller="PromptsController as promptsVM" >   onLoad="vm.getTutorial()"-->
-    <!-- removed onLoad to test out intro.js
-      <div id="promptSidenav"  ng-include="vm.template.url" onLoad="vm.getTutorial()" ng-hide="vm.shouldStart"></div> -->
-  <div id="promptSidenav"  ng-include="vm.template.url" ng-hide="vm.shouldStart"></div>
+          <div layout="row" flex>
 
+            <md-card  ng-controller="ControllerController as controllerVM" id="controller" class="textEditor md-whiteframe-1dp" flex=50>
 
-    <!-- </div> -->
-    <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
-    <!-- more material design -->
-    <div layout="row" id="mainBody" flex=100 ng-hide="vm.shouldStart" >
-      <div layout="column" flex=70>
-        <div layout="row" flex>
-          <md-card  ng-controller="HtmlController as htmlVM" id="html" class="textEditor md-whiteframe-1dp" flex=50>
-            <!-- <md-toolbar class="md-primary" layout-align="right" ng-cloak> -->
-            <h4 class="md-flex" ng-hide="vm.shouldStart" ng-cloak>index.html</h4>
-            <!-- </md-toolbar> -->
-            <ui-codemirror ui-codemirror="{ onLoad : htmlVM.codemirrorLoaded }" ui-codemirror-opts="htmlVM.editorOptions"></ui-codemirror>
-          </md-card>
-          <md-card ng-controller="AppController as appVM" id="app" class="textEditor md-whiteframe-1dp" flex=50>
-            <!-- <md-toolbar class="md-primary" layout-align="center center" ng-cloak> -->
-            <h4 class="md-flex" ng-cloak>app.js</h4>
-            <!-- </md-toolbar> -->
-            <ui-codemirror ui-codemirror="{ onLoad : appVM.codemirrorLoaded }" ui-codemirror-opts="appVM.editorOptions"></ui-codemirror>
-          </md-card>
+              <h4 class="md-flex" ng-cloak>controller.js</h4>
+
+              <ui-codemirror ui-codemirror="{ onLoad : controllerVM.codemirrorLoaded }" ui-codemirror-opts="controllerVM.editorOptions"></ui-codemirror>
+            </md-card>
+            <md-card  ng-controller="FactoryController as factoryVM" id="factory" class="textEditor md-whiteframe-1dp" flex=50>
+
+              <h4 class="md-flex" ng-cloak>factory.js</h4>
+
+              <ui-codemirror ui-codemirror="{ onLoad : factoryVM.codemirrorLoaded }" ui-codemirror-opts="factoryVM.editorOptions"></ui-codemirror>
+            </md-card>
+          </div>
         </div>
-        <div layout="row" flex>
-
-          <md-card  ng-controller="ControllerController as controllerVM" id="controller" class="textEditor md-whiteframe-1dp" flex=50>
-
-            <h4 class="md-flex" ng-cloak>controller.js</h4>
-
-            <ui-codemirror ui-codemirror="{ onLoad : controllerVM.codemirrorLoaded }" ui-codemirror-opts="controllerVM.editorOptions"></ui-codemirror>
-          </md-card>
-          <md-card  ng-controller="FactoryController as factoryVM" id="factory" class="textEditor md-whiteframe-1dp" flex=50>
-
-            <h4 class="md-flex" ng-cloak>factory.js</h4>
-
-            <ui-codemirror ui-codemirror="{ onLoad : factoryVM.codemirrorLoaded }" ui-codemirror-opts="factoryVM.editorOptions"></ui-codemirror>
-          </md-card>
+        <div layout="column" id="outputBox" flex=30 ng-cloak>
+          <div layout="row" flex>
+            <md-card flex class="output embeddedPage md-whiteframe-1dp">
+              <h4 class="md-flex" ng-cloak>output</h4>
+              <section id="output" layout="column" ng-cloak>
+                <iframe ></iframe>
+              </section>
+            </md-card>
+          </div>
         </div>
       </div>
-      <div layout="column" id="outputBox" flex=30 ng-cloak>
-        <div layout="row" flex>
-          <md-card  flex class="output embeddedPage md-whiteframe-1dp">
-            <h4 class="md-flex" ng-cloak>output</h4>
-            <section id="output" layout="column" ng-cloak>
-              <iframe ></iframe>
-            </section>
-          </md-card>
-        </div>
-      </div>
-    </div>
 
-    <!-- <footer layout="column" ng-hide="vm.shouldStart" ng-cloak>
+      <!-- <footer layout="column" ng-hide="vm.shouldStart" ng-cloak>
       <div layout="row" id="topFooter" layout="center center">
-        <div layout="column" layout-align="center center" class="footerItem" flex>
-          hi there
-          <br>
-          sdf
-        </div>
-        <div layout="column" layout-align="center center" class="footerItem" flex>
-          <div layout="row">
-            <a class="md-fab" href="#">
-              <ng-md-icon id="logo" icon="favorite" style="fill: white" size="24"></ng-md-icon>
-            </a>
-            <a class="md-fab" href="#">
-              <ng-md-icon id="logo" icon="github-box" style="fill: white" size="24"></ng-md-icon>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div layout="row" id="bottFooter" layout-align="center center" flex>
-        Powered by SnowBubble ©2015-2016. Code licensed under the MIT License.
-      </div>
-    </footer> -->
-    <footer layout="row" layout-align="center center" ng-hide="vm.shouldStart" ng-cloak>
-      <div layout="column" layout-align="center center" flex>
-          <ng-md-icon id="logo" icon="mood" style="fill: white" size="24"></ng-md-icon>
-      </div>
-      <div layout="column" layout-align="center center" flex>
-        <h5>Powered by SnowBubble ©2015-2016. Code licensed under the MIT License.</h5>
-      </div>
       <div layout="column" layout-align="center center" class="footerItem" flex>
-        <div layout="row">
-          <a class="md-fab" href="https://github.com/SnowBubbleJS/AngularArrows-Angular/issues">
-            <ng-md-icon id="logo" icon="error" style="fill: white" size="24"></ng-md-icon>
-          </a>
-          <a class="md-fab" href="https://github.com/johnpapa/angular-styleguide">
-            <ng-md-icon id="logo" icon="favorite" style="fill: white" size="24"></ng-md-icon>
-          </a>
-          <a class="md-fab" href="https://github.com/SnowBubbleJS/AngularArrows-Angular">
-            <ng-md-icon id="logo" icon="github-box" style="fill: white" size="24"></ng-md-icon>
-          </a>
-        </div>
-      </div>
+      hi there
+      <br>
+      sdf
+    </div>
+    <div layout="column" layout-align="center center" class="footerItem" flex>
+    <div layout="row">
+    <a class="md-fab" href="#">
+    <ng-md-icon id="logo" icon="favorite" style="fill: white" size="24"></ng-md-icon>
+  </a>
+  <a class="md-fab" href="#">
+  <ng-md-icon id="logo" icon="github-box" style="fill: white" size="24"></ng-md-icon>
+</a>
+</div>
+</div>
+</div>
+<div layout="row" id="bottFooter" layout-align="center center" flex>
+Powered by SnowBubble ©2015-2016. Code licensed under the MIT License.
+</div>
+</footer> -->
+<footer layout="row" layout-align="center center" ng-hide="vm.shouldStart" ng-cloak>
+  <div layout="column" layout-align="center center" flex>
+    <ng-md-icon id="logo" icon="mood" style="fill: white" size="24">
+      <md-tooltip md-direction="top">Just a smiley</md-tooltip>
+    </ng-md-icon>
+  </div>
+  <div layout="column" layout-align="center center" flex>
+    <h5>Powered by SnowBubble ©2015-2016. Code licensed under the MIT License.</h5>
+  </div>
+  <div layout="column" layout-align="center center" class="footerItem" flex>
+    <div layout="row">
+      <a target="_blank" class="md-fab" href="https://github.com/SnowBubbleJS/AngularArrows-Angular/issues">
+        <ng-md-icon id="logo" icon="error" style="fill: white" size="24"></ng-md-icon>
+        <md-tooltip md-direction="top">Report an Issue</md-tooltip>
+      </a>
+      <a target="_blank" class="md-fab" href="https://github.com/johnpapa/angular-styleguide">
+        <ng-md-icon id="logo" icon="favorite" style="fill: white" size="24"></ng-md-icon>
+        <md-tooltip md-direction="top">John Papa's Style Guide</md-tooltip>
+      </a>
+      <a target="_blank" class="md-fab" href="https://github.com/SnowBubbleJS/AngularArrows-Angular">
+        <md-tooltip md-direction="top">GitHub</md-tooltip>
+        <ng-md-icon id="logo" icon="github-box" style="fill: white" size="24"></ng-md-icon>
+      </a>
+    </div>
+  </div>
 
-    </footer>
+</footer>
+
+      </div>
   </div>
 
   <!-- For JS -->

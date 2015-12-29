@@ -1,0 +1,21 @@
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="historyRight">
+  <form>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="one">
+        <md-content class="md-padding">
+          <div class="md-dialog-content">
+            <h1 class="md-display">Linking the controller to your view</h1>
+            <p>
+              In the HTML file, within the <code>&lt;div&gt;</code> you created for the ng-controller, write the following Angular Expressions: <br><code><span>{{</span>name}}</code> <br><code><span>{{</span>age}}</code> <br><code><span>{{</span>occupation}}</code>
+            </p>
+            </div>
+          </md-tab>
+        </md-content>
+    </md-tabs>
+  </form>
+  <div layout="row" layout-align="start" >
+    <md-button ng-click="historyVM.close()" class="md-primary">
+      Close
+    </md-button>
+  </div>
+</md-sidenav>

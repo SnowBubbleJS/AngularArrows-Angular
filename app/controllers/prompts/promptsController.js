@@ -14,9 +14,9 @@
           left: false,
           right: true
         };
-
+    vm.toggle = toggle;
     vm.getTutorial = getTutorial;
-    vm.tutorial = "Tutorial prompts will go here";
+    vm.tutorial = false;
     vm.template = {};
     vm.template.url = 'htmltemplates/prompt1.html';
     vm.shouldUpdate = 0;
@@ -25,8 +25,10 @@
     vm.close = close;
     vm.progress = 0;
     vm.switchStatus = true;
+    vm.success = false;
     vm.startLines = startLines;
     vm.stopLines = stopLines;
+
     $interval(function() {
       vm.progress += 15;
       if(vm.progress >= 100) {
@@ -35,15 +37,21 @@
       }
     },100, 7);
 
+  //beginning of toolTip functions
+  vm.toolTip = false;
+
+  $scope.$watch('vm.toolTip',function(val) {
+    if (val && val.length ) {
+      vm.showTooltip = true;
+    }
+  });
+  //end of toolTip functions
+
     $scope.$on('answer:correct', function(event, data) {
+        vm.success = true;
         vm.shouldUpdate = 1;
-        //added timeout so the prompt doesn't show up too quickly
-        $timeout(function(){
-          vm.getTutorial();
-          vm.shouldUpdate = 0;
-        },700);
-
-
+        vm.getTutorial();
+        vm.shouldUpdate = 0;
     });
 
     $scope.$watch("vm.switchStatus", function(){
@@ -54,10 +62,19 @@
       }
     });
 
+
     vm.startLines();
 
-
     ////////////
+
+    function toggle () {
+      if (!vm.tutorial) {
+        vm.getTutorial();
+        vm.tutorial = true;
+      } else {
+        vm.tutorial = false;
+      }
+    }
 
     function close() {
       $mdSidenav('right').close();
@@ -80,14 +97,17 @@
         if(promptFactory.counter % 1 === 0) {
 
           vm.template.url = 'htmltemplates/prompt' + promptFactory.counter + '.html';
+          console.log(vm.template.url);
           $scope.$apply();
           $timeout(function(){
+            console.log('inhere');
+            vm.success = false;
             $mdSidenav('right').toggle();
-
-          },200);
+          },1300);
         }
       }
       else {
+        console.log(vm.template.url);
           $mdSidenav('right').toggle();
       }
         nzTour.stop(tour);

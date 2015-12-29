@@ -1,4 +1,4 @@
-<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="historyRight">
   <form>
     <md-content style="max-width:800px;max-height:810px; ">
       <md-tabs md-dynamic-height md-border-bottom>
@@ -22,7 +22,7 @@
           <md-content class="md-padding">
             <h1 class="md-display">IIFE</h1>
             <p>
-              Before we build the controller, you need to understand that it is common practice to keep all Angular componentry modularized by defining only 1 component per file and even more so to have these separate JavaScript files wrapped within an Immediately Invoked Function expression (IIFE). These IIFEs are created as wrappers for our AngularJS components so that variable names do not clutter the global workspace. IIFEs are characterized by wrapping your function in parentheses followed by a pair of parentheses, for example - ( function(){//codeblock} )(); For more information about the single responsibility of files, please visit <a href="https://github.com/johnpapa/angular-styleguide#single-responsibility" target="_blank">https://github.com/johnpapa/angular-styleguide#single-responsibility</a>. For more information about using IIFEs, please visit <a href="https://github.com/johnpapa/angular-styleguide#iife" target="_blank">https://github.com/johnpapa/angular-styleguide#iife</a>.
+              Before we build the controller, you need to understand that it is common practice to keep all Angular componentry modularized by defining only 1 component per file and even more so to have these separate JavaScript files wrapped within an Immediately Invoked Function expression (IIFE). These IIFEs are created as wrappers for our AngularJS components so that variable names do not clutter the global workspace. IIFEs are characterized by wrapping your function in parentheses followed by a pair of parentheses, for example - ( function(){//codeblock} )(); For more information about the single responsibility of files, please visit https://github.com/johnpapa/angular-styleguide#single-responsibility. For more information about using IIFEs, please visit https://github.com/johnpapa/angular-styleguide#iife.
             </p>
           </md-content>
         </md-tab>
@@ -30,15 +30,7 @@
           <md-content class="md-padding">
             <h1 class="md-display">Creating the controller</h1>
             <p>
-              First, we need to know the role of the controller. A controller as its basic form manages your applications data. We will be creating a controller in the controller.js. Similar to the structure of how you created the module in the app.js, we will need to build the controller in a similar manner.
-            </p><p>
-              First we need to create the relationship of the controller to the 'myApp'. In the HTML file, add in <code>&lt;div ng-controller='MyController'&gt;&lt;/div&gt;</code> inside the body tag.
-            </p><p>
-              Next, move to the controller.js, in here you will be doing the same thing you did in the app.js to encapsulate the controller in your app. Start by using the getter syntax to chain onto the main module <code>angular.module('myApp')</code>.
-            </p><p>
-              Notice the main difference here being that there is no second argument since we're essentially referring to the main module created in <b>app.js</b>. Now that you've created the relationship, let's tell the Angular App that you want to build a controller.
-            </p><p>
-              You will be doing this by creating a method after the module <code>.controller()</code>, the method takes in two parameters. The first parameter is the name of the controller and the second parameter will be a callback function. The callback function will be responsible for managing data. Follow this format: <br><code>angular.module('myApp')<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.controller('MyController', MyController); <br><br>function MyController(){<br><br>}</code>
+              First, we need to know the role of the controller. A controller as its basic form manages your applications data. We will be creating a controller in the controller.js. Similar to the structure of how you created the module in the app.js, we will need to build the controller in a similar manner. First we need to create the relationship of the controller to the 'myApp'. In the HTML file, add in <code>&lt;div ng-controller='MyController'&gt;&lt;/div&gt;</code> inside the body tag. Next, move to the controller.js, in here you will be doing the same thing you did in the app.js to encapsulate the controller in your app. Start by using the getter syntax to chain onto the main module <code>angular.module('myApp')</code>. Notice the main difference here being that there is no second argument since we're essentially referring to the main module created in <b>app.js</b>. Now that you've created the relationship, let's tell the Angular App that you want to build a controller. You will be doing this by creating a method after the module <code>.controller()</code>, the method takes in two parameters. The first parameter is the name of the controller and the second parameter will be a callback function. The callback function will be responsible for managing data. Follow this format: <br><code>angular.module('myApp')<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.controller('MyController', MyController); <br><br>function MyController(){<br><br>}</code>
             </p>
             </p>
           </md-content>
@@ -59,7 +51,7 @@
     </md-content>
   </form>
   <div layout="row" layout-align="start" >
-    <md-button ng-click="vm.close()" class="md-primary">
+    <md-button ng-click="historyVM.close()" class="md-primary">
       Close
     </md-button>
   </div>
