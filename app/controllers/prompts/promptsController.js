@@ -70,10 +70,10 @@
 
     function toggle () {
       if (!vm.tutorial) {
-        vm.getTutorial();
-        vm.tutorial = true;
-      } else {
-        vm.tutorial = false;
+        // vm.getTutorial();
+      //   vm.tutorial = true;
+      // } else {
+      //   vm.tutorial = false;
       }
     }
 
@@ -105,6 +105,7 @@
         }
       }
       else {
+        console.log(vm.template.url);
           $mdSidenav('right').toggle();
       }
     }
