@@ -14,7 +14,6 @@
           left: false,
           right: true
         };
-    vm.tutorial = false;
     vm.toggle = toggle;
     vm.getTutorial = getTutorial;
     vm.tutorial = false;
@@ -29,6 +28,7 @@
     vm.success = false;
     vm.startLines = startLines;
     vm.stopLines = stopLines;
+
     $interval(function() {
       vm.progress += 15;
       if(vm.progress >= 100) {
@@ -44,7 +44,7 @@
     if (val && val.length ) {
       vm.showTooltip = true;
     }
-  })
+  });
   //end of toolTip functions
 
     $scope.$on('answer:correct', function(event, data) {
@@ -61,6 +61,7 @@
         vm.stopLines();
       }
     });
+
 
     vm.startLines();
 
@@ -93,14 +94,17 @@
         if(promptFactory.counter % 1 === 0) {
 
           vm.template.url = 'htmltemplates/prompt' + promptFactory.counter + '.html';
+          console.log(vm.template.url);
           $scope.$apply();
           $timeout(function(){
+            console.log('inhere');
             vm.success = false;
             $mdSidenav('right').toggle();
           },1300);
         }
       }
       else {
+        console.log(vm.template.url);
           $mdSidenav('right').toggle();
       }
     }

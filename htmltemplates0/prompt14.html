@@ -1,0 +1,29 @@
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="historyRight">
+  <form>
+    <md-content>
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="one">
+          <md-content class="md-padding">
+            <h1 class="md-display">Planning factory injection to the controller</h1>
+            <p>
+              Now that we have our <b>factory.js</b> set up, we need to pass (or inject) the data from our <b>factory</b> to our <b>controller</b>.  Then from the controller, we can pass the data along to our HTML file.
+            </p>
+          </md-content>
+        </md-tab>
+        <md-tab label="two">
+          <md-content class="md-padding">
+            <h1 class="md-display">Factory injection in the controller.js</h1>
+            <p>
+              In the <b>controller.js</b>, we need to inject our <b>factory</b> so that our <b>controller</b> has access to the factory’s data.  Right above where you declared your <i>MyController</i> function, write the following code <code>MyController.$inject = ['myFactory']</code>.  Because the MyController function is going to be dependent on the data from factory.js, we call it <i>dependency injection</i>. Note we’re injecting the names of the function and not the function itself.
+            </p>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-content>
+  </form>
+  <div layout="row" layout-align="start" >
+    <md-button ng-click="historyVM.close()" class="md-primary">
+      Close
+    </md-button>
+  </div>
+</md-sidenav>
