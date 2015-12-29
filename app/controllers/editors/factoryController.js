@@ -43,11 +43,11 @@
 
       _editor.on('change', function(inst, changes) {
         output.factory = _editor.getValue();
-        lineFactory.lineHolder();
+        // lineFactory.lineHolder();
       output.render();
-      setTimeout(function() {
-        lineFactory.lineHolder();
-      },0);
+      // setTimeout(function() {
+      //   lineFactory.lineHolder();
+      // },0);
       });
     }
   }

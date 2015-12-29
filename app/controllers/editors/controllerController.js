@@ -23,11 +23,11 @@
       output.render();
       _editor.on('change', function(inst, changes) {
         output.controller = _editor.getValue();
-          lineFactory.lineHolder();
+          // lineFactory.lineHolder();
         output.render();
-        setTimeout(function() {
-          lineFactory.lineHolder();
-        },0);
+        // setTimeout(function() {
+        //   lineFactory.lineHolder();
+        // },0);
       });
     }
   }

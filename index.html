@@ -54,7 +54,7 @@
     <div layout="column" id="mainBody" style="background: transparent" ng-controller="PromptsController as vm">
 
       <md-progress-linear id="progress" md-mode="determinate" value="{{vm.progress}}" class="md-hue-2" ng-show="vm.shouldStart"></md-progress-linear>
-      <md-progress-linear id="progress" md-mode="determinate" value="100" class="md-primary" ng-hide="vm.shouldStart"></md-progress-linear>
+      <md-progress-linear id="progress" md-mode="determinate" value="{{vm.progress}}" class="md-primary" ng-hide="vm.shouldStart"></md-progress-linear>
         <md-toolbar ng-hide="vm.shouldStart" ng-cloak>
           <div class="md-toolbar-tools">
             <ng-md-icon id="logo" icon="blur_circular" style="fill: white" size="45"></ng-md-icon>
@@ -62,6 +62,12 @@
             <span flex></span>
             <h1 style="font-weight: 600; font-size: 24px; font-family: 'Montserrat';">Perfect Angular 1.0</h1>
             <span flex></span>
+            <div class="">
+              <md-switch ng-model="vm.switchStatus" aria-label="switchStatus">
+                Lines
+              </md-switch>
+
+            </div>
             <md-button class="md-fab md-mini" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
               <ng-md-icon icon="repeat" style="fill: white" size="24"></ng-md-icon>
             </md-button>
@@ -71,10 +77,10 @@
           </div>
         </md-toolbar>
     <!-- <div ng-controller="PromptsController as promptsVM" >   onLoad="vm.getTutorial()"-->
-      <div id="promptSidenav"  ng-include="vm.template.url" onLoad="vm.getTutorial()" ng-hide="vm.shouldStart" ng-cloak></div>
+      <div id="promptSidenav"  ng-include="vm.template.url" onLoad="vm.getTutorial()" ng-hide="vm.shouldStart"></div>
 
     <!-- </div> -->
-    <canvas id="canvas" width="window.innerWidth" height="window.innerHeight" ng-cloak></canvas>
+    <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
     <!-- more material design -->
     <div layout="row" id="mainBody" flex=100 ng-hide="vm.shouldStart" >
       <div layout="column" flex=70>
@@ -165,6 +171,7 @@
 
     </footer>
   </div>
+
   <!-- For JS -->
 
   <!-- <script type="text/javascript" src="./app/controllers/intro/introController.js"></script> -->

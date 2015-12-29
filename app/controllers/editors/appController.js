@@ -23,12 +23,11 @@
       output.render();
       _editor.on('change', function(inst, changes) {
         output.app = _editor.getValue();
-        lineFactory.lineHolder();
+        // lineFactory.lineHolder();
         output.render();
-        setInterval(function() {
-          // lineFactory.lineHolder('.cm-string:contains(myController)');
-          lineFactory.lineHolder();
-        }, 500);
+        // setTimeout(function() {
+        //   lineFactory.lineHolder();
+        // }, 500);
       });
     }
   }

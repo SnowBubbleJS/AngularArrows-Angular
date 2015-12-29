@@ -28,8 +28,6 @@ function inputFactory($rootScope, promptFactory) {
     }
   }
 
-
-
   function answers() {
     return [
       0,
