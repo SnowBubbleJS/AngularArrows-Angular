@@ -34,6 +34,8 @@
     <script type="text/javascript" src="./app/factories/factory.js"></script>
     <script type="text/javascript" src="./app/factories/lineFactory.js"></script>
     <script type="text/javascript" src="./app/controllers/prompts/promptsController.js"></script>
+    <script type="text/javascript" src="./app/controllers/prompts/historyController.js"></script>
+    <script type="text/javascript" src="./app/historyDirective.js"></script>
     <script type="text/javascript" src="./app/controllers/editors/partialController.js"></script>
     <script type="text/javascript" src="./app/controllers/editors/appController.js"></script>
     <script type="text/javascript" src="./app/controllers/editors/controllerController.js"></script>
@@ -50,7 +52,7 @@
         <!-- Angular Material Javascript using GitCDN to load directly from `bower-material/master` -->
         <script src="https://gitcdn.xyz/repo/angular/bower-material/master/angular-material.js"></script>
   </head>
-  <body>
+  <body ng-controller="HistoryController as historyVM">
     <div layout="column" id="mainBody" style="background: transparent" ng-controller="PromptsController as vm" menu-key="vm.toggle()">
       <!-- Success Icon -->
       <div ng-show="vm.success" id="success">
@@ -69,9 +71,23 @@
             <span flex></span>
             <div class="">
               <md-switch ng-model="vm.switchStatus" aria-label="switchStatus">
-                Lines
               </md-switch>
+              <md-tooltip md-direction="bottom">Toggle Lines</md-tooltip>
 
+            </div>
+            <div>
+              <md-menu>
+                <md-button class="md-raised md-accent" aria-label="history" id="test" ng-click="historyVM.openMenu($mdOpenMenu, $event)">
+                  <span style="color:white; font-weight: 700">HISTORY</span>
+                </md-button>
+                <md-menu-content width=6>
+                  <md-menu-item  ng-repeat="prompt in historyVM.poossiblePrompts">
+                    <md-button md-menu-align-target ng-click="historyVM.template.getHistory($index)">
+                      {{prompt}}
+                    </md-button>
+                  </md-menu-item>
+                </md-menu-content>
+              </md-menu>
             </div>
             <md-button class="md-fab md-mini" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
               <ng-md-icon icon="format_indent_decrease" style="fill: white" size="24"></ng-md-icon>
@@ -83,6 +99,11 @@
           </div>
         </md-toolbar>
     <!-- <div ng-controller="PromptsController as promptsVM" >   onLoad="vm.getTutorial()"-->
+
+
+      <div>
+        <div id="historySidenav"  ng-include="historyVM.template.historyUrl" ng-hide="vm.shouldStart"></div>
+      </div>
       <div id="promptSidenav"  ng-include="vm.template.url" onLoad="vm.getTutorial()" ng-hide="vm.shouldStart"></div>
 
     <!-- </div> -->
@@ -156,7 +177,9 @@
     </footer> -->
     <footer layout="row" layout-align="center center" ng-hide="vm.shouldStart" ng-cloak>
       <div layout="column" layout-align="center center" flex>
-          <ng-md-icon id="logo" icon="mood" style="fill: white" size="24"></ng-md-icon>
+          <ng-md-icon id="logo" icon="mood" style="fill: white" size="24">
+            <md-tooltip md-direction="top">Just a smiley</md-tooltip>
+          </ng-md-icon>
       </div>
       <div layout="column" layout-align="center center" flex>
         <h5>Powered by SnowBubble ©2015-2016. Code licensed under the MIT License.</h5>
