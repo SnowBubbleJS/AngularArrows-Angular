@@ -1,3 +1,62 @@
+(function() {
+angular
+    .module('app')
+    .controller('IntroController', IntroController);
+
+IntroController.$inject = ['nzTour'];
+
+function IntroController(nzTour){
+
+  var vm = this;
+
+  var tour = window.tour = {
+    config: {
+      mask:{
+          clickExit: true
+        }
+
+    },
+    steps:[{
+      content: "<h1>Welcome!</h1> <br>Let's get familiar with the application before we start the tutorial. <br><br> Use the <b>left/right</b> keys to go to the next/previous step. <br> Use the <b>esc</b> button to exit the guide.<br><br>"
+    },{
+      target: "#html",
+      content: "This is the HTML editor where you will be coding the V in the MVC model"
+    },{
+      target: "#app",
+      content: "This is the app.js where you'll build the foundation of your application."
+    },{
+      target: "#controller",
+      content: "This is the controller.js where you'll be creating your controller, the C in the MVC model."
+    },{
+      target: "#factory",
+      content: "This is the factory.js where you'll be storing data."
+    },{
+      target: '#outputBox',
+      content: "This is where you'll be witnessing Angular 'magic'"
+    },{
+      target: '#toggleLine',
+      content: "This is where you can toggle the lines on or off"
+    },{
+      target: '#test',
+      content: 'Click here to get started!'
+    }]
+  };
+
+  vm.start =function(){
+    console.log('hello');
+    nzTour.start(tour);
+  };
+
+
+
+}
+
+})();
+
+
+
+
+
 // angular
 //   .module('app')
 //   .controller('IntroController', IntroController);

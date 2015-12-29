@@ -22,6 +22,7 @@
     "angular-ui-codemirror": "~0.3.0",
     "polymer": "Polymer/polymer#^1.2.0",
     "paper-card": "PolymerElements/paper-card#~1.0.8",
-    "paper-ripple": "PolymerElements/paper-ripple#~1.0.5"
+    "paper-ripple": "PolymerElements/paper-ripple#~1.0.5",
+    "nz-tour": "~1.0.1"
   }
 }
