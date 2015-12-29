@@ -1,0 +1,49 @@
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="historyRight">
+  <form>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="one">
+        <md-content class="md-padding">
+          <h1 class="md-display">Go!</h1>
+          <p>
+            What is AngularJS? - Let's start this project off by understanding what AngularJS is.  AngularJS is a client-side JavaScript framework for making dynamic web applications. Angular lets you use HTML as your template language and allows you to extend HTML's syntax to express your application's components clearly. Angular's two-way data binding and dependency injection eliminate much of the code you would otherwise have to write.
+          </p>
+        </md-content>
+      </md-tab>
+      <md-tab label="two">
+        <md-content class="md-padding">
+          <h1 class="md-display">Script</h1>
+          <p>We need to bring in the  Angular library so we can start using the Angular Framework.  Copy and paste this right below the meta tag.  <br><code>&lt;script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.9/angular.min.js'&gt;&lt;/script&gt;</code></p>
+        </md-content>
+      </md-tab>
+      <md-tab label="three">
+        <md-content class="md-padding">
+          <h1 class="md-display">Directives</h1>
+          <p>Let's dive into Angular and look into what Directives are. An Angular Directive extends HTML attributes by placing markers on a HTML tag which tells Angular to run or reference JavaScript code on the marked HTML node and any of that HTML node's children. Directives allow you to write HTML that expresses the behavior of your application. The first directive we will use is <code >ng-app</code>, which will initialize your Angular application in the DOM.</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="four">
+        <md-content class="md-padding">
+          <h1 class="md-display">Two-Way Data Binding Part 1</h1>
+          <p>I'm sure you've heard of how easy two way data binding is in Angular. Let's write some code to see how easy it really is. But before we do… what exactly is two way data binding? To explain this we need to go 'under the hood' of Angular a little.</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="five">
+        <md-content class="md-padding">
+          <h1 class="md-display">Two-Way Data Binding Part 2</h1>
+          <p>Two-way data binding in Angular apps is the automatic synchronization of data between the model and view components. A bit confusing right? Don't worry, you'll get practice with it so you can visualize what it is.</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="six">
+        <md-content class="md-padding">
+          <h1 class="md-display">Two-Way Data Binding Part 3</h1>
+          <p>Now onto a bit of coding, write <code >ng-app</code> into the <code>html</code> tag. The 'ng-app' directive is commonly added to either the <code>html</code> tag or the <code>body</code> tag.</p>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </form>
+  <div layout="row" layout-align="start" >
+    <md-button ng-click="vm.close()" class="md-primary">
+      Close
+    </md-button>
+  </div>
+</md-sidenav>

@@ -1,0 +1,11 @@
+angular.module
+.directive('foobar', [function factory() {
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: '/toBeIncluded.html',
+        scope: {
+            "var": "="
+        }
+    };
+}]);

@@ -34,6 +34,8 @@
     <script type="text/javascript" src="./app/factories/factory.js"></script>
     <script type="text/javascript" src="./app/factories/lineFactory.js"></script>
     <script type="text/javascript" src="./app/controllers/prompts/promptsController.js"></script>
+    <script type="text/javascript" src="./app/controllers/prompts/historyController.js"></script>
+    <script type="text/javascript" src="./app/historyDirective.js"></script>
     <script type="text/javascript" src="./app/controllers/editors/partialController.js"></script>
     <script type="text/javascript" src="./app/controllers/editors/appController.js"></script>
     <script type="text/javascript" src="./app/controllers/editors/controllerController.js"></script>
@@ -50,7 +52,7 @@
         <!-- Angular Material Javascript using GitCDN to load directly from `bower-material/master` -->
         <script src="https://gitcdn.xyz/repo/angular/bower-material/master/angular-material.js"></script>
   </head>
-  <body>
+  <body ng-controller="HistoryController as historyVM">
     <div layout="column" id="mainBody" style="background: transparent" ng-controller="PromptsController as vm">
 
       <md-progress-linear id="progress" md-mode="determinate" value="{{vm.progress}}" class="md-hue-2" ng-show="vm.shouldStart"></md-progress-linear>
@@ -68,6 +70,20 @@
               </md-switch>
 
             </div>
+            <div>
+              <md-menu>
+                <md-button class="md-raised md-accent" aria-label="history" id="test" ng-click="historyVM.openMenu($mdOpenMenu, $event)">
+                  HISTORY
+                </md-button>
+                <md-menu-content width=6>
+                  <md-menu-item  ng-repeat="prompt in historyVM.poossiblePrompts">
+                    <md-button md-menu-align-target ng-click="historyVM.template.getHistory($index)">
+                      {{prompt}}
+                    </md-button>
+                  </md-menu-item>
+                </md-menu-content>
+              </md-menu>
+            </div>
             <md-button class="md-fab md-mini" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
               <ng-md-icon icon="repeat" style="fill: white" size="24"></ng-md-icon>
             </md-button>
@@ -77,6 +93,11 @@
           </div>
         </md-toolbar>
     <!-- <div ng-controller="PromptsController as promptsVM" >   onLoad="vm.getTutorial()"-->
+
+
+      <div>
+        <div id="historySidenav"  ng-include="historyVM.template.historyUrl" ng-hide="vm.shouldStart"></div>
+      </div>
       <div id="promptSidenav"  ng-include="vm.template.url" onLoad="vm.getTutorial()" ng-hide="vm.shouldStart"></div>
 
     <!-- </div> -->
@@ -157,13 +178,13 @@
       </div>
       <div layout="column" layout-align="center center" class="footerItem" flex>
         <div layout="row">
-          <a class="md-fab" href="https://github.com/SnowBubbleJS/AngularArrows-Angular/issues">
+          <a class="md-fab" href="https://github.com/SnowBubbleJS/AngularArrows-Angular/issues" target="_blank">
             <ng-md-icon id="logo" icon="error" style="fill: white" size="24"></ng-md-icon>
           </a>
-          <a class="md-fab" href="https://github.com/johnpapa/angular-styleguide">
+          <a class="md-fab" href="https://github.com/johnpapa/angular-styleguide" target="_blank">
             <ng-md-icon id="logo" icon="favorite" style="fill: white" size="24"></ng-md-icon>
           </a>
-          <a class="md-fab" href="https://github.com/SnowBubbleJS/AngularArrows-Angular">
+          <a class="md-fab" href="https://github.com/SnowBubbleJS/AngularArrows-Angular" target="_blank">
             <ng-md-icon id="logo" icon="github-box" style="fill: white" size="24"></ng-md-icon>
           </a>
         </div>

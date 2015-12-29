@@ -1,0 +1,21 @@
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="historyRight">
+  <form>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="one">
+        <md-content class="md-padding">
+          <div class="md-dialog-content">
+            <h1 class="md-display">Displaying the data from myFactory</h1>
+            <p>
+              Head over to your HTML file and let’s display the data from our <b>factory</b>.  We need to get rid of the previous angular expressions we used so delete <code><span>{{</span>myCtrl.name}}</code>, <code><span>{{</span>myCtrl.age}}</code>, and <code><span>{{</span>myCtrl.occupation}}</code>. Now let's display the data from our <code>factory</code>, use angular expressions to show the data. Use <code><span>{{</span>myCtrl.list}}</code>.
+            </p>
+            </div>
+          </md-tab>
+        </md-content>
+    </md-tabs>
+  </form>
+  <div layout="row" layout-align="start" >
+    <md-button ng-click="vm.close()" class="md-primary">
+      Close
+    </md-button>
+  </div>
+</md-sidenav>

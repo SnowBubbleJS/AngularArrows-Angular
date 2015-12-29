@@ -27,6 +27,7 @@
     vm.switchStatus = true;
     vm.startLines = startLines;
     vm.stopLines = stopLines;
+
     $interval(function() {
       vm.progress += 15;
       if(vm.progress >= 100) {
@@ -42,8 +43,6 @@
           vm.getTutorial();
           vm.shouldUpdate = 0;
         },700);
-
-
     });
 
     $scope.$watch("vm.switchStatus", function(){
@@ -53,6 +52,7 @@
         vm.stopLines();
       }
     });
+
 
     vm.startLines();
 
