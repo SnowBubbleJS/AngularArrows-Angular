@@ -51,11 +51,10 @@
         <script src="https://gitcdn.xyz/repo/angular/bower-material/master/angular-material.js"></script>
   </head>
   <body>
-    <div layout="column" id="mainBody" style="background: transparent" ng-controller="PromptsController as vm">
+    <div layout="column" id="mainBody" style="background: transparent" ng-controller="PromptsController as vm" menu-key="vm.toggle()">
       <!-- Success Icon -->
       <div ng-show="vm.success" id="success">
         <center>
-
           <ng-md-icon icon="done" size="500px" id="check" class="fade animated jello"/>
         </center>
       </div>
@@ -75,7 +74,8 @@
 
             </div>
             <md-button class="md-fab md-mini" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
-              <ng-md-icon icon="repeat" style="fill: white" size="24"></ng-md-icon>
+              <ng-md-icon icon="format_indent_decrease" style="fill: white" size="24"></ng-md-icon>
+              <md-tooltip md-visible="vm.toolTip.showToolTip" md-direction="bottom">Show (Esc)</md-tooltip>
             </md-button>
             <!-- <md-button class="md-fab md-mini" aria-label="Eat cake" id="test" ng-click="vm.getTutorial($event)">
               <ng-md-icon icon="replay" style="fill: white" size="24"></ng-md-icon>
@@ -163,13 +163,16 @@
       </div>
       <div layout="column" layout-align="center center" class="footerItem" flex>
         <div layout="row">
-          <a class="md-fab" href="https://github.com/SnowBubbleJS/AngularArrows-Angular/issues">
+          <a target="_blank" class="md-fab" href="https://github.com/SnowBubbleJS/AngularArrows-Angular/issues">
             <ng-md-icon id="logo" icon="error" style="fill: white" size="24"></ng-md-icon>
+            <md-tooltip md-direction="top">Report an Issue</md-tooltip>
           </a>
-          <a class="md-fab" href="https://github.com/johnpapa/angular-styleguide">
+          <a target="_blank" class="md-fab" href="https://github.com/johnpapa/angular-styleguide">
             <ng-md-icon id="logo" icon="favorite" style="fill: white" size="24"></ng-md-icon>
+            <md-tooltip md-direction="top">John Papa's Style Guide</md-tooltip>
           </a>
-          <a class="md-fab" href="https://github.com/SnowBubbleJS/AngularArrows-Angular">
+          <a target="_blank" class="md-fab" href="https://github.com/SnowBubbleJS/AngularArrows-Angular">
+            <md-tooltip md-direction="top">GitHub</md-tooltip>
             <ng-md-icon id="logo" icon="github-box" style="fill: white" size="24"></ng-md-icon>
           </a>
         </div>

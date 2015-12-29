@@ -14,9 +14,10 @@
           left: false,
           right: true
         };
-
+    vm.tutorial = false;
+    vm.toggle = toggle;
     vm.getTutorial = getTutorial;
-    vm.tutorial = "Tutorial prompts will go here";
+    vm.tutorial = false;
     vm.template = {};
     vm.template.url = 'htmltemplates/prompt1.html';
     vm.shouldUpdate = 0;
@@ -36,6 +37,16 @@
       }
     },100, 7);
 
+  //beginning of toolTip functions
+  vm.toolTip = false;
+
+  $scope.$watch('vm.toolTip',function(val) {
+    if (val && val.length ) {
+      vm.showTooltip = true;
+    }
+  })
+  //end of toolTip functions
+
     $scope.$on('answer:correct', function(event, data) {
         vm.success = true;
         vm.shouldUpdate = 1;
@@ -53,8 +64,16 @@
 
     vm.startLines();
 
-
     ////////////
+
+    function toggle () {
+      if (!vm.tutorial) {
+        vm.getTutorial();
+        vm.tutorial = true;
+      } else {
+        vm.tutorial = false;
+      }
+    }
 
     function close() {
       $mdSidenav('right').close();
@@ -78,7 +97,6 @@
           $timeout(function(){
             vm.success = false;
             $mdSidenav('right').toggle();
-
           },1300);
         }
       }
