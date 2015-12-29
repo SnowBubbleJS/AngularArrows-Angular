@@ -25,6 +25,7 @@
     vm.close = close;
     vm.progress = 0;
     vm.switchStatus = true;
+    vm.success = false;
     vm.startLines = startLines;
     vm.stopLines = stopLines;
     $interval(function() {
@@ -36,14 +37,10 @@
     },100, 7);
 
     $scope.$on('answer:correct', function(event, data) {
+        vm.success = true;
         vm.shouldUpdate = 1;
-        //added timeout so the prompt doesn't show up too quickly
-        $timeout(function(){
-          vm.getTutorial();
-          vm.shouldUpdate = 0;
-        },700);
-
-
+        vm.getTutorial();
+        vm.shouldUpdate = 0;
     });
 
     $scope.$watch("vm.switchStatus", function(){
@@ -79,9 +76,10 @@
           vm.template.url = 'htmltemplates/prompt' + promptFactory.counter + '.html';
           $scope.$apply();
           $timeout(function(){
+            vm.success = false;
             $mdSidenav('right').toggle();
 
-          },200);
+          },1300);
         }
       }
       else {
