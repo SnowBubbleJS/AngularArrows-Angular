@@ -10,7 +10,7 @@
     vm.template.getHistory = getHistory;
     vm.openMenu = openMenu;
     vm.close = close;
-    vm.template.historyUrl = 'htmltemplates/prompt1.html';
+    vm.template.historyUrl = 'htmltemplates0/prompt1.html';
     vm.promptNames = [
       'Starting Angular & Two-Way Data Binding (Part 1)',
       '-- Input Box',
