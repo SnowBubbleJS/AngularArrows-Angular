@@ -1,5 +1,5 @@
 angular
-  .module('app', ['ngMaterial', 'ui.codemirror', 'ngMdIcons'])
+  .module('app', ['nzTour','ngMaterial', 'ui.codemirror', 'ngMdIcons'])
   .config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
     .primaryPalette('blue')
@@ -11,6 +11,7 @@ angular
               var keyCode = event.which || event.keyCode;
               // If enter key is pressed
               if (keyCode === 27) {
+
                   scope.$apply(function() {
                           // Evaluate the expression
                       scope.$eval(attrs.menuKey);

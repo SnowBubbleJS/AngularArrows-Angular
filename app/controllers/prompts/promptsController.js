@@ -3,9 +3,9 @@
     .module('app')
     .controller('PromptsController', PromptsController);
 
-  PromptsController.$inject = ["$http", "$scope", "promptFactory", "$interval", "$mdSidenav", "$timeout","$mdMedia", "lineFactory"];
+  PromptsController.$inject = ["$http", "$scope", "promptFactory", "$interval", "$mdSidenav", "$timeout","$mdMedia", "lineFactory",'nzTour'];
 
-  function PromptsController($http, $scope, promptFactory, $interval, $mdSidenav, $timeout,$mdMedia, lineFactory) {
+  function PromptsController($http, $scope, promptFactory, $interval, $mdSidenav, $timeout,$mdMedia, lineFactory,nzTour) {
     var vm = this,
         promise,
         last = {
@@ -14,6 +14,7 @@
           left: false,
           right: true
         };
+    var counter = 2;
     vm.toggle = toggle;
     vm.getTutorial = getTutorial;
     vm.tutorial = false;
@@ -74,6 +75,7 @@
       } else {
         vm.tutorial = false;
       }
+      counter++;
     }
 
     function close() {
@@ -81,6 +83,9 @@
     }
 
     function getTutorial() {
+      //this closes the nzTour if you click the prompt button
+
+
       if(promptFactory.counter === -5) {
           promptFactory.counter = 1;
           $timeout(function(){
@@ -107,6 +112,13 @@
         console.log(vm.template.url);
           $mdSidenav('right').toggle();
       }
+
+        if(counter % 2 === 0) {
+          counter++;
+          nzTour.stop();
+        }
+
+
     }
 
     function startLines() {
