@@ -110,7 +110,10 @@
         console.log(vm.template.url);
           $mdSidenav('right').toggle();
       }
+    
         nzTour.stop(tour);
+
+
     }
 
     function startLines() {

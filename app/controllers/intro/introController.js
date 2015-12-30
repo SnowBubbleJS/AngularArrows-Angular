@@ -17,10 +17,10 @@ function IntroController(nzTour){
 
     },
     steps:[{
-      content: "<h1>Welcome!</h1> <br>Let's get familiar with the application before we start the tutorial. <br><br> Use the <b>left/right</b> keys to go to the next/previous step. <br> Use the <b>esc</b> button to exit the guide.<br><br>"
+      content: "<h1>Welcome!</h1> <br>Let's get familiar with the application before we start the tutorial. <br><br> Use the <b>left/right</b> keys to go to the next/previous step. <br><br>"
     },{
       target: "#html",
-      content: "This is the HTML editor where you will be coding the V in the MVC model"
+      content: "This is the HTML editor where you will be coding the V in the MVC model."
     },{
       target: "#app",
       content: "This is the app.js where you'll build the foundation of your application."
@@ -32,18 +32,21 @@ function IntroController(nzTour){
       content: "This is the factory.js where you'll be storing data."
     },{
       target: '#outputBox',
-      content: "This is where you'll be witnessing Angular 'magic'"
+      content: "This is where you'll be witnessing Angular 'magic'."
     },{
       target: '#toggleLine',
-      content: "This is where you can toggle the lines on or off"
+      content: "This is where you can toggle the lines on or off."
     },{
       target: '#test',
-      content: 'Click here to get started!'
+      content: 'Click here to see the history of the prompts as you go through the tutorial.'
+    },{
+      target: '#test1',
+      content: 'Click here to get started! <br><br> Tip: press the <code>esc</code> key as a shortcut to display your current tutorial prompt.<br><br>'
     }]
   };
 
   vm.start =function(){
-    console.log('hello');
+  
     nzTour.start(tour);
   };
 

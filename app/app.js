@@ -11,6 +11,7 @@ angular
               var keyCode = event.which || event.keyCode;
               // If enter key is pressed
               if (keyCode === 27) {
+
                   scope.$apply(function() {
                           // Evaluate the expression
                       scope.$eval(attrs.menuKey);
