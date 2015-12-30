@@ -57,7 +57,11 @@
     }
 
     function openMenu($mdOpenMenu, ev) {
-      vm.poossiblePrompts = vm.promptNames.slice(0, promptFactory.counter);
+      if(promptFactory.counter < 1) {
+          vm.poossiblePrompts = vm.promptNames.slice(0, 1);
+      } else {
+        vm.poossiblePrompts = vm.promptNames.slice(0, promptFactory.counter);
+      }
       originatorEv = ev;
       $mdOpenMenu(ev);
     }
