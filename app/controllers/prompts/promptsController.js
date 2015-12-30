@@ -14,6 +14,7 @@
           left: false,
           right: true
         };
+    var counter = 2;
     vm.toggle = toggle;
     vm.getTutorial = getTutorial;
     vm.tutorial = false;
@@ -74,6 +75,7 @@
       } else {
         vm.tutorial = false;
       }
+      counter++;
     }
 
     function close() {
@@ -110,8 +112,11 @@
         console.log(vm.template.url);
           $mdSidenav('right').toggle();
       }
-    
-        nzTour.stop(tour);
+
+        if(counter % 2 === 0) {
+          counter++;
+          nzTour.stop();
+        }
 
 
     }
