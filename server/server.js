@@ -1,4 +1,5 @@
 var express = require('express');
+var compression = require('compression');
 var path = require('path');
 var mongoose = require('mongoose');
 var Prompt = require('./promptController.js');
@@ -8,7 +9,7 @@ mongoose.connect(mongoURI);
 mongoose.connection.once('open', function() {
 	console.log('Connected with MongoLab');
 });
-
+app.use(compression());
 app.get("/prompts", Prompt.findPrompts);
 // app.post("/prompts", Prompt.postPrompts);
 console.log(path.join(__dirname, "../"));
