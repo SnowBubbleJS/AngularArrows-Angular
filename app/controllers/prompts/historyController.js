@@ -62,7 +62,7 @@
       } else {
         vm.poossiblePrompts = vm.promptNames.slice(0, promptFactory.counter);
       }
-      originatorEv = ev;
+      // originatorEv = ev;
       $mdOpenMenu(ev);
     }
   }
