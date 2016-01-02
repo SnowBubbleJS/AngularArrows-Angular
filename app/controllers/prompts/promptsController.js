@@ -13,7 +13,7 @@
           top: true,
           left: false,
           right: true
-        };
+        }; 
     var counter = 2;
     vm.toggle = toggle;
     vm.getTutorial = getTutorial;

@@ -1,0 +1,1 @@
+"use strict";angular.module("app").directive("foobar",[function(){return{restrict:"E",replace:!0,templateUrl:"htmltemplates/prompt5.html",scope:{"var":"="}}}]);
