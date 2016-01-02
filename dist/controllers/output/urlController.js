@@ -1,0 +1,1 @@
+"use strict";!function(){function e(e){function n(){e.url=t.userInput,console.log("im here",e),e.render()}var t=this;t.changeLink=n,t.userInput="http://www.localhost:3000/"}angular.module("app").controller("EmbeddedPage",e),e.$inject=["output"]}();

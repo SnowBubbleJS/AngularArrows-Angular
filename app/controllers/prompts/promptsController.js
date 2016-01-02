@@ -13,7 +13,7 @@
           top: true,
           left: false,
           right: true
-        };
+        }; 
     var counter = 2;
     vm.toggle = toggle;
     vm.getTutorial = getTutorial;
@@ -88,9 +88,9 @@
 
       if(promptFactory.counter === -5) {
           promptFactory.counter = 1;
-          $timeout(function(){
+          // $timeout(function(){
             $mdSidenav('right').toggle();
-          },1250);
+          // },1250);
 
       }
       else if(vm.shouldUpdate === 1) {

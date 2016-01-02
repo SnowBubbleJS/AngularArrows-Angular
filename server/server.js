@@ -4,11 +4,11 @@ var path = require('path');
 var mongoose = require('mongoose');
 var Prompt = require('./promptController.js');
 var app = express();
-var mongoURI = 'mongodb://' + process.env.ID + ':' + process.env.PASS + '@ds029615.mongolab.com:29615/promptsv2';
-mongoose.connect(mongoURI);
-mongoose.connection.once('open', function() {
-	console.log('Connected with MongoLab');
-});
+// var mongoURI = 'mongodb://' + process.env.ID + ':' + process.env.PASS + '@ds029615.mongolab.com:29615/promptsv2';
+// mongoose.connect(mongoURI);
+// mongoose.connection.once('open', function() {
+// 	console.log('Connected with MongoLab');
+// });
 app.use(compression());
 app.get("/prompts", Prompt.findPrompts);
 // app.post("/prompts", Prompt.postPrompts);
