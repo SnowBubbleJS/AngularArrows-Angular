@@ -1,0 +1,1 @@
+"use strict";!function(){function e(e,r){function n(e){e.setValue(""),r.controller=e.getValue(),r.render(),e.on("change",function(n,o){r.controller=e.getValue(),r.render()})}var o=this;o.codemirrorLoaded=n,o.editorOptions={lineWrapping:!0,lineNumbers:!0,mode:"text/javascript"}}angular.module("app").controller("ControllerController",e),e.$inject=["lineFactory","output"]}();
