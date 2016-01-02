@@ -1,4 +1,4 @@
-(function(){
+// (function(){
   angular
     .module('app')
     .factory('output', output);
@@ -69,4 +69,4 @@
     };
     return out;
   }
-}());
+// }());
