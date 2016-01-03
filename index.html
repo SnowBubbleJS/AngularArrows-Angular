@@ -16,41 +16,7 @@
     <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALT04VidD/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALT0/wC09P9YnQ//WJ0P/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtPT/ALT0/wC09P8AVXkJAAAAAFidD/9YnQ//WJ0P/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC09P8AtPT/ALT0/wC09P8AAAAAN0Tb/zdE2/8AAAAAWJ0P/1idD/9YnQ//WJ0P/wAAAAAAAAAAAAAAAAAAAAAAtPT/ALT0/wAAAAA3RNv/N0Tb/zdE2/83RNv/N0Tb/zdE2/8AAAAAWJ0P/1idD/8AAAAAAAAAAAAAAAAAAAAAALT0/wAAAAA3RNv//////zdE2/83RNv/N0Tb/zdE2///////N0Tb/wAAAABYnQ//AAAAAAAAAAAAAAAAALT0/wC09P8AAAAAN0Tb//////83RNv/N0Tb/zdE2/83RNv//////zdE2/8AAAAAWJ0P/1idD/8AAAAAAAAAAAC09P8AtPT/AAAAADdE2/83RNv//////////////////////zdE2/83RNv/AAAAAFidD/9YnQ//AAAAAAAAAAAAtPT/ALT0/zdE2/83RNv/N0Tb//////83RNv/N0Tb//////83RNv/N0Tb/zdE2/9YnQ//WJ0P/wAAAAAAAAAAALT0/wC09P83RNv/N0Tb/zdE2/83RNv///////////83RNv/N0Tb/zdE2/83RNv/WJ0P/1idD/8AAAAAAAAAAAC09P8AtPT/N0Tb/zdE2/83RNv/N0Tb////////////N0Tb/zdE2/83RNv/N0Tb/1idD/9YnQ//AAAAAAAAAAAAtPT/AAAAADdE2603RNv/N0Tb/zdE2/84Rdv//////zdE2/83RNv/N0Tb/zdE2/4AAAAAWJ0P/wAAAAAAAAAAAAAAAPSFQv/0hUL/9IVC/wAAAAA3RNv/N0Tb/zdE2/83RNv/AAAAAPSFQv/0hUL/9IVC/wAAAAAAAAAAAAAAAAAAAAD0hUL/9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/9IVC//SFQv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/n8AAPw/AADxjwAAwkMAAMgTAADQCwAAkAkAAJAJAACAAQAAgAEAAIABAACgBQAAxCMAAMADAAD4HwAA//8AAA==" rel="icon" type="image/x-icon" />
     <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
     <link rel="import" href="bower_components/paper-card/paper-card.html">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-    <script type="text/javascript" src="bower_components/codemirror/lib/codemirror.js"></script>
-    <script type="text/javascript" src="bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-    <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
-    <script type="text/javascript" src="bower_components/webcomponentsjs/webcomponents.js"></script>
-
-    <!-- nzTour -->
-      <script type="text/javascript" src="bower_components/nz-tour/dist/nz-tour.js"></script>
-
-    <!-- Developer Scripts -->
-    <script type="text/javascript" src="./dist/app.js"></script>
-    <script type="text/javascript" src="./dist/factories/promptFactory.js"></script>
-    <script type="text/javascript" src="./dist/factories/inputFactory.js"></script>
-    <script type="text/javascript" src="./dist/factories/factory.js"></script>
-    <script type="text/javascript" src="./dist/factories/lineFactory.js"></script>
-    <script type="text/javascript" src="./dist/controllers/prompts/promptsController.js"></script>
-    <script type="text/javascript" src="./dist/controllers/prompts/historyController.js"></script>
-    <script type="text/javascript" src="./dist/controllers/editors/partialController.js"></script>
-    <script type="text/javascript" src="./dist/controllers/editors/appController.js"></script>
-    <script type="text/javascript" src="./dist/controllers/editors/controllerController.js"></script>
-    <script type="text/javascript" src="./dist/controllers/editors/htmlController.js"></script>
-    <script type="text/javascript" src="./dist/controllers/editors/factoryController.js"></script>
-    <script type="text/javascript" src="./dist/controllers/output/urlController.js"></script>
-    <script type="text/javascript" src="./dist/controllers/sidenav/SideNavCtrl.js"></script>
-    <!-- <script type="text/javascript" src="./dist/controllers/sidenav/TESTSideNavCtrl.js"></script> -->
-
-    <!-- Angular Material Dependencies -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.6.0/angular-material-icons.min.js"></script>
-    <!-- Angular Material Javascript using GitCDN to load directly from `bower-material/master` -->
-    <script src="https://gitcdn.xyz/repo/angular/bower-material/master/angular-material.js"></script>
-    <!-- <script type="text/javascript" src="./dist/controllers/intro/introController.js"></script> -->
-  </head>
+      </head>
   <body >
     <div layout="column" id="mainBody" style="background: transparent" ng-controller="PromptsController as vm" menu-key="vm.toggle()">
       <!-- Success Icon -->
@@ -179,9 +145,42 @@
       </footer>
     </div>
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script type="text/javascript" src="./dist/scripts/codemirror.min.js"></script>
+  <script type="text/javascript" src="./dist/scripts/modes.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.min.js"></script>
+  <script type="text/javascript" src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+
+  <!-- nzTour -->
+  <script type="text/javascript" src="bower_components/nz-tour/dist/nz-tour.min.js"></script>
+
+  <!-- Developer Scripts -->
+  <script type="text/javascript" src="./dist/app.js"></script>
+  <script type="text/javascript" src="./dist/factories/promptFactory.js"></script>
+  <script type="text/javascript" src="./dist/factories/inputFactory.js"></script>
+  <script type="text/javascript" src="./dist/factories/factory.js"></script>
+  <script type="text/javascript" src="./dist/factories/lineFactory.js"></script>
+  <script type="text/javascript" src="./dist/controllers/prompts/promptsController.js"></script>
+  <script type="text/javascript" src="./dist/controllers/prompts/historyController.js"></script>
+  <script type="text/javascript" src="./dist/controllers/editors/partialController.js"></script>
+  <script type="text/javascript" src="./dist/controllers/editors/appController.js"></script>
+  <script type="text/javascript" src="./dist/controllers/editors/controllerController.js"></script>
+  <script type="text/javascript" src="./dist/controllers/editors/htmlController.js"></script>
+  <script type="text/javascript" src="./dist/controllers/editors/factoryController.js"></script>
+  <script type="text/javascript" src="./dist/controllers/output/urlController.js"></script>
+  <script type="text/javascript" src="./dist/controllers/sidenav/SideNavCtrl.js"></script>
+  <!-- <script type="text/javascript" src="./dist/controllers/sidenav/TESTSideNavCtrl.js"></script> -->
+
+  <!-- Angular Material Dependencies -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.6.0/angular-material-icons.min.js"></script>
+  <!-- Angular Material Javascript using GitCDN to load directly from `bower-material/master` -->
+  <script src="https://cdn.gitcdn.xyz/cdn/angular/bower-material/3eb30ab4af6bd7e8f6d24a79584bd738bbe837f2/angular-material.min.js"></script>
+  <!-- <script type="text/javascript" src="./dist/controllers/intro/introController.js"></script> -->
+
   <script type="text/javascript" src="./dist/controllers/intro/introController.js"></script>
-  <script src="./bower_components/codemirror/mode/xml/xml.js"></script>
-  <script src="./bower_components/codemirror/mode/javascript/javascript.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -191,7 +190,7 @@
     ga('send', 'pageview');
   </script>
   <script type="text/javascript">
-    console.log('%cSnowBubble', 'font-size:40px;color:#11d9f5;font-weight:900');﻿
+    console.log('%cSnowBubble❄', 'font-size:50px;color:#47e8ff;font-weight:900;text-shadow: 0px 4px 3px rgba(0,0,0,0.4),0px 8px 13px rgba(0,0,0,0.1),0px 18px 23px rgba(0,0,0,0.1);');﻿
     console.log('%cCreated by:\n\nDaniel De Alday\nwww.github.com/danieldealday\n\nMatt Lee\nwww.github.com/mlee277\n\nBryan Truong\nwww.github.com/bhtruong93', 'font-size:22px;color:#000000;');﻿
 	</script>
   </body>
