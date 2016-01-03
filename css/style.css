@@ -2,6 +2,23 @@
   border: 1px solid red;
 }*/
 
+@media(max-width: 900px) {
+  body {
+    /*background: black;*/
+    width: 900px;
+  }
+}
+
+
+/*@media(max-height: 740px) {
+  #headers{
+    min-height: 50px;
+  }
+  md-toolbar {
+    min-height: 50px;
+  }
+}*/
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -135,11 +152,11 @@ md-card {
 }
 
 footer {
-  height: 90px;
+  /*height: 90px;*/
   background: #424242;
   color: white;
   position: relative;
-  top: 15px;
+  /*top: 15px;*/
 }
 
 #header {
@@ -173,7 +190,7 @@ code {
   /* Set height, width, borders, and global font properties here */
   font-family: 'Inconsolata', 'Monaco', 'Consolas', 'Courier New', 'Courier';
   font-size: 14px;
-  height: 370px;
+  height: 44vh;
   color: black;
 }
 
@@ -225,10 +242,12 @@ ng-md-icon svg {
 .CodeMirror-scroll {
   /*background-color: rgba(245,246,247, 0.4);*/
   /*width: 100%;*/
+  height: 100%;
   /*margin: 0;*/
 }
 
 .CodeMirror {
+  /*height: 100%;*/
   background-color: rgba(237,237,237, 0.4);
 }
 
@@ -245,6 +264,26 @@ md-sidenav.md-closed-remove {
     -webkit-transition: all .4s cubic-bezier(0.25, .8, .25, 1) !important;
     transition: all .4s cubic-bezier(0.25, .8, .25, 1) !important;
 }*/
+
+#headers{
+  /*background: black;*/
+  height: 6vh;
+}
+
+md-toolbar {
+  height: 6vh;
+}
+
+footer {
+  height: 6vh;
+}
+
+h5 {
+  margin: 0;
+}
+
+
+
 
 md-sidenav.md-closed-add,
 md-sidenav.md-closed-remove {
