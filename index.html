@@ -2,8 +2,6 @@
 <html ng-app="app">
   <head>
     <meta charset="utf-8">
-    <title></title>
-
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/nz-tour.css">
     <link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css">
@@ -16,8 +14,8 @@
     <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALT04VidD/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALT0/wC09P9YnQ//WJ0P/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtPT/ALT0/wC09P8AVXkJAAAAAFidD/9YnQ//WJ0P/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC09P8AtPT/ALT0/wC09P8AAAAAN0Tb/zdE2/8AAAAAWJ0P/1idD/9YnQ//WJ0P/wAAAAAAAAAAAAAAAAAAAAAAtPT/ALT0/wAAAAA3RNv/N0Tb/zdE2/83RNv/N0Tb/zdE2/8AAAAAWJ0P/1idD/8AAAAAAAAAAAAAAAAAAAAAALT0/wAAAAA3RNv//////zdE2/83RNv/N0Tb/zdE2///////N0Tb/wAAAABYnQ//AAAAAAAAAAAAAAAAALT0/wC09P8AAAAAN0Tb//////83RNv/N0Tb/zdE2/83RNv//////zdE2/8AAAAAWJ0P/1idD/8AAAAAAAAAAAC09P8AtPT/AAAAADdE2/83RNv//////////////////////zdE2/83RNv/AAAAAFidD/9YnQ//AAAAAAAAAAAAtPT/ALT0/zdE2/83RNv/N0Tb//////83RNv/N0Tb//////83RNv/N0Tb/zdE2/9YnQ//WJ0P/wAAAAAAAAAAALT0/wC09P83RNv/N0Tb/zdE2/83RNv///////////83RNv/N0Tb/zdE2/83RNv/WJ0P/1idD/8AAAAAAAAAAAC09P8AtPT/N0Tb/zdE2/83RNv/N0Tb////////////N0Tb/zdE2/83RNv/N0Tb/1idD/9YnQ//AAAAAAAAAAAAtPT/AAAAADdE2603RNv/N0Tb/zdE2/84Rdv//////zdE2/83RNv/N0Tb/zdE2/4AAAAAWJ0P/wAAAAAAAAAAAAAAAPSFQv/0hUL/9IVC/wAAAAA3RNv/N0Tb/zdE2/83RNv/AAAAAPSFQv/0hUL/9IVC/wAAAAAAAAAAAAAAAAAAAAD0hUL/9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/9IVC//SFQv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/n8AAPw/AADxjwAAwkMAAMgTAADQCwAAkAkAAJAJAACAAQAAgAEAAIABAACgBQAAxCMAAMADAAD4HwAA//8AAA==" rel="icon" type="image/x-icon" />
     <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
     <link rel="import" href="bower_components/paper-card/paper-card.html">
-      </head>
-  <body >
+  </head>
+  <body>
     <div layout="column" id="mainBody" style="background: transparent" ng-controller="PromptsController as vm" menu-key="vm.toggle()">
       <!-- Success Icon -->
       <div ng-show="vm.success" id="success">
@@ -26,16 +24,14 @@
         </center>
       </div>
       <md-progress-linear id="progress" md-mode="determinate" value="{{vm.progress}}" class="md-hue-2" ng-show="vm.shouldStart"></md-progress-linear>
-      <md-progress-linear id="progress" md-mode="determinate" value="{{vm.progress}}" class="md-primary" ng-hide="vm.shouldStart"></md-progress-linear>
       <div ng-controller="HistoryController as historyVM">
         <md-toolbar ng-hide="vm.shouldStart" ng-cloak>
-          <div class="md-toolbar-tools">
+          <div id='headers'class="md-toolbar-tools">
             <ng-md-icon  id="logo" icon="blur_circular" style="fill: white" size="45"></ng-md-icon>
             <h1 style="font-family: 'Lobster'; font-size: 36px;">SnowBubble</h1>
             <span flex></span>
             <h1 style="font-weight: 600; font-size: 24px; font-family: 'Montserrat';">Perfect Angular 1.0</h1>
             <span flex></span>
-  <!-- take this out when you get nzTour working -->
             <div class="" ng-controller="IntroController as introVM" >
               <md-button ng-click="introVM.start()"   id="start-demo">Guide</md-button>
             </div>
@@ -62,45 +58,34 @@
               <ng-md-icon icon="format_indent_decrease" style="fill: white" size="24"></ng-md-icon>
               <md-tooltip md-visible="vm.toolTip.showToolTip" md-direction="bottom">Show (esc)</md-tooltip>
             </md-button>
+          </div>
+        </md-toolbar>
+        <div>
+          <div id="historySidenav"  ng-include="historyVM.template.historyUrl" ng-hide="vm.shouldStart"></div>
         </div>
-      </md-toolbar>
+        <div id="promptSidenav"  ng-include="vm.template.url"  ng-hide="vm.shouldStart"></div>
 
-      <div>
-        <div id="historySidenav"  ng-include="historyVM.template.historyUrl" ng-hide="vm.shouldStart"></div>
-      </div>
-      <div id="promptSidenav"  ng-include="vm.template.url"  ng-hide="vm.shouldStart"></div>
+        <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
 
-      <!-- </div> -->
-      <canvas id="canvas" width="window.innerWidth" height="window.innerHeight"></canvas>
-      <!-- more material design -->
       <div layout="row" id="mainBody" flex=100 ng-hide="vm.shouldStart" >
         <div layout="column" flex=70>
           <div layout="row" flex>
             <md-card  ng-controller="HtmlController as htmlVM" id="html" class="textEditor md-whiteframe-1dp" flex=50>
-              <!-- <md-toolbar class="md-primary" layout-align="right" ng-cloak> -->
               <h4 class="md-flex" ng-hide="vm.shouldStart" ng-cloak>index.html</h4>
-              <!-- </md-toolbar> -->
               <ui-codemirror ui-codemirror="{ onLoad : htmlVM.codemirrorLoaded }" ui-codemirror-opts="htmlVM.editorOptions"></ui-codemirror>
             </md-card>
             <md-card  ng-controller="AppController as appVM" id="app" class="textEditor md-whiteframe-1dp" flex=50>
-              <!-- <md-toolbar class="md-primary" layout-align="center center" ng-cloak> -->
               <h4 class="md-flex" ng-cloak>app.js</h4>
-              <!-- </md-toolbar> -->
               <ui-codemirror ui-codemirror="{ onLoad : appVM.codemirrorLoaded }" ui-codemirror-opts="appVM.editorOptions"></ui-codemirror>
             </md-card>
           </div>
           <div layout="row" flex>
-
             <md-card  ng-controller="ControllerController as controllerVM" id="controller" class="textEditor md-whiteframe-1dp" flex=50>
-
               <h4 class="md-flex" ng-cloak>controller.js</h4>
-
               <ui-codemirror ui-codemirror="{ onLoad : controllerVM.codemirrorLoaded }" ui-codemirror-opts="controllerVM.editorOptions"></ui-codemirror>
             </md-card>
             <md-card  ng-controller="FactoryController as factoryVM" id="factory" class="textEditor md-whiteframe-1dp" flex=50>
-
               <h4 class="md-flex" ng-cloak>factory.js</h4>
-
               <ui-codemirror ui-codemirror="{ onLoad : factoryVM.codemirrorLoaded }" ui-codemirror-opts="factoryVM.editorOptions"></ui-codemirror>
             </md-card>
           </div>
@@ -190,8 +175,9 @@
     ga('send', 'pageview');
   </script>
   <script type="text/javascript">
-    console.log('%cSnowBubble❄', 'font-size:50px;color:#47e8ff;font-weight:900;text-shadow: 0px 4px 3px rgba(0,0,0,0.4),0px 8px 13px rgba(0,0,0,0.1),0px 18px 23px rgba(0,0,0,0.1);');﻿
+    console.log('%c❄SnowBubble', 'font-size:50px;color:#47e8ff;font-weight:900;text-shadow: 0px 4px 3px rgba(0,0,0,0.4),0px 8px 13px rgba(0,0,0,0.1),0px 18px 23px rgba(0,0,0,0.1);');﻿
     console.log('%cCreated by:\n\nDaniel De Alday\nwww.github.com/danieldealday\n\nMatt Lee\nwww.github.com/mlee277\n\nBryan Truong\nwww.github.com/bhtruong93', 'font-size:22px;color:#000000;');﻿
 	</script>
+  <link rel="stylesheet" href="css/style.css">
   </body>
 </html>

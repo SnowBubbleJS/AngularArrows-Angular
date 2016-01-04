@@ -9526,7 +9526,7 @@ md-toolbar {
   position: relative;
   z-index: 2;
   font-size: 20px;
-  min-height: 64px;
+  /*min-height: 64px;*/
   width: 100%; }
   md-toolbar.md-whiteframe-z1-add, md-toolbar.md-whiteframe-z1-remove {
     transition: box-shadow 0.5s linear; }
