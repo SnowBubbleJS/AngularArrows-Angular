@@ -1,10 +1,4 @@
-angular
-  .module('app', ['nzTour','ngMaterial', 'ui.codemirror', 'ngMdIcons'])
-  .config(function($mdThemingProvider) {
-  $mdThemingProvider.theme('default')
-    .primaryPalette('blue')
-    .accentPalette('orange');
-  })
+
   .directive('menuKey', function() {
       return function(scope, element, attrs) {
           element.bind("keydown keypress", function(event) {
