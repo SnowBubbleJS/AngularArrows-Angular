@@ -19,25 +19,25 @@
     ////////////
 
     function codemirrorLoaded(_editor) {
-      _editor.setValue(`
-
+      _editor.setValue(`(function() {
   function myFactory(){
-    var FriendsList = [
-      {'name':'Bryan',
-       'age': 30,
-       'pet': 'none'
-      },
-      {'name': 'Matt',
-       'age': 29,
-       'pet': 'nyan_cat'
-      },
-      {'name':'Daniel',
-       'age': 25,
-       'pet':'catdog'
-      }
-   ];
-  return FriendsList;
-} `);
+      var FriendsList = [
+        {'name':'Bryan',
+         'age': 30,
+         'pet': 'none'
+        },
+        {'name': 'Matt',
+         'age': 29,
+         'pet': 'nyan_cat'
+        },
+        {'name':'Daniel',
+         'age': 25,
+         'pet':'catdog'
+        }
+     ];
+    return FriendsList;
+  }
+}());`);
       output.factory = _editor.getValue();
       output.render();
 

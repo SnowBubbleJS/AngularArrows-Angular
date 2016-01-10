@@ -20,7 +20,7 @@ gulp.task('browserify', function() {
 gulp.task('watch', function() {
   // Watch our scripts
   gulp.watch(['app/*.js', 'app/**/*.js', 'app/**/**/*.js'],[
-    'browserify'
+    'js'
   ]);
 });
 

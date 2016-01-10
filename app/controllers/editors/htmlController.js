@@ -26,6 +26,10 @@
       _editor.setValue(`<html>
   <head>
     <meta charset="utf-8">
+    
+    <script type="text/javascript" src="example/app.js"></script>
+    <script type="text/javascript" src="example/controller.js"></script>
+    <script type="text/javascript" src="example/factory.js"></script>
   </head>
   <body>
   </body>
