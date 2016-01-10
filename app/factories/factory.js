@@ -42,10 +42,11 @@
           if(!!inputFactory.checkInput(this.source)) {
             $rootScope.$broadcast('answer:correct');
             $rootScope.$destroy('answer:correct');
-            console.log('goodjob..should update');
+
           }
           var iframe_doc = iframe.contentDocument;
           iframe_doc.open();
+
           iframe_doc.write(this.source);
           iframe_doc.close();
         }
