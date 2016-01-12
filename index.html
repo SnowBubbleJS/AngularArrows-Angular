@@ -32,8 +32,8 @@
             <span flex></span>
             <h1 style="font-weight: 600; font-size: 24px; font-family: 'Montserrat';">Perfect Angular 1.0</h1>
             <span flex></span>
-            <div class="" ng-controller="IntroController as introVM" >
-              <md-button ng-click="introVM.start()"   id="start-demo">Guide</md-button>
+            <div class="" ng-controller="IntroController as introVM" ng-hide="vm.shouldStart">
+              <md-button ng-click="introVM.start()" id="start-demo" ng-hide="vm.shouldStart" ng-cloak>Guide</md-button>
             </div>
             <div class="">
               <md-switch ng-model="vm.switchStatus" aria-label="switchStatus" id="toggleLine">
