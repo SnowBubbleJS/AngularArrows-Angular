@@ -3,9 +3,9 @@ angular
     .module('app')
     .controller('IntroController', IntroController);
 
-IntroController.$inject = ['nzTour'];
+IntroController.$inject = ['nzTour', '$timeout'];
 
-function IntroController(nzTour){
+function IntroController(nzTour, $timeout){
 
   var vm = this;
 
@@ -46,11 +46,12 @@ function IntroController(nzTour){
   };
 
   vm.start =function(){
-  
     nzTour.start(tour);
   };
 
-
+  $timeout(function(){
+    vm.start();
+  }, 2000);
 
 }
 

@@ -23,6 +23,7 @@
   "homepage": "https://github.com/bhtruong93/AngularArrows-Angular#readme",
   "description": "",
   "dependencies": {
+    "angular-material": "^1.0.4",
     "angular-ui-bootstrap": "^0.14.3",
     "babel-preset-es2015": "^6.3.13",
     "bootstrap": "^3.3.6",
