@@ -37,6 +37,9 @@
       },
       render: function() {
         var iframe = document.querySelector('#output iframe');
+        iframe.remove();
+        $("<iframe />").appendTo("#output");
+        iframe = document.querySelector('#output iframe');
         if(this.url === 'http://www.localhost:3000/' || this.url === 'http://www.localhost:3000') {
           this.source = this.prepareSource();
           if(!!inputFactory.checkInput(this.source)) {
@@ -45,8 +48,8 @@
 
           }
           var iframe_doc = iframe.contentDocument;
-          iframe_doc.open();
 
+          iframe_doc.open();
           iframe_doc.write(this.source);
           iframe_doc.close();
         }
