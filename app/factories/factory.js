@@ -13,7 +13,7 @@
       controller: '',
       factory: '',
       source: '',
-      url: "http://www.localhost:3000/",
+
       prepareSource: function(partial) {
         var src = this.html;
         // Partial
@@ -40,35 +40,19 @@
         iframe.remove();
         $("<iframe />").appendTo("#output");
         iframe = document.querySelector('#output iframe');
-        if(this.url === 'http://www.localhost:3000/' || this.url === 'http://www.localhost:3000') {
-          this.source = this.prepareSource();
-          if(!!inputFactory.checkInput(this.source)) {
-            $rootScope.$broadcast('answer:correct');
-            $rootScope.$destroy('answer:correct');
 
-          }
-          var iframe_doc = iframe.contentDocument;
+        this.source = this.prepareSource();
+        if(!!inputFactory.checkInput(this.source)) {
+          $rootScope.$broadcast('answer:correct');
+          $rootScope.$destroy('answer:correct');
+        }
+        
+        var iframe_doc = iframe.contentDocument;
 
-          iframe_doc.open();
-          iframe_doc.write(this.source);
-          iframe_doc.close();
-        }
-        else if (this.url === 'http://www.localhost:3000/partial') {
-          // console.log('RENDER PARTIAL');
-            this.source = this.prepareSource(true);
-            // console.log(this.source);
-            iframe_doc = iframe.contentDocument;
-            iframe_doc.open();
-            iframe_doc.write(this.source);
-            iframe_doc.close();
-        }
-        else {
-          iframe_doc = iframe.contentDocument;
-          iframe_doc.open();
-          iframe_doc.write(404);
-          iframe_doc.close();
+        iframe_doc.open();
+        iframe_doc.write(this.source);
+        iframe_doc.close();
 
-        }
       }
     };
     return out;
