@@ -7,8 +7,8 @@
   },
   "main": "server.js",
   "scripts": {
-    "start": "node server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "heroku local",
+    "test": "protractor ./test/conf.js",
     "postinstall": "bower install"
   },
   "author": "",
